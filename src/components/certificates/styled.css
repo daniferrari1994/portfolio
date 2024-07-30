@@ -1,0 +1,8 @@
+.certificatesBox {
+    transform-origin: '0';
+    transform: 'translateX(-100px)';
+    opacity: '0';
+    transition-property: 'transform, opacity';
+    transition-duration: '1s';
+    transition-timing-function: 'ease';
+}
