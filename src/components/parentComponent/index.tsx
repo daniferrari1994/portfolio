@@ -6,7 +6,6 @@ import SideMenu from '../sideMenu';
 import VantaBackground from '../background/vantaBackground';
 import { Box } from '@chakra-ui/react';
 import CertificatesComponent from '../certificates';
-import './styled.css'
 
 export const ParentComponent = () => {
   return (

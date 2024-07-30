@@ -1,10 +1,10 @@
 import React from 'react';
-import { Text } from '@chakra-ui/react';
+import { Heading, Text } from '@chakra-ui/react';
 
 const HomeComponent = () => {
   return (
     <div>
-      <h1>Página de Inicio</h1>
+      <Heading color='white'>Página de Inicio</Heading>
       <Text color='white'>Aquí puedes incluir información sobre ti, tu trabajo o tus proyectos.</Text>
     </div>
   );
