@@ -1,12 +1,14 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const webpack = require('webpack');
+require('dotenv').config();
 
 module.exports = {
   entry: './src/index.tsx',
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',
-    publicPath: '/'
+    publicPath: process.env.PUBLIC_URL || '/',
   },
   resolve: {
     extensions: ['.ts', '.tsx', '.js', '.jsx']
@@ -35,8 +37,12 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: 'public/index.html'
-    })
+      template: 'public/index.html',
+      publicUrl: process.env.PUBLIC_URL || '/',
+    }),
+    new webpack.DefinePlugin({
+      'process.env.PUBLIC_URL': JSON.stringify(process.env.PUBLIC_URL),
+    }),
   ],
   mode: 'development'
 };

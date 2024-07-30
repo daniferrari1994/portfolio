@@ -1,12 +1,13 @@
+import { theme } from '@chakra-ui/react';
 import styled from 'styled-components';
 
 export const SideMenuContainer = styled.div`
   position: fixed;
   top: 0;
   left: 0;
-  width: 250px; /* Ajusta el ancho del menú según tus necesidades */
+  width: 250px;
   height: 100vh;
-  background-color: #333; /* Color de fondo del menú */
+  background-color: #333;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -16,7 +17,7 @@ export const SideMenuContainer = styled.div`
 `;
 
 export const Logo = styled.div`
-  margin-bottom: 20px; /* Espacio debajo del logo */
+  margin-bottom: 20px;
 `;
 
 export const SideMenuLanguage = styled.div`
@@ -29,7 +30,7 @@ export const SideMenuLanguage = styled.div`
 export const MenuLanguage = styled.div`
   margin: 5px 0;
   cursor: pointer;
-  color: #5ad3bd; /* Color de los iconos de idioma */
+  color: ${theme.colors.teal[300]};
 `;
 
 export const SideMenuOption = styled.div`
@@ -42,7 +43,7 @@ export const SideMenuOption = styled.div`
 export const MenuOption = styled.div`
   margin: 10px 0;
   cursor: pointer;
-  color: #5ad3bd; /* Color de los iconos de opciones */
+  color: ${theme.colors.teal[300]};
 `;
 
 export const SideMenuLink = styled.div`
@@ -54,5 +55,5 @@ export const SideMenuLink = styled.div`
 export const MenuLink = styled.div`
   margin: 10px 0;
   cursor: pointer;
-  color: #5ad3bd; /* Color de los iconos de enlace */
+  color: ${theme.colors.teal[300]};
 `;

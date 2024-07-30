@@ -5,6 +5,7 @@ import {
   Card,
   CardBody,
   CardFooter,
+  Code,
   Divider,
   Heading,
   Image,
@@ -29,22 +30,23 @@ const ProjectsComponent = () => {
             borderRadius='lg'
           />
           <Stack mt='6' spacing='3'>
-            <Heading size='lg' color='#b1adad'>First Project</Heading>
-            <Text color='#b1adad'>
+            <Heading size='lg' color='gray.200'>First Project</Heading>
+            <Text color='gray.200'>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure fuga ducimus veniam et.
               Quibusdam expedita eligendi maxime quisquam quo temporibus nesciunt architecto quod 
               minima consectetur recusandae, repellat ipsa quis laborum!
             </Text>
           </Stack>
+          <Code colorScheme='yellow' children='Javascript' />
         </CardBody>
         <Divider />
         <CardFooter>
           <ButtonGroup spacing='2'>
-            <Button variant='solid' color='#5ad3bd'>
-              Enter
+            <Button variant='ghost' color='teal.300' colorScheme='teal'>
+              Sitio
             </Button>
-            <Button variant='ghost' color='#5ad3bd'>
-              Enter
+            <Button variant='ghost' color='teal.300'>
+              Codigo
             </Button>
           </ButtonGroup>
         </CardFooter>
