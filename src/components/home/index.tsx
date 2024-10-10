@@ -1,24 +1,26 @@
 import React from 'react';
 import { Button, Image, Link } from '@chakra-ui/react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
-import { faEnvelope } from '@fortawesome/free-regular-svg-icons';
 import { faDownload } from '@fortawesome/free-solid-svg-icons';
+import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import {
-  HomeContainer,
-  ImageContainer,
   ContentContainer,
-  SubTitle,
-  HeadingText,
   DescriptionText,
+  HeadingText,
+  HomeContainer,
+  HomeContentContainer,
+  ImageContainer,
   SocialLinks,
+  SubTitle,
 } from './styled';
-import locales from '../../data/locales.json';
 import image from '../../assets/profileImage/profilePicture.jpg';
+import locales from '../../data/locales.json';
+import ExperienceStats from '../experienceStats/experienceStats';
 
 const HomeComponent = () => {
   return (
     <HomeContainer>
+      <HomeContentContainer>
       <ContentContainer>
         <SubTitle>
           {locales.subtitle}
@@ -31,31 +33,36 @@ const HomeComponent = () => {
           {locales.description_home.english}
         </DescriptionText>
         <SocialLinks>
-          <Button colorScheme='teal' color='#5ad3bd' variant='outline' gap='5px'>
-            Download cv
+          <Button colorScheme='teal' color='#5ad3bd' variant='outline' gap='5px' borderRadius='50px'>
+            Download CV
             <FontAwesomeIcon icon={faDownload}/>
           </Button>
           <Link href="https://github.com/daniferrari1994" isExternal>
-            <FontAwesomeIcon icon={faGithub} size="lg" color='#5ad3bd' />
+            <Button colorScheme='teal' color='#5ad3bd' variant='outline' borderRadius='full' padding={0}>
+              <FontAwesomeIcon icon={faGithub} size="lg" color='#5ad3bd' />
+            </Button>
           </Link>
           <Link href="https://www.linkedin.com/in/dan-ferrari/" isExternal>
-            <FontAwesomeIcon icon={faLinkedin} size="lg" color='#5ad3bd' />
-          </Link>
-          <Link href="mailto:daniferrari1994@gmail.com">
-            <FontAwesomeIcon icon={faEnvelope} size="lg" color='#5ad3bd' />
+            <Button colorScheme='teal' color='#5ad3bd' variant='outline' borderRadius='full' padding={0}>
+              <FontAwesomeIcon icon={faLinkedin} size="lg" color='#5ad3bd' />
+            </Button>
           </Link>
         </SocialLinks>
       </ContentContainer>
       <ImageContainer>
-        <Image
-          src={image}
-          alt="Profile Picture"
-          boxSize="350px"
-          objectFit="cover"
-          borderRadius="full"
-          boxShadow="lg"
-        />
+
+          <Image
+            src={image}
+            className='imageProfile'
+            alt="Profile Picture"
+            boxSize="350px"
+            objectFit="cover"
+            borderRadius="full"
+            boxShadow="lg"
+          />
       </ImageContainer>
+      </HomeContentContainer>
+      <ExperienceStats />
     </HomeContainer>
   );
 };

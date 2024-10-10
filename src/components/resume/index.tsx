@@ -1,3 +1,4 @@
+import React from 'react';
 import { 
   Box,
   Button,
@@ -11,9 +12,8 @@ import {
   Stack,
   Text
 } from '@chakra-ui/react';
-import React from 'react';
 
-const CertificatesComponent = () => {
+const ResumeComponent = () => {
   return (
     <Box
       display='flex' 
@@ -53,4 +53,4 @@ const CertificatesComponent = () => {
   );
 };
 
-export default CertificatesComponent;
+export default ResumeComponent;

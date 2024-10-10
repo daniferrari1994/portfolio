@@ -5,7 +5,7 @@ import ProjectsComponent from '../projects';
 import Menu from '../menu';
 import VantaBackground from '../background/vantaBackground';
 import { Box } from '@chakra-ui/react';
-import CertificatesComponent from '../certificates';
+import ResumeComponent from '../resume';
 
 export const ParentComponent = () => {
   return (
@@ -16,11 +16,12 @@ export const ParentComponent = () => {
         display='flex' 
         justifyContent='center'
         alignItems='center'
+        background='#0000007f'
         >
         <Routes>
           <Route path="/" element={<HomeComponent />} />
           <Route path="/projects" element={<ProjectsComponent />}/>
-          <Route path="/certificates" element={<CertificatesComponent />}/>
+          <Route path="/resume" element={<ResumeComponent />}/>
         </Routes>
       </Box>
       <VantaBackground />

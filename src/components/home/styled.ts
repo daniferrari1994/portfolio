@@ -5,17 +5,25 @@ export const HomeContainer = styled(Box)`
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
   height: 100vh;
   width: 100vw;
-  background: rgba(0, 0, 0, 0.5);
   padding: 20px;
+`;
+
+export const HomeContentContainer = styled(Box)`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  margin-bottom: 60px;
 `;
 
 export const ImageContainer = styled(Box)`
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-right: 40px;
+  margin-left: 40px;
   height: 100%;
 `;
 
@@ -27,13 +35,13 @@ export const ContentContainer = styled(Box)`
 `;
 
 export const SubTitle = styled.span`
-  color: teal;
+  color: #5ad3bd;
   font-size: 1.25rem;
   font-weight: bold;
 `;
 
 export const HeadingText = styled.h2`
-  color: rgba(255, 255, 255, 0.92);
+  color: #ffffffea;
   font-family: 'Roboto Mono', monospace;
   font-size: 3rem;
   font-weight: 500;
@@ -44,7 +52,7 @@ export const HeadingText = styled.h2`
 `;
 
 export const DescriptionText = styled.span`
-  color: rgba(255, 255, 255, 0.92);
+  color: #ffffffea;
   max-width: 500px;
 `;
 
@@ -52,4 +60,5 @@ export const SocialLinks = styled(Box)`
   display: flex;
   align-items: center;
   gap: 24px;
+  margin-top: 20px;
 `;
