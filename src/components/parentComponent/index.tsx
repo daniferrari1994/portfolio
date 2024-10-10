@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import HomeComponent from '../home';
 import ProjectsComponent from '../projects';
-import SideMenu from '../sideMenu';
+import Menu from '../menu';
 import VantaBackground from '../background/vantaBackground';
 import { Box } from '@chakra-ui/react';
 import CertificatesComponent from '../certificates';
@@ -10,10 +10,9 @@ import CertificatesComponent from '../certificates';
 export const ParentComponent = () => {
   return (
     <BrowserRouter>
-      <SideMenu />
+      <Menu />
       <Box
-        flex='1' 
-        ml='250px'
+        flex='1'
         display='flex' 
         justifyContent='center'
         alignItems='center'

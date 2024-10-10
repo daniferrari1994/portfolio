@@ -1,0 +1,9 @@
+{
+    "name": "Dan Ferrari",
+    "title": "Hi there! I'm",
+    "subtitle": "Frontend Developer", 
+    "description_home": {
+        "spanish": "Soy un desarrollador especializado en construir experiencias de usuario atractivas y funcionales para aplicaciones web modernas. Me apasiona crear interfaces intuitivas utilizando tecnologías como React y Chakra UI.",
+        "english": "I'm a developer specialized in building attractive and functional user experiences for modern web applications. I'm passionate about creating intuitive interfaces using technologies like React and Chakra UI."
+    }
+}
