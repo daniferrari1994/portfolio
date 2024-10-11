@@ -36,7 +36,6 @@
                 "title": "About Me",
                 "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure fuga ducimus veniam et. Quibusdam expedita eligendi maxime quisquam quo temporibus nesciunt architecto quod minima consectetur recusandae, repellat ipsa quis laborum!",
                 "data": {
-                    "name": "Dan Ferrari",
                     "nationality": "Argentinian",
                     "email": "daniferrari1994@gmail.com",
                     "languages": "English, Spanish",

@@ -12,7 +12,6 @@ export const ParentComponent = () => {
     <BrowserRouter>
       <Menu />
       <Box
-        flex='1'
         display='flex' 
         justifyContent='center'
         alignItems='center'

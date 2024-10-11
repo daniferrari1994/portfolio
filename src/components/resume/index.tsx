@@ -1,55 +1,80 @@
-import React from 'react';
-import { 
-  Box,
-  Button,
-  ButtonGroup,
-  Card,
-  CardBody,
-  CardFooter,
-  Divider,
-  Heading,
-  Image,
-  Stack,
-  Text
-} from '@chakra-ui/react';
+import React, { useState } from 'react';
+import { Button,Heading, HStack, Text } from '@chakra-ui/react';
+import { ResumeContainer, SectionContainer, SectionOne, SectionTwo, StyledButton } from './styled';
 
 const ResumeComponent = () => {
+  const [selectedSection, setSelectedSection] = useState('Experience');
+
+  const renderContent = () => {
+    switch (selectedSection) {
+      case 'Experience':
+        return (
+          <>
+            <Heading size="md" className='headingResume'>Experience</Heading>
+            <Text className='textResume'>Here is the description of your experience.</Text>
+            <HStack spacing={4}>
+              <Text className='textResume'>Job 1</Text>
+              <Text className='textResume'>Job 2</Text>
+            </HStack>
+          </>
+        );
+      case 'Education':
+        return (
+          <>
+            <Heading size="md" className='headingResume'>Education</Heading>
+            <Text className='textResume'>Details about your education.</Text>
+            <HStack spacing={4}>
+              <Text className='textResume'>School 1</Text>
+              <Text className='textResume'>School 2</Text>
+            </HStack>
+          </>
+        );
+      case 'Skills':
+        return (
+          <>
+            <Heading size="md" className='headingResume'>Skills</Heading>
+            <Text className='textResume'>Your skills listed here.</Text>
+            <HStack spacing={4}>
+              <Text className='textResume'>Skill 1</Text>
+              <Text className='textResume'>Skill 2</Text>
+            </HStack>
+          </>
+        );
+      case 'About me':
+        return (
+          <>
+            <Heading size="md" className='headingResume'>About Me</Heading>
+            <Text className='textResume'>Brief information about you.</Text>
+            <HStack spacing={4}>
+              <Text className='textResume'>Detail 1</Text>
+              <Text className='textResume'>Detail 2</Text>
+            </HStack>
+          </>
+        );
+      default:
+        return null;
+    }
+  };
+
   return (
-    <Box
-      display='flex' 
-      justifyContent='center' 
-      alignItems='center' 
-      h='100vh'
-    >
-      <Card maxW='lg' boxShadow='lg' bg='rgba(255, 255, 255, 0.1)' backdropFilter='blur(10px)' p='20px' borderRadius='10px'>
-        <CardBody>
-          <Image
-            src='https://wallpapersmug.com/download/1920x1080/58d87a/cyberpunk-game-city-shot.jpg'
-            alt='Green double couch with wooden legs'
-            borderRadius='lg'
-          />
-          <Stack mt='6' spacing='3'>
-            <Heading size='lg' color='#b1adad'>Certificates</Heading>
-            <Text color='#b1adad'>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure fuga ducimus veniam et.
-              Quibusdam expedita eligendi maxime quisquam quo temporibus nesciunt architecto quod 
-              minima consectetur recusandae, repellat ipsa quis laborum!
-            </Text>
-          </Stack>
-        </CardBody>
-        <Divider />
-        <CardFooter>
-          <ButtonGroup spacing='2'>
-            <Button variant='solid' color='#5ad3bd'>
-              Enter
-            </Button>
-            <Button variant='ghost' color='#5ad3bd'>
-              Enter
-            </Button>
-          </ButtonGroup>
-        </CardFooter>
-      </Card>
-    </Box>
+    <ResumeContainer>
+      <SectionContainer>
+        <SectionOne>
+          <Heading size="lg" className='headingResume'>Resume</Heading>
+          <Text className='textResume'>Here is a brief description of your professional background.</Text>
+          {['Experience', 'Education', 'Skills', 'About me'].map((section) => ( 
+            <StyledButton
+              key={section}
+              isActive={selectedSection === section}
+              onClick={() => setSelectedSection(section)}
+            >
+            {section}
+          </StyledButton>
+        ))}
+        </SectionOne>
+        <SectionTwo>{renderContent()}</SectionTwo>
+      </SectionContainer>
+    </ResumeContainer>
   );
 };
 

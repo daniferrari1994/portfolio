@@ -13,7 +13,7 @@ import {
   SocialLinks,
   SubTitle,
 } from './styled';
-import image from '../../assets/profileImage/profilePicture.jpg';
+import image from '../../assets/profileImage/profilePicture.png';
 import locales from '../../data/locales.json';
 import ExperienceStats from '../experienceStats/experienceStats';
 
@@ -50,16 +50,17 @@ const HomeComponent = () => {
         </SocialLinks>
       </ContentContainer>
       <ImageContainer>
-
-          <Image
-            src={image}
-            className='imageProfile'
-            alt="Profile Picture"
-            boxSize="350px"
-            objectFit="cover"
-            borderRadius="full"
-            boxShadow="lg"
-          />
+        <Image
+          src={image}
+          className='imageProfile'
+          alt="Profile Picture"
+          boxSize="350px"
+          objectFit="cover"
+          borderRadius="full"
+          boxShadow="lg"
+          position="relative"
+          zIndex="2"
+        />
       </ImageContainer>
       </HomeContentContainer>
       <ExperienceStats />

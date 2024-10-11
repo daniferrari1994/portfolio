@@ -25,6 +25,30 @@ export const ImageContainer = styled(Box)`
   align-items: center;
   margin-left: 40px;
   height: 100%;
+  position: relative;
+  width: fit-content;
+  
+  @keyframes rotateBorder {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    border-radius: 50%;
+    border: 3px dashed #5ad3bd;
+    animation: rotateBorder 80s linear infinite;
+    z-index: 1;
+  }
 `;
 
 export const ContentContainer = styled(Box)`

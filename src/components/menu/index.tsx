@@ -39,7 +39,7 @@ const Menu = () => {
           </MenuOption>
           <MenuOption className='MenuOption'>
             <Link to="/contact">
-              <Button className='textLinkButton' colorScheme='teal' variant='solid'>Contact me</Button>
+              <Button className='textLinkButton' variant='solid'>Contact me</Button>
             </Link>
           </MenuOption>
         </MenuOptionContainer>

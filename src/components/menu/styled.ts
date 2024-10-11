@@ -53,6 +53,11 @@ export const MenuOption = styled.div`
   .textLinkButton {
     color: #333;
     border-radius: 50px;
+    background-color: #5ad3bd;
+
+    &:hover {
+      background-color: #459c8c;
+    }
   }
 `;
 
