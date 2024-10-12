@@ -33,43 +33,46 @@ const HomeComponent = () => {
           {locales.description_home.english}
         </DescriptionText>
         <SocialLinks>
-          <Button 
-            colorScheme='teal' 
-            color='#5ad3bd' 
-            variant='outline' 
-            gap='5px' 
-            borderRadius='50px'
+          <Button
+            borderRadius="50px"
+            color="#5ad3bd"
+            colorScheme="#333"
+            gap="5px"
+            variant="outline"
+            _hover={{ bg: '#459c8c', color: '#333' }}
           >
             Download CV
             <FontAwesomeIcon icon={faDownload}/>
           </Button>
           <Link href="https://github.com/daniferrari1994" isExternal>
-            <Button 
-              colorScheme='teal' 
-              color='#5ad3bd' 
-              variant='outline' 
-              borderRadius='full' 
+            <Button
+              borderRadius="full"
+              color="#5ad3bd"
+              colorScheme="#333"
               padding={0}
+              variant="outline"
+              _hover={{ bg: '#459c8c', color: '#333' }}
             >
               <FontAwesomeIcon 
-                icon={faGithub} 
-                size="lg" 
-                color='#5ad3bd'
+                color="#5ad3bd"
+                icon={faGithub}
+                size="lg"
               />
             </Button>
           </Link>
           <Link href="https://www.linkedin.com/in/dan-ferrari/" isExternal>
-            <Button 
-              colorScheme='teal' 
-              color='#5ad3bd' 
-              variant='outline' 
-              borderRadius='full' 
+            <Button
+              borderRadius="full"
+              color="#5ad3bd"
+              colorScheme="#333"
               padding={0}
+              variant="outline"
+              _hover={{ bg: '#459c8c', color: '#333' }}
               >
               <FontAwesomeIcon 
-                icon={faLinkedin} 
+                color="#5ad3bd"
+                icon={faLinkedin}
                 size="lg"
-                color='#5ad3bd'
               />
             </Button>
           </Link>
@@ -77,11 +80,11 @@ const HomeComponent = () => {
       </ContentContainer>
       <ImageContainer>
         <Image
-          src={image}
-          className='imageProfile'
           alt="Profile Picture"
-          boxSize="350px"
           boxShadow="lg"
+          boxSize="350px"
+          className="imageProfile"
+          src={image}
         />
       </ImageContainer>
       </HomeContentContainer>

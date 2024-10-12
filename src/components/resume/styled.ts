@@ -26,15 +26,18 @@ export const SectionOne = styled(VStack)`
   justify-content: center;
   width: 350px;
 
-  .headingResume,
-  .textResume {
+  .headingResume {
     align-self: flex-start;
     color: #ffffffea;
     font-family: 'Roboto Mono', monospace;
     margin: 10px 0;
   }
-
+  
   .textResume {
+    align-self: flex-start;
+    color: #A0AEC0;
+    font-family: 'Roboto Mono', monospace;
+    margin: 10px 0;
     max-width: 300px;
   }  
 `;
@@ -73,8 +76,12 @@ export const SectionTwo = styled(Box)`
     font-family: 'Roboto Mono', monospace;
   }
 
+  .textResume {
+    color: #A0AEC0;
+    font-family: 'Roboto Mono', monospace;
+  }
+
   .headingResume,
-  .textResume,
   .aboutMe-text {
     color: #ffffffea;
     font-family: 'Roboto Mono', monospace;
