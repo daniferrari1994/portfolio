@@ -1,14 +1,30 @@
 import { Box, Button } from "@chakra-ui/react";
 import styled from 'styled-components';
 
+export const StyledButton = styled(Button)`
+  align-items: center;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  height: 100px;
+  justify-content: center;
+  padding: 24px;
+  width: 120px;
+
+  &:hover {
+    background-color: #444;
+    color: #5ad3bd;
+  }
+`;
+
 export const StyledContainer = styled(Box)`
-  text-align: center;
-  padding: 16px;
   max-height: 500px;
   max-width: 560px;
   min-height: 460px;
   min-width: 300px;
   overflow-y: auto;
+  padding: 16px;
+  text-align: center;
 
   &::-webkit-scrollbar {
     width: 4px;
@@ -24,7 +40,7 @@ export const StyledContainer = styled(Box)`
     border-radius: 20px;
   }
 
-  .headingSkills{
+  .headingSkills {
     display: flex;
     font-family: 'Roboto Mono', monospace;
   }
@@ -33,22 +49,6 @@ export const StyledContainer = styled(Box)`
 export const StyledFlex = styled.div`
   display: flex;
   flex-wrap: wrap;
-  justify-content: flex-start;
   gap: 16px;
-`;
-
-export const StyledButton = styled(Button)`
-  border-radius: 8px;
-  padding: 24px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100px;
-  width: 120px;
-
-  &:hover {
-    background-color: #444;
-    color: #5ad3bd;
-  }
+  justify-content: flex-start;
 `;

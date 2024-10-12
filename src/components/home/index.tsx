@@ -30,7 +30,7 @@ const HomeComponent = () => {
           <span className="highlighted-text">{locales.name}</span>
         </HeadingText>
         <DescriptionText>
-          {locales.description_home.english}
+          {locales.home.description.english}
         </DescriptionText>
         <SocialLinks>
           <Button
@@ -53,7 +53,7 @@ const HomeComponent = () => {
               variant="outline"
               _hover={{ bg: '#459c8c', color: '#333' }}
             >
-              <FontAwesomeIcon 
+              <FontAwesomeIcon
                 color="#5ad3bd"
                 icon={faGithub}
                 size="lg"
@@ -69,7 +69,7 @@ const HomeComponent = () => {
               variant="outline"
               _hover={{ bg: '#459c8c', color: '#333' }}
               >
-              <FontAwesomeIcon 
+              <FontAwesomeIcon
                 color="#5ad3bd"
                 icon={faLinkedin}
                 size="lg"

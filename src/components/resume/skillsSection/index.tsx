@@ -1,43 +1,43 @@
-import React from "react";
-import { Box, Heading, Tooltip } from "@chakra-ui/react";
-import { 
-  faCss3Alt, 
-  faFigma, 
-  faGitAlt, 
-  faGitlab, 
-  faHtml5, 
-  faJira, 
-  faNodeJs, 
-  faNpm, 
-  faReact, 
-  faSass, 
-  faSquareJs 
-} from "@fortawesome/free-brands-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import React from 'react';
+import { Box, Heading, Tooltip } from '@chakra-ui/react';
+import {
+  faCss3Alt,
+  faFigma,
+  faGitAlt,
+  faGitlab,
+  faHtml5,
+  faJira,
+  faNodeJs,
+  faNpm,
+  faReact,
+  faSass,
+  faSquareJs
+} from '@fortawesome/free-brands-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { StyledContainer, StyledButton, StyledFlex } from './styled';
 
 const SkillsSection = () => {
   const skills = {
     "Frontend development": [
-      { name: "HTML5", icon: faHtml5 },
-      { name: "CSS3", icon: faCss3Alt },
-      { name: "JavaScript", icon: faSquareJs },
-      { name: "React", icon: faReact },
-      { name: "Sass", icon: faSass }
+      { name: 'HTML5', icon: faHtml5 },
+      { name: 'CSS3', icon: faCss3Alt },
+      { name: 'JavaScript', icon: faSquareJs },
+      { name: 'React', icon: faReact },
+      { name: 'Sass', icon: faSass }
     ],
     "Backend development and tools": [
-      { name: "Node.js", icon: faNodeJs },
-      { name: "Npm", icon: faNpm },
+      { name: 'Node.js', icon: faNodeJs },
+      { name: 'Npm', icon: faNpm },
     ],
     "Design": [
-      { name: "Figma", icon: faFigma }
+      { name: 'Figma', icon: faFigma }
     ],
     "Version control": [
-      { name: "Git", icon: faGitAlt },
-      { name: "Gitlab", icon: faGitlab },
+      { name: 'Git', icon: faGitAlt },
+      { name: 'Gitlab', icon: faGitlab },
     ],
     "Project management": [
-      { name: "Jira", icon: faJira },
+      { name: 'Jira', icon: faJira },
     ]
   };
 
@@ -45,12 +45,12 @@ const SkillsSection = () => {
     <StyledContainer>
       {Object.entries(skills).map(([category, skillList]) => (
         <Box key={category} mb={6}>
-          <Heading 
-            as='h5' 
-            size='md' 
-            mb={4} 
-            color='#718096'
+          <Heading
+            as="h5"
             className="headingSkills"
+            color="#718096"
+            mb={4}
+            size="md"
           >
             {category.charAt(0).toUpperCase() + category.slice(1)}
           </Heading>

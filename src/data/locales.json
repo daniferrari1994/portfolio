@@ -1,132 +1,140 @@
 {
-  "name": "Dan Ferrari",
-  "title": "Hi there! I'm",
-  "subtitle": "Frontend Developer",
-  "description_home": {
-    "spanish": "Soy un desarrollador especializado en construir experiencias de usuario atractivas y funcionales para aplicaciones web modernas. Me apasiona crear interfaces intuitivas utilizando tecnologías como React y Chakra UI.",
-    "english": "I'm a developer specialized in building attractive and functional user experiences for modern web applications. I'm passionate about creating intuitive interfaces using technologies like React and Chakra UI."
+  "contact": {
+    "data": {
+      "address": "Buenos Aires, Argentina",
+      "email": "daniferrari1994@gmail.com",
+      "phone": "(+54) 011 2725 8396"
+    },
+    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure fuga ducimus veniam et. ",
+    "title": "Let's work together"
   },
-  "resume": {
-    "title": "Why hire me?",
-    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure fuga ducimus veniam et.",
-    "sections": {
-      "experience": {
-        "title": "My experience",
-        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure fuga ducimus veniam et.",
-        "data": [
-          {
-            "title": "Title",
-            "date": "0001 - 0002",
-            "workPlace": "Work place"
-          },
-          {
-            "title": "Title",
-            "date": "0001 - 0002",
-            "workPlace": "Work place"
-          },
-          {
-            "title": "Title",
-            "date": "0001 - 0002",
-            "workPlace": "Work place"
-          },
-          {
-            "title": "Title",
-            "date": "0001 - 0002",
-            "workPlace": "Work place"
-          },
-          {
-            "title": "Title",
-            "date": "0001 - 0002",
-            "workPlace": "Work place"
-          },
-          {
-            "title": "Title",
-            "date": "0001 - 0002",
-            "workPlace": "Work place"
-          }
-        ]
-      },
-      "education": {
-        "title": "My education",
-        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure fuga ducimus veniam et.",
-        "data": [
-          {
-            "title": "Title",
-            "date": "0001 - 0002",
-            "institute": "Institute"
-          },
-          {
-            "title": "Title",
-            "date": "0001 - 0002",
-            "institute": "Institute"
-          },
-          {
-            "title": "Title",
-            "date": "0001 - 0002",
-            "institute": "Institute"
-          },
-          {
-            "title": "Title",
-            "date": "0001 - 0002",
-            "institute": "Institute"
-          },
-          {
-            "title": "Title",
-            "date": "0001 - 0002",
-            "institute": "Institute"
-          },
-          {
-            "title": "Title",
-            "date": "0001 - 0002",
-            "institute": "Institute"
-          }
-        ]
-      },
-      "skills": {
-        "title": "My skills",
-        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure fuga ducimus veniam et."
-      },
-      "aboutMe": {
-        "title": "About me",
-        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure fuga ducimus veniam et.",
-        "data": {
-          "nationality": "Argentinian",
-          "email": "daniferrari1994@gmail.com",
-          "languages": "English, Spanish",
-          "phone": "(+54) 011 2725 8396",
-          "discord": "danferrari"
-        }
-      }
+  "home": {
+    "description": {
+      "english": "I'm a developer specialized in building attractive and functional user experiences for modern web applications. I'm passionate about creating intuitive interfaces using technologies like React and Chakra UI.",
+      "spanish": "Soy un desarrollador especializado en construir experiencias de usuario atractivas y funcionales para aplicaciones web modernas. Me apasiona crear interfaces intuitivas utilizando tecnologías como React y Chakra UI."
     }
   },
+  "name": "Dan Ferrari",
   "projects": [
     {
-      "id": "01",
-      "title": "Title",
-      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure fuga ducimus veniam et. Lorem ipsum dolor sit amet consectetur adipisicing elit.",
-      "technologies": ["React", "TypeScript", "Chakra UI"],
-      "projectUrl": "https://example.com/project-one",
       "codeUrl": "https://github.com/example/project-one",
-      "image": "https://static.vecteezy.com/system/resources/thumbnails/037/347/356/small_2x/ai-generated-gear-wheel-abstract-background-gear-technology-digital-technology-and-engineering-background-photo.jpg"
-    },
-    {
-      "id": "02",
-      "title": "Title",
-      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure fuga ducimus veniam et. Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure fuga ducimus veniam et. Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure fuga ducimus veniam et.",
-      "technologies": ["JavaScript", "Styled Components", "Node.js"],
-      "projectUrl": "https://example.com/project-two",
-      "codeUrl": "https://github.com/example/project-two",
-      "image": "https://static.vecteezy.com/system/resources/thumbnails/027/857/270/small_2x/glowing-pulsating-graphic-lines-scientific-background-3d-rendering-photo.jpg"
-    },
-    {
-      "id": "03",
-      "title": "Title",
-      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure fuga ducimus veniam et. Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure fuga ducimus veniam et. Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure fuga ducimus veniam et.",
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure fuga ducimus veniam et. Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+      "id": "01",
+      "image": "https://static.vecteezy.com/system/resources/thumbnails/037/347/356/small_2x/ai-generated-gear-wheel-abstract-background-gear-technology-digital-technology-and-engineering-background-photo.jpg",
+      "projectUrl": "https://example.com/project-one",
       "technologies": ["React", "TypeScript", "Chakra UI"],
-      "projectUrl": "https://example.com/project-three",
+      "title": "Title"
+    },
+    {
+      "codeUrl": "https://github.com/example/project-two",
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure fuga ducimus veniam et. Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure fuga ducimus veniam et. Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure fuga ducimus veniam et.",
+      "id": "02",
+      "image": "https://static.vecteezy.com/system/resources/thumbnails/027/857/270/small_2x/glowing-pulsating-graphic-lines-scientific-background-3d-rendering-photo.jpg",
+      "projectUrl": "https://example.com/project-two",
+      "technologies": ["JavaScript", "Styled Components", "Node.js"],
+      "title": "Title"
+    },
+    {
       "codeUrl": "https://github.com/example/project-three",
-      "image": "https://static.vecteezy.com/system/resources/thumbnails/035/484/819/small_2x/ai-generated-futuristic-blue-hexagon-background-science-illustration-hud-components-technology-concept-3d-landscape-big-data-future-abstract-background-photo.jpg"
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure fuga ducimus veniam et. Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure fuga ducimus veniam et. Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure fuga ducimus veniam et.",
+      "id": "03",
+      "image": "https://static.vecteezy.com/system/resources/thumbnails/035/484/819/small_2x/ai-generated-futuristic-blue-hexagon-background-science-illustration-hud-components-technology-concept-3d-landscape-big-data-future-abstract-background-photo.jpg",
+      "projectUrl": "https://example.com/project-three",
+      "technologies": ["React", "TypeScript", "Chakra UI"],
+      "title": "Title"
     }
-  ]
-  
+  ],
+  "resume": {
+    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure fuga ducimus veniam et.",
+    "sections": {
+      "aboutMe": {
+        "data": {
+          "discord": "danferrari",
+          "languages": "English, Spanish",
+          "nationality": "Argentinian"
+        },
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure fuga ducimus veniam et.",
+        "title": "About me"
+      },
+      "education": {
+        "data": [
+          {
+            "date": "0001 - 0002",
+            "institute": "Institute",
+            "title": "Title"
+          },
+          {
+            "date": "0001 - 0002",
+            "institute": "Institute",
+            "title": "Title"
+          },
+          {
+            "date": "0001 - 0002",
+            "institute": "Institute",
+            "title": "Title"
+          },
+          {
+            "date": "0001 - 0002",
+            "institute": "Institute",
+            "title": "Title"
+          },
+          {
+            "date": "0001 - 0002",
+            "institute": "Institute",
+            "title": "Title"
+          },
+          {
+            "date": "0001 - 0002",
+            "institute": "Institute",
+            "title": "Title"
+          }
+        ],
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure fuga ducimus veniam et.",
+        "title": "My education"
+      },
+      "experience": {
+        "data": [
+          {
+            "date": "0001 - 0002",
+            "title": "Title",
+            "workPlace": "Work place"
+          },
+          {
+            "date": "0001 - 0002",
+            "title": "Title",
+            "workPlace": "Work place"
+          },
+          {
+            "date": "0001 - 0002",
+            "title": "Title",
+            "workPlace": "Work place"
+          },
+          {
+            "date": "0001 - 0002",
+            "title": "Title",
+            "workPlace": "Work place"
+          },
+          {
+            "date": "0001 - 0002",
+            "title": "Title",
+            "workPlace": "Work place"
+          },
+          {
+            "date": "0001 - 0002",
+            "title": "Title",
+            "workPlace": "Work place"
+          }
+        ],
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure fuga ducimus veniam et.",
+        "title": "My experience"
+      },
+      "skills": {
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure fuga ducimus veniam et.",
+        "title": "My skills"
+      }
+    },
+    "title": "Why hire me?"
+  },
+  "subtitle": "Frontend Developer",
+  "title": "Hi there! I'm"
 }

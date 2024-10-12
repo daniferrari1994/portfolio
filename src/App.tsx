@@ -4,11 +4,11 @@ import { createRoot } from 'react-dom/client';
 import { ParentComponent } from './components/parentComponent';
 import theme from './themes/themes';
 
-interface AppProps {
+interface IApp {
   tab?: string;
 }
 
-const App: React.FC<AppProps> = () => {
+const App: React.FC<IApp> = () => {
   return (
     <ChakraBaseProvider theme={theme}>
       <ParentComponent />

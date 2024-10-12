@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import { 
-  Box, 
-  Button, 
-  Heading, 
-  Image, 
-  Text, 
-  Stack, 
+import {
+  Box,
+  Button,
   Divider,
+  Heading,
+  Image,
+  Text,
+  Stack,
   Flex
 } from '@chakra-ui/react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -19,7 +19,7 @@ import {
   ProjectImageColumn,
   StyledButton
 } from './styled';
-import locales from "../../data/locales.json";
+import locales from '../../data/locales.json';
 
 const WorkProjects: React.FC = () => {
   const [currentProjectIndex, setCurrentProjectIndex] = useState(0);
@@ -38,16 +38,16 @@ const WorkProjects: React.FC = () => {
       <ProjectContent>
         <ProjectInfoColumn>
           <Box>
-            <Heading 
+            <Heading
               color="#ffffffea"
               fontFamily="'Bungee Hairline', sans-serif"
               fontWeight="400"
               mb="4"
-              size="4xl" 
+              size="4xl"
             >
               {`${currentProject.id}`}
             </Heading>
-            <Heading 
+            <Heading
               color="#ffffffea"
               fontFamily="'Roboto Mono', monospace"
               fontWeight="bold"
@@ -56,7 +56,7 @@ const WorkProjects: React.FC = () => {
             >
               {currentProject.title}
             </Heading>
-            <Text 
+            <Text
               color="#A0AEC0"
               fontFamily="'Roboto Mono', monospace"
               fontWeight="400"
@@ -68,12 +68,12 @@ const WorkProjects: React.FC = () => {
             </Text>
             <Stack spacing={2} flexDirection="row">
               {currentProject.technologies.map((tech, index ) => (
-                <Text 
+                <Text
                   color="#5ad3bd"
                   fontFamily="'Roboto Mono', monospace"
                   fontWeight="bold"
-                  fontSize="sm" 
-                  key={index} 
+                  fontSize="sm"
+                  key={index}
                 >
                   {tech}
                 </Text>
@@ -82,75 +82,75 @@ const WorkProjects: React.FC = () => {
           </Box>
           <Divider w="500px" />
           <Box>
-            <Button 
-              as="a" 
+            <Button
+              as="a"
               bg="#333"
-              borderRadius='full'
-              className='buttonLink'
+              borderRadius="full"
+              className="buttonLink"
               colorScheme="#333"
-              href={currentProject.projectUrl} 
+              href={currentProject.projectUrl}
               mr="4"
               padding={0}
-              target="_blank" 
+              target="_blank"
             >
-              <FontAwesomeIcon 
-                color='#ffffffea' 
+              <FontAwesomeIcon
+                color="#ffffffea"
                 icon={faArrowRight}
-                size="lg" 
+                size="lg"
               />
             </Button>
-            <Button 
-              as="a" 
+            <Button
+              as="a"
               bg="#333"
-              borderRadius='full'
-              className='buttonLinkGithub'
+              borderRadius="full"
+              className="buttonLinkGithub"
               colorScheme="#333"
-              href={currentProject.codeUrl} 
+              href={currentProject.codeUrl}
               padding={0}
-              target="_blank" 
+              target="_blank"
             >
-              <FontAwesomeIcon 
-                color='#ffffffea'
-                icon={faGithub} 
-                size="lg" 
+              <FontAwesomeIcon
+                color="#ffffffea"
+                icon={faGithub}
+                size="lg"
               />
             </Button>
           </Box>
         </ProjectInfoColumn>
         <ProjectImageColumn>
-          <Image 
-            alt={currentProject.title} 
+          <Image
+            alt={currentProject.title}
             h="400px"
-            mb="4" 
-            objectFit="cover" 
-            src={currentProject.image} 
+            mb="4"
+            objectFit="cover"
+            src={currentProject.image}
             w="600px"
           />
           <Flex alignSelf="flex-end">
-            <StyledButton 
+            <StyledButton
               bg="#5ad3bd"
-              className='buttonProject'
+              className="buttonProject"
               colorScheme="#333"
               onClick={handlePrevProject}
               size="sm"
             >
-              <FontAwesomeIcon 
-                color='#333' 
+              <FontAwesomeIcon
+                color="#333"
                 icon={faAngleLeft}
-                size="sm" 
+                size="sm"
               />
             </StyledButton>
-            <StyledButton 
+            <StyledButton
               bg="#5ad3bd"
-              className='buttonProject'
+              className="buttonProject"
               colorScheme="#333"
               onClick={handleNextProject}
               size="sm"
             >
-              <FontAwesomeIcon 
-                color='#333' 
+              <FontAwesomeIcon
+                color="#333"
                 icon={faAngleRight}
-                size="sm" 
+                size="sm"
               />
             </StyledButton>
           </Flex>

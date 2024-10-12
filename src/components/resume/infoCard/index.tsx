@@ -2,22 +2,22 @@ import React from 'react';
 import { Text } from '@chakra-ui/react';
 import { StyledInfoCard } from './styled';
 
-interface InfoCardProps {
+interface IInfoCard {
   title: string;
   date: string;
   location: string;
 }
 
-const InfoCard: React.FC<InfoCardProps> = ({ title, date, location }) => {
+const InfoCard: React.FC<IInfoCard> = ({ title, date, location }) => {
   return (
     <StyledInfoCard>
-      <Text className='infoCard infoCard-date' fontSize="sm" color="#5ad3bd">
+      <Text className="infoCard infoCard-date" color="#5ad3bd" fontSize="sm">
         {date}
       </Text>
-      <Text className='infoCard infoCard-title' fontSize="lg" fontWeight="bold" color="#ffffffea">
+      <Text className="infoCard infoCard-title" color="#ffffffea" fontSize="lg" fontWeight="bold">
         {title}
       </Text>
-      <Text className='infoCard infoCard-location' fontSize="md" color="#A0AEC0">
+      <Text className="infoCard infoCard-location" color="#A0AEC0" fontSize="md">
         {location}
       </Text>
     </StyledInfoCard>

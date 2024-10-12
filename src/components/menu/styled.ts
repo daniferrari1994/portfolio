@@ -1,59 +1,58 @@
 import { theme, Text } from '@chakra-ui/react';
 import styled from 'styled-components';
 
-export const Logo = styled.div`
-`;
+export const Logo = styled.div``;
 
 export const MenuContainer = styled.div`
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 80px;
+  align-items: center;
   background-color: #333;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
   display: flex;
   flex-direction: row;
-  align-items: center;
+  height: 80px;
   justify-content: space-evenly;
+  left: 0;
   padding: 0 20px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  width: 100%;
   z-index: 1000;
 `;
 
 export const MenuItemsContainer = styled.div`
+  align-items: center;
   display: flex;
   flex-direction: row;
-  align-items: center;
 `;
 
 export const MenuLink = styled.div`
-  margin: 0 10px;
-  cursor: pointer;
   color: ${theme.colors.teal[300]};
+  cursor: pointer;
+  margin: 0 10px;
 `;
 
 export const MenuLinkContainer = styled.div`
+  align-items: center;
   display: flex;
   flex-direction: row;
-  align-items: center;
 `;
 
 export const MenuOption = styled.div`
-  margin: 0 10px;
-  cursor: pointer;
   color: ${theme.colors.teal[300]};
+  cursor: pointer;
+  margin: 0 10px;
 
   .textLink {
+    box-sizing: content-box;
     font-family: 'Roboto Mono', monospace;
     font-weight: 500;
     padding-bottom: 2px;
-    box-sizing: content-box;
   }
 
   .textLinkButton {
-    color: #333;
-    border-radius: 50px;
     background-color: #5ad3bd;
+    border-radius: 50px;
+    color: #333;
 
     &:hover {
       background-color: #459c8c;
@@ -62,20 +61,20 @@ export const MenuOption = styled.div`
 `;
 
 export const MenuOptionContainer = styled.div`
+  align-items: center;
   display: flex;
   flex-direction: row;
-  align-items: center;
-  margin-right: 20px;
   gap: 15px;
+  margin-right: 20px;
 `;
 
 export const StyledLink = styled(Text)<{ isActive: boolean }>`
+  box-sizing: content-box;
+  color: ${({ isActive }) => (isActive ? '#5ad3bd' : '#ffffffea')};
   font-family: 'Roboto Mono', monospace;
   font-weight: 500;
   padding-bottom: 2px;
-  box-sizing: content-box;
   text-decoration: ${({ isActive }) => (isActive ? 'underline' : 'none')};
-  color: ${({ isActive }) => (isActive ? '#5ad3bd' : '#ffffffea')};
   text-decoration-thickness: 2px;
   text-underline-offset: 8px;
 
