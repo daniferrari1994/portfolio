@@ -1,5 +1,5 @@
-import styled from 'styled-components';
 import { theme, Text } from '@chakra-ui/react';
+import styled from 'styled-components';
 
 export const Logo = styled.div`
 `;

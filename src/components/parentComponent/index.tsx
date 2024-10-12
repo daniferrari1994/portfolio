@@ -1,11 +1,12 @@
 import React from 'react';
+import { Box } from '@chakra-ui/react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import HomeComponent from '../home';
-import ProjectsComponent from '../projects';
 import Menu from '../menu';
-import VantaBackground from '../background/vantaBackground';
-import { Box } from '@chakra-ui/react';
+import ProjectsComponent from '../projects';
 import ResumeComponent from '../resume';
+import VantaBackground from '../background/vantaBackground';
+
 
 export const ParentComponent = () => {
   return (

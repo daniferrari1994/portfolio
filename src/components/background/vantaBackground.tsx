@@ -21,6 +21,8 @@ const VantaBackground: React.FC = () => {
           minWidth: 200.00,
           scale: 1.00,
           scaleMobile: 1.00,
+          points: 4.00,
+          maxDistance: 21.00,
           color: 0x427f7a,
           backgroundColor: 0x181518,
         });

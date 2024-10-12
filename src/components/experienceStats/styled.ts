@@ -1,5 +1,5 @@
-import styled from 'styled-components';
 import { Box, Flex, Text } from '@chakra-ui/react';
+import styled from 'styled-components';
 
 export const CounterWrapper = styled(Flex)`
   direction: row;

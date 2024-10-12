@@ -1,48 +1,102 @@
 {
-    "name": "Dan Ferrari",
-    "title": "Hi there! I'm",
-    "subtitle": "Frontend Developer", 
-    "description_home": {
-        "spanish": "Soy un desarrollador especializado en construir experiencias de usuario atractivas y funcionales para aplicaciones web modernas. Me apasiona crear interfaces intuitivas utilizando tecnologías como React y Chakra UI.",
-        "english": "I'm a developer specialized in building attractive and functional user experiences for modern web applications. I'm passionate about creating intuitive interfaces using technologies like React and Chakra UI."
-    },
-    "resume":{
-        "title": "Why hire me?",
-        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure fuga ducimus veniam et. Quibusdam expedita eligendi maxime quisquam quo temporibus nesciunt architecto quod minima consectetur recusandae, repellat ipsa quis laborum!",
-        "sections": {
-            "experience": {
-                "title": "My experience",
-                "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure fuga ducimus veniam et. Quibusdam expedita eligendi maxime quisquam quo temporibus nesciunt architecto quod minima consectetur recusandae, repellat ipsa quis laborum!",
-                "data": {
-                    "title": "Title",
-                    "date": "01 / 0001 - 02 / 0002",
-                    "workPlace": "Work place"
-                }
-            },
-            "education": {
-                "title": "My education",
-                "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure fuga ducimus veniam et. Quibusdam expedita eligendi maxime quisquam quo temporibus nesciunt architecto quod minima consectetur recusandae, repellat ipsa quis laborum!",
-                "data": {
-                    "title": "Title",
-                    "date": "0001 - 0002",
-                    "institute": "Institute"
-                }
-            },
-            "skills": {
-                "title": "My skills",
-                "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure fuga ducimus veniam et. Quibusdam expedita eligendi maxime quisquam quo temporibus nesciunt architecto quod minima consectetur recusandae, repellat ipsa quis laborum!"
-            },
-            "aboutMe": {
-                "title": "About Me",
-                "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure fuga ducimus veniam et. Quibusdam expedita eligendi maxime quisquam quo temporibus nesciunt architecto quod minima consectetur recusandae, repellat ipsa quis laborum!",
-                "data": {
-                    "nationality": "Argentinian",
-                    "email": "daniferrari1994@gmail.com",
-                    "languages": "English, Spanish",
-                    "phone": "(+54) 011 2725 8396",
-                    "discord": "danferrari"
-                }
-            }
+  "name": "Dan Ferrari",
+  "title": "Hi there! I'm",
+  "subtitle": "Frontend Developer",
+  "description_home": {
+    "spanish": "Soy un desarrollador especializado en construir experiencias de usuario atractivas y funcionales para aplicaciones web modernas. Me apasiona crear interfaces intuitivas utilizando tecnologías como React y Chakra UI.",
+    "english": "I'm a developer specialized in building attractive and functional user experiences for modern web applications. I'm passionate about creating intuitive interfaces using technologies like React and Chakra UI."
+  },
+  "resume": {
+    "title": "Why hire me?",
+    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure fuga ducimus veniam et.",
+    "sections": {
+      "experience": {
+        "title": "My experience",
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure fuga ducimus veniam et.",
+        "data": [
+          {
+            "title": "Title",
+            "date": "0001 - 0002",
+            "workPlace": "Work place"
+          },
+          {
+            "title": "Title",
+            "date": "0001 - 0002",
+            "workPlace": "Work place"
+          },
+          {
+            "title": "Title",
+            "date": "0001 - 0002",
+            "workPlace": "Work place"
+          },
+          {
+            "title": "Title",
+            "date": "0001 - 0002",
+            "workPlace": "Work place"
+          },
+          {
+            "title": "Title",
+            "date": "0001 - 0002",
+            "workPlace": "Work place"
+          },
+          {
+            "title": "Title",
+            "date": "0001 - 0002",
+            "workPlace": "Work place"
+          }
+        ]
+      },
+      "education": {
+        "title": "My education",
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure fuga ducimus veniam et.",
+        "data": [
+          {
+            "title": "Title",
+            "date": "0001 - 0002",
+            "institute": "Institute"
+          },
+          {
+            "title": "Title",
+            "date": "0001 - 0002",
+            "institute": "Institute"
+          },
+          {
+            "title": "Title",
+            "date": "0001 - 0002",
+            "institute": "Institute"
+          },
+          {
+            "title": "Title",
+            "date": "0001 - 0002",
+            "institute": "Institute"
+          },
+          {
+            "title": "Title",
+            "date": "0001 - 0002",
+            "institute": "Institute"
+          },
+          {
+            "title": "Title",
+            "date": "0001 - 0002",
+            "institute": "Institute"
+          }
+        ]
+      },
+      "skills": {
+        "title": "My skills",
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure fuga ducimus veniam et."
+      },
+      "aboutMe": {
+        "title": "About me",
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure fuga ducimus veniam et.",
+        "data": {
+          "nationality": "Argentinian",
+          "email": "daniferrari1994@gmail.com",
+          "languages": "English, Spanish",
+          "phone": "(+54) 011 2725 8396",
+          "discord": "danferrari"
         }
+      }
     }
+  }
 }

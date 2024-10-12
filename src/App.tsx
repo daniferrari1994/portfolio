@@ -1,8 +1,8 @@
 import React from 'react';
-import { createRoot } from 'react-dom/client';
 import { ChakraBaseProvider } from '@chakra-ui/react';
-import theme from './themes/themes';
+import { createRoot } from 'react-dom/client';
 import { ParentComponent } from './components/parentComponent';
+import theme from './themes/themes';
 
 interface AppProps {
   tab?: string;
