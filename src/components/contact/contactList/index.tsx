@@ -11,11 +11,7 @@ const ContactList: React.FC<IContactList> = ({ data }) => {
   const entries = Object.entries(data);
 
   const generateIcon = (icon: any) => (
-    <FontAwesomeIcon
-      color="#5ad3bd"
-      icon={icon}
-      size="xl"
-    />
+    <FontAwesomeIcon color="#5ad3bd" icon={icon} size="xl" />
   );
 
   const iconMap: Record<string, React.ReactElement> = {

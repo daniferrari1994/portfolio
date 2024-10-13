@@ -5,9 +5,9 @@ export const ContactForm = styled(Box)`
   align-self: center;
   background-color: #3333339e;
   border-radius: 15px;
-  height: 620px;
+  height: 640px;
   justify-content: center;
-  max-width: 550px;
+  max-width: 580px;
   padding: 20px 50px 60px;
   width: fit-content;
 `;

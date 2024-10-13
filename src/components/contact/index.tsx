@@ -4,6 +4,7 @@ import { ContactForm, ContactFormContainer, ContactInfo } from './styled';
 import CustomInputField from '../contact/customInput';
 import locales from '../../data/locales.json';
 import ContactList from './contactList';
+import { validateEmail, validateNameOrSurname, validatePhone } from '../utils/validations';
 
 const ContactComponent: React.FC = () => {
   return (
@@ -30,18 +31,17 @@ const ContactComponent: React.FC = () => {
             {locales.contact.description}
           </Text>
         </Flex>
-        <Flex w="450px" wrap="wrap" justify="space-between">
-          <CustomInputField id="first-name" placeholder="Name" />
-          <CustomInputField id="last-name" placeholder="Lastname" />
-          <CustomInputField id="email" placeholder="Email address" type="email" />
-          <CustomInputField id="phone" placeholder="Phone number" type="tel" />
+        <Flex w="480px" wrap="wrap" justify="space-between">
+          <CustomInputField id="first-name" placeholder="Name" validate={validateNameOrSurname} />
+          <CustomInputField id="last-name" placeholder="Lastname" validate={validateNameOrSurname} />
+          <CustomInputField id="email" placeholder="Email address" validate={validateEmail}/>
+          <CustomInputField id="phone" placeholder="Phone number" validate={validatePhone} />
           <CustomInputField id="message" placeholder="Type your message here" isTextArea />
           <Button
             borderRadius="50px"
             color="#5ad3bd"
             colorScheme="#333"
             gap="5px"
-            mt={4}
             variant="outline"
             _hover={{ bg: '#459c8c', color: '#333' }}
           >
