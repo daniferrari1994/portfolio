@@ -4,7 +4,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faLocationDot, faPhone } from '@fortawesome/free-solid-svg-icons';
 
 interface IContactList {
-  data: Record<string, string>;
+  data: {
+    address: string;
+    email: string;
+    phone: string;
+  };
 }
 
 const ContactList: React.FC<IContactList> = ({ data }) => {

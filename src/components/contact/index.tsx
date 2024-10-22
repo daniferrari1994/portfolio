@@ -1,12 +1,15 @@
 import React from 'react';
 import { Button, Heading, Text, Flex } from '@chakra-ui/react';
 import { ContactForm, ContactFormContainer, ContactInfo } from './styled';
+import { validateEmail, validateNameOrSurname, validatePhone } from '../../utils/validations';
+import { useTranslation } from 'react-i18next';
 import CustomInputField from '../contact/customInput';
-import locales from '../../data/locales.json';
 import ContactList from './contactList';
-import { validateEmail, validateNameOrSurname, validatePhone } from '../utils/validations';
+import personalData from '../../data/personalData.json'
+
 
 const ContactComponent: React.FC = () => {
+  const { t } = useTranslation();
   return (
     <ContactFormContainer>
       <ContactForm>
@@ -19,7 +22,7 @@ const ContactComponent: React.FC = () => {
             mb={4}
             size="lg"
             >
-            {locales.contact.title}
+            {t('contact.title')}
           </Heading>
           <Text
             mb={6}
@@ -28,15 +31,15 @@ const ContactComponent: React.FC = () => {
             fontSize="sm"
             fontWeight="300"
           >
-            {locales.contact.description}
+            {t('contact.description')}
           </Text>
         </Flex>
         <Flex w="480px" wrap="wrap" justify="space-between">
-          <CustomInputField id="first-name" placeholder="Name" validate={validateNameOrSurname} />
-          <CustomInputField id="last-name" placeholder="Lastname" validate={validateNameOrSurname} />
-          <CustomInputField id="email" placeholder="Email address" validate={validateEmail}/>
-          <CustomInputField id="phone" placeholder="Phone number" validate={validatePhone} />
-          <CustomInputField id="message" placeholder="Type your message here" isTextArea />
+          <CustomInputField id="first-name" placeholder={t('contact.input.name')} validate={validateNameOrSurname} />
+          <CustomInputField id="last-name" placeholder={t('contact.input.lastname')} validate={validateNameOrSurname} />
+          <CustomInputField id="email" placeholder={t('contact.input.email')} validate={validateEmail}/>
+          <CustomInputField id="phone" placeholder={t('contact.input.phone')} validate={validatePhone} />
+          <CustomInputField id="message" placeholder={t('contact.input.message')} isTextArea />
           <Button
             borderRadius="50px"
             color="#5ad3bd"
@@ -45,12 +48,12 @@ const ContactComponent: React.FC = () => {
             variant="outline"
             _hover={{ bg: '#459c8c', color: '#333' }}
           >
-            Send Message
+            {t('contact.input.button')}
           </Button>
         </Flex>
       </ContactForm>
       <ContactInfo>
-        <ContactList data={locales.contact.data}/>
+        <ContactList data={personalData.data.contact}/>
       </ContactInfo>
     </ContactFormContainer>
   );

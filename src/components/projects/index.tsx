@@ -3,34 +3,44 @@ import {
   Box,
   Button,
   Divider,
+  Flex,
   Heading,
   Image,
-  Text,
   Stack,
-  Flex
+  Text
 } from '@chakra-ui/react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleLeft, faAngleRight, faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { useTranslation } from 'react-i18next';
+import { Language, IProject } from '../../interfaces/Ilanguages';
+import projectsData from '../../data/projects.json';
 import {
   MainContainer,
   ProjectContent,
-  ProjectInfoColumn,
   ProjectImageColumn,
+  ProjectInfoColumn,
   StyledButton
 } from './styled';
-import locales from '../../data/locales.json';
 
 const WorkProjects: React.FC = () => {
+  const { i18n } = useTranslation();
   const [currentProjectIndex, setCurrentProjectIndex] = useState(0);
-  const currentProject = locales.projects[currentProjectIndex];
 
-  const handlePrevProject = () => {
-    setCurrentProjectIndex(prevIndex => (prevIndex === 0 ? locales.projects.length - 1 : prevIndex - 1));
-  };
+  const currentLanguage = i18n.language as Language;
+  const currentProject: IProject = projectsData.projects[currentProjectIndex];
+  const currentTranslation = currentProject.translations[currentLanguage];
 
   const handleNextProject = () => {
-    setCurrentProjectIndex(prevIndex => (prevIndex === locales.projects.length - 1 ? 0 : prevIndex + 1));
+    setCurrentProjectIndex(prevIndex =>
+      prevIndex === projectsData.projects.length - 1 ? 0 : prevIndex + 1
+    );
+  };
+
+  const handlePrevProject = () => {
+    setCurrentProjectIndex(prevIndex =>
+      prevIndex === 0 ? projectsData.projects.length - 1 : prevIndex - 1
+    );
   };
 
   return (
@@ -45,7 +55,7 @@ const WorkProjects: React.FC = () => {
               mb="4"
               size="4xl"
             >
-              {`${currentProject.id}`}
+              {currentProject.id}
             </Heading>
             <Heading
               color="#ffffffea"
@@ -54,7 +64,7 @@ const WorkProjects: React.FC = () => {
               mb="2"
               size="2xl"
             >
-              {currentProject.title}
+              {currentTranslation.title}
             </Heading>
             <Text
               color="#A0AEC0"
@@ -64,10 +74,10 @@ const WorkProjects: React.FC = () => {
               minH="150px"
               w="500px"
             >
-              {currentProject.description}
+              {currentTranslation.description}
             </Text>
             <Stack spacing={2} flexDirection="row">
-              {currentProject.technologies.map((tech, index ) => (
+              {currentProject.technologies.map((tech, index) => (
                 <Text
                   color="#5ad3bd"
                   fontFamily="'Roboto Mono', monospace"
@@ -119,7 +129,7 @@ const WorkProjects: React.FC = () => {
         </ProjectInfoColumn>
         <ProjectImageColumn>
           <Image
-            alt={currentProject.title}
+            alt={currentTranslation.title}
             h="400px"
             mb="4"
             objectFit="cover"

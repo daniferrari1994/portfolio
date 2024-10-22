@@ -13,24 +13,26 @@ import {
   SocialLinks,
   SubTitle,
 } from './styled';
+import { useTranslation } from 'react-i18next';
 import ExperienceStats from '../experienceStats/experienceStats';
 import image from '../../assets/profileImage/profilePicture.png';
-import locales from '../../data/locales.json';
+import personalData from '../../data/personalData.json'
 
 const HomeComponent = () => {
+  const { t } = useTranslation();
   return (
     <HomeContainer>
       <HomeContentContainer>
       <ContentContainer>
         <SubTitle>
-          {locales.subtitle}
+          {t('home.subtitle')}
         </SubTitle>
         <HeadingText>
-          {locales.title}<br />
-          <span className="highlighted-text">{locales.name}</span>
+          {t('home.title')}<br />
+          <span className="highlighted-text">{personalData.data.name}</span>
         </HeadingText>
         <DescriptionText>
-          {locales.home.description.english}
+          {t('home.description')}
         </DescriptionText>
         <SocialLinks>
           <Button
@@ -41,7 +43,7 @@ const HomeComponent = () => {
             variant="outline"
             _hover={{ bg: '#459c8c', color: '#333' }}
           >
-            Download CV
+            {t('home.downloadCV')}
             <FontAwesomeIcon icon={faDownload}/>
           </Button>
           <Link href="https://github.com/daniferrari1994" isExternal>

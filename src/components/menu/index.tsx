@@ -11,6 +11,7 @@ import {
   MenuOptionContainer,
   StyledLink,
 } from './styled';
+import LanguageSwitcher from '../languageSwitcher';
 
 const Menu = () => {
   const location = useLocation();
@@ -49,6 +50,9 @@ const Menu = () => {
                 Contact me
               </Button>
             </Link>
+          </MenuOption>
+          <MenuOption>
+            <LanguageSwitcher />
           </MenuOption>
         </MenuOptionContainer>
       </MenuItemsContainer>

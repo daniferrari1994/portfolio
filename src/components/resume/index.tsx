@@ -7,12 +7,16 @@ import {
   SectionTwo, 
   StyledButton 
 } from './styled';
-import InfoCard from './infoCard';
-import locales from '../../data/locales.json';
+import { useTranslation } from 'react-i18next';
 import DataContactList from './aboutMeList';
+import education from '../../data/education.json';
+import experience from '../../data/experience.json';
+import InfoCard from './infoCard';
 import SkillsSection from './skillsSection';
+import personalData from '../../data/personalData.json'
 
 const ResumeComponent = () => {
+  const { t } = useTranslation();
   const [selectedSection, setSelectedSection] = useState('Experience');
 
   const renderContent = () => {
@@ -21,13 +25,13 @@ const ResumeComponent = () => {
         return (
           <>
             <Heading className="headingResume" size="lg">
-              {locales.resume.sections.experience.title}
+              {t('experience.title')}
             </Heading>
             <Text className="textResume">
-              {locales.resume.sections.experience.description}
+              {t('experience.description')}
             </Text>
             <Flex className="flex-scrollable" justifyContent="space-between" wrap="wrap">
-                {locales.resume.sections.experience.data.map((item, index) => (
+              {experience.data.map((item, index) => (
                 <InfoCard
                   date={item.date}
                   key={index}
@@ -38,53 +42,53 @@ const ResumeComponent = () => {
             </Flex>
           </>
         );
-        case 'Education':
-          return (
-            <>
-              <Heading size="lg" className="headingResume">
-                {locales.resume.sections.education.title}
-              </Heading>
-              <Text className="textResume">
-                {locales.resume.sections.education.description}
-              </Text>
-              <Flex wrap="wrap" className="flex-scrollable" justifyContent="space-between">
-                {locales.resume.sections.education.data.map((item, index) => (
+      case 'Education':
+        return (
+          <>
+            <Heading size="lg" className="headingResume">
+              {t('education.title')}
+            </Heading>
+            <Text className="textResume">
+              {t('education.description')}
+            </Text>
+            <Flex wrap="wrap" className="flex-scrollable" justifyContent="space-between">
+              {education.data.map((item, index) => (
                 <InfoCard
                   date={item.date}
                   key={index}
                   location={item.institute}
                   title={item.title}
                 />
-                ))}
-              </Flex>
-            </>
-          );
+              ))}
+            </Flex>
+          </>
+        );
       case 'Skills':
         return (
           <>
             <Heading size="lg" className="headingResume">
-              {locales.resume.sections.skills.title}
+              {t('skills.title')}
             </Heading>
             <Text className="textResume">
-              {locales.resume.sections.skills.description}
+              {t('skills.description')}
             </Text>
-            <Divider my={5}/>
+            <Divider my={5} />
             <SkillsSection />
           </>
         );
-        case 'About me':
-          return (
-            <>
-              <Heading size="lg" className="headingResume">
-                {locales.resume.sections.aboutMe.title}
-              </Heading>
-              <Text className="textResume">
-                {locales.resume.sections.aboutMe.description}
-              </Text>
-              <Divider my={5}/>
-              <DataContactList data={locales.resume.sections.aboutMe.data} />
-            </>
-          );
+      case 'About me':
+        return (
+          <>
+            <Heading size="lg" className="headingResume">
+              {t('aboutMe.title')}
+            </Heading>
+            <Text className="textResume">
+              {t('aboutMe.description')}
+            </Text>
+            <Divider my={5} />
+            <DataContactList data={personalData.data.aboutMe} />
+          </>
+        );
       default:
         return null;
     }
@@ -95,21 +99,24 @@ const ResumeComponent = () => {
       <SectionContainer>
         <SectionOne>
           <Heading size="2xl" className="headingResume">
-            {locales.resume.title}
+            {t('resume.title')}
           </Heading>
           <Text className="textResume">
-            {locales.resume.description}
+            {t('resume.description')}
           </Text>
-          {['Experience', 'Education', 'Skills', 'About me'].map(section => (
-            <StyledButton
-              colorScheme="#333"
-              isActive={selectedSection === section}
-              key={section}
-              onClick={() => setSelectedSection(section)}
-            >
-              {section}
+          {['Experience', 'Education', 'Skills', 'About me'].map(section => {
+            const translationKey = section === 'About me' ? 'aboutMe' : section.toLowerCase();
+            return (
+              <StyledButton
+                colorScheme="#333"
+                isActive={selectedSection === section}
+                key={section}
+                onClick={() => setSelectedSection(section)}
+              >
+              {t(translationKey + '.title')}
             </StyledButton>
-          ))}
+          );
+        })}
         </SectionOne>
         <SectionTwo>
           {renderContent()}

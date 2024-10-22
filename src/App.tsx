@@ -10,9 +10,9 @@ interface IApp {
 
 const App: React.FC<IApp> = () => {
   return (
-    <ChakraBaseProvider theme={theme}>
-      <ParentComponent />
-    </ChakraBaseProvider>
+      <ChakraBaseProvider theme={theme}>
+        <ParentComponent />
+      </ChakraBaseProvider>
   );
 };
 
