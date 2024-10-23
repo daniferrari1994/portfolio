@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Divider, Flex, Heading, Text } from '@chakra-ui/react';
+import { Flex, Heading, Text, Separator } from '@chakra-ui/react';
 import { 
   ResumeContainer, 
   SectionContainer, 
@@ -72,7 +72,7 @@ const ResumeComponent = () => {
             <Text className="textResume">
               {t('skills.description')}
             </Text>
-            <Divider my={5} />
+            <Separator my={5} size="md" />
             <SkillsSection />
           </>
         );
@@ -85,7 +85,7 @@ const ResumeComponent = () => {
             <Text className="textResume">
               {t('aboutMe.description')}
             </Text>
-            <Divider my={5} />
+            <Separator my={5} size="md" />
             <DataContactList data={personalData.data.aboutMe} />
           </>
         );

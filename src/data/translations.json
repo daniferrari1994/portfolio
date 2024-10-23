@@ -32,6 +32,12 @@
       "subtitle": "Frontend Developer",
       "title": "Hi there! I'm"
     },
+    "projects": {
+      "tooltip": {
+        "github": "Github code",
+        "livePage": "Live project"
+      }
+    },
     "resume": {
       "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure fuga ducimus veniam et.",
       "title": "Why hire me?"
@@ -75,9 +81,15 @@
       "subtitle": "Desarrollador Frontend",
       "title": "Hola! soy"
     },
+    "projects": {
+      "tooltip": {
+        "github": "Código en Github",
+        "livePage": "Proyecto en vivo"
+      }
+    },
     "resume": {
       "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure fuga ducimus veniam et.",
-      "title": "¿Porque contratarme?"
+      "title": "¿Por qué contratarme?"
     },
     "skills": {
       "button": "Habilidades",

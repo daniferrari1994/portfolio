@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Box, FormControl, FormErrorMessage, FormHelperText, Input, Textarea } from '@chakra-ui/react';
+import { Box, Fieldset, Input, Textarea } from '@chakra-ui/react';
+import { Field } from "@/components/ui/field"
 
 interface CustomInputFieldProps {
   errorMessage?: string;
@@ -42,55 +43,57 @@ const CustomInputField: React.FC<CustomInputFieldProps> = ({
   };
 
   return (
-    <FormControl
-      isInvalid={!!errorMessage}
+    <Fieldset.Root
       fontFamily="'Roboto Mono', monospace"
       id={id}
-      isRequired
       py="5px"
       >
       {isTextArea ? (
-        <Textarea
-          bg="#1d1d1d"
-          borderRadius="6px"
-          color="#ffffffea"
-          h="230px"
-          onBlur={handleBlur}
-          onChange={handleChange}
-          p="10px"
-          placeholder={placeholder}
-          resize="none"
-          w="480px"
-          _focusVisible={{
-            outline: 'solid 2px #459c8c !important'
-          }}
-          _placeholder={{ color: '#ffffffea', fontWeight: 300 }}
-        />
+        <Field>
+          <Textarea
+            bg="#1d1d1d"
+            borderRadius="6px"
+            color="#ffffffea"
+            h="230px"
+            onBlur={handleBlur}
+            onChange={handleChange}
+            p="10px"
+            placeholder={placeholder}
+            resize="none"
+            w="480px"
+            _focusVisible={{
+              outline: 'solid 2px #459c8c !important'
+            }}
+            _placeholder={{ color: '#ffffffea', fontWeight: 300 }}
+          />
+        </Field>
       ) : (
-        <Input
-          bg="#1d1d1d"
-          borderRadius="6px"
-          color="#ffffffea"
-          h="40px"
-          onBlur={handleBlur}
-          onChange={handleChange}
-          p="10px"
-          placeholder={placeholder}
-          type={type}
-          value={value}
-          w="220px"
-          _focusVisible={{
-            outline: 'solid 2px #459c8c !important'
-          }}
-          _placeholder={{ color: '#ffffffea', fontWeight: 300 }}
-        />
+        <Field>
+          <Input
+            bg="#1d1d1d"
+            borderRadius="6px"
+            color="#ffffffea"
+            h="40px"
+            onBlur={handleBlur}
+            onChange={handleChange}
+            p="10px"
+            placeholder={placeholder}
+            type={type}
+            value={value}
+            w="220px"
+            _focusVisible={{
+              outline: 'solid 2px #459c8c !important'
+            }}
+            _placeholder={{ color: '#ffffffea', fontWeight: 300 }}
+          />
+        </Field>
       )}
       <Box style={{ height: '20px', overflow: 'hidden' }}>
-        <FormErrorMessage color="#E53E3E" fontSize="14px" mt="2px" display={errorMessage ? 'block' : 'none'}>
+        <Fieldset.ErrorText color="#E53E3E" fontSize="14px" mt="2px" display={errorMessage ? 'block' : 'none'}>
           {errorMessage}
-        </FormErrorMessage>
+        </Fieldset.ErrorText>
       </Box>
-    </FormControl>
+    </Fieldset.Root>
   );
 };
 

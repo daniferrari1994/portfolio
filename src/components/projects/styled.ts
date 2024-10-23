@@ -43,7 +43,7 @@ export const ProjectImageColumn = styled(Box)`
 `;
 
 export const StyledButton = styled(Button)`
-  margin: 0 3px;
+  margin: 0 18px 28px 0;
 
   &:hover {
     background-color: #459c8c;

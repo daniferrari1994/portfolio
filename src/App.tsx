@@ -1,8 +1,7 @@
 import React from 'react';
-import { ChakraBaseProvider } from '@chakra-ui/react';
+import { Provider } from "@/components/ui/provider"
 import { createRoot } from 'react-dom/client';
 import { ParentComponent } from './components/parentComponent';
-import theme from './themes/themes';
 
 interface IApp {
   tab?: string;
@@ -10,9 +9,9 @@ interface IApp {
 
 const App: React.FC<IApp> = () => {
   return (
-      <ChakraBaseProvider theme={theme}>
+      <Provider>
         <ParentComponent />
-      </ChakraBaseProvider>
+      </Provider>
   );
 };
 

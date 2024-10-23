@@ -2,13 +2,15 @@ import React, { useState } from 'react';
 import {
   Box,
   Button,
-  Divider,
   Flex,
   Heading,
   Image,
+  Link,
+  Separator,
   Stack,
   Text
 } from '@chakra-ui/react';
+import { Tooltip } from "@/components/ui/tooltip"
 import { faAngleLeft, faAngleRight, faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -25,6 +27,7 @@ import {
 
 const WorkProjects: React.FC = () => {
   const { i18n } = useTranslation();
+  const { t } = useTranslation();
   const [currentProjectIndex, setCurrentProjectIndex] = useState(0);
 
   const currentLanguage = i18n.language as Language;
@@ -53,7 +56,7 @@ const WorkProjects: React.FC = () => {
               fontFamily="'Bungee Hairline', sans-serif"
               fontWeight="400"
               mb="4"
-              size="4xl"
+              size="6xl"
             >
               {currentProject.id}
             </Heading>
@@ -76,7 +79,7 @@ const WorkProjects: React.FC = () => {
             >
               {currentTranslation.description}
             </Text>
-            <Stack spacing={2} flexDirection="row">
+            <Stack flexDirection="row">
               {currentProject.technologies.map((tech, index) => (
                 <Text
                   color="#5ad3bd"
@@ -90,48 +93,59 @@ const WorkProjects: React.FC = () => {
               ))}
             </Stack>
           </Box>
-          <Divider w="500px" />
+          <Separator size="md" w="500px" />
           <Box>
-            <Button
-              as="a"
-              bg="#333"
-              borderRadius="full"
-              className="buttonLink"
-              colorScheme="#333"
-              href={currentProject.projectUrl}
-              mr="4"
-              padding={0}
-              target="_blank"
-            >
-              <FontAwesomeIcon
-                color="#ffffffea"
-                icon={faArrowRight}
-                size="lg"
-              />
-            </Button>
-            <Button
-              as="a"
-              bg="#333"
-              borderRadius="full"
-              className="buttonLinkGithub"
-              colorScheme="#333"
-              href={currentProject.codeUrl}
-              padding={0}
-              target="_blank"
-            >
-              <FontAwesomeIcon
-                color="#ffffffea"
-                icon={faGithub}
-                size="lg"
-              />
-            </Button>
+            <Tooltip content={t('projects.tooltip.livePage')}>
+              <Button
+                bg="#333"
+                borderRadius="full"
+                className="buttonLink"
+                colorScheme="#333"
+                mr="4"
+                padding={0}
+              >
+                <Link
+                  as="a"
+                  href={currentProject.projectUrl}
+                  target="_blank"
+                >
+                  <FontAwesomeIcon
+                    color="#ffffffea"
+                    icon={faArrowRight}
+                    size="lg"
+                  />
+                </Link>
+              </Button>
+            </Tooltip>
+            <Tooltip content={t('projects.tooltip.github')}>
+              <Button
+                bg="#333"
+                borderRadius="full"
+                className="buttonLinkGithub"
+                colorScheme="#333"
+                mr="4"
+                padding={0}
+                >
+                <Link
+                  as="a"
+                  href={currentProject.codeUrl}
+                  target="_blank"
+                  >
+                  <FontAwesomeIcon
+                    color="#ffffffea"
+                    icon={faGithub}
+                    size="lg"
+                    />
+                </Link>
+              </Button>
+            </Tooltip>
           </Box>
         </ProjectInfoColumn>
         <ProjectImageColumn>
           <Image
             alt={currentTranslation.title}
             h="400px"
-            mb="4"
+            m="28px 28px 28px 0"
             objectFit="cover"
             src={currentProject.image}
             w="600px"

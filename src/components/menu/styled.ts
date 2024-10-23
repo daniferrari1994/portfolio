@@ -1,4 +1,4 @@
-import { theme, Text } from '@chakra-ui/react';
+import { Text } from '@chakra-ui/react';
 import styled from 'styled-components';
 
 export const Logo = styled.div``;
@@ -26,7 +26,7 @@ export const MenuItemsContainer = styled.div`
 `;
 
 export const MenuLink = styled.div`
-  color: ${theme.colors.teal[300]};
+  color: #5eead4;
   cursor: pointer;
   margin: 0 10px;
 `;
@@ -38,7 +38,7 @@ export const MenuLinkContainer = styled.div`
 `;
 
 export const MenuOption = styled.div`
-  color: ${theme.colors.teal[300]};
+  color: #5eead4;
   cursor: pointer;
   margin: 0 10px;
 

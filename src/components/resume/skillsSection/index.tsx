@@ -1,5 +1,6 @@
 import React from 'react';
-import { Box, Heading, Tooltip } from '@chakra-ui/react';
+import { Box, Heading, Icon } from '@chakra-ui/react';
+import { Tooltip } from "@/components/ui/tooltip"
 import {
   faCss3Alt,
   faFigma,
@@ -57,16 +58,18 @@ const SkillsSection = () => {
           <StyledFlex>
             {skillList.map((skill, index) => (
               <StyledButton 
-                key={index}
-                bg="#333"
-                colorScheme="#333"
-                size="lg"
-                height="100px"
-                width="120px"
-              >
-                <Tooltip key={index} label={skill.name} placement="right" hasArrow>
-                  <FontAwesomeIcon icon={skill.icon} size="2xl" />
-                </Tooltip>
+                  key={index}
+                  bg="#333"
+                  colorScheme="#333"
+                  size="lg"
+                  height="100px"
+                  width="120px"
+                >
+                  <Tooltip key={index} content={skill.name} showArrow>
+                    <Icon size="2xl">
+                      <FontAwesomeIcon icon={skill.icon} size="2xl" />
+                    </Icon>
+                  </Tooltip>
               </StyledButton>
             ))}
           </StyledFlex>

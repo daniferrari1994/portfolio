@@ -2,7 +2,7 @@ import React from 'react';
 import { Flex, Text } from '@chakra-ui/react';
 
 interface IDataContactList {
-  data: Record<string, string>;
+  data: Record<string, any>;
 }
 
 const DataContactList: React.FC<IDataContactList> = ({ data }) => {

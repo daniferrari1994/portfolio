@@ -46,7 +46,7 @@ const HomeComponent = () => {
             {t('home.downloadCV')}
             <FontAwesomeIcon icon={faDownload}/>
           </Button>
-          <Link href="https://github.com/daniferrari1994" isExternal>
+          <Link href="https://github.com/daniferrari1994" >
             <Button
               borderRadius="full"
               color="#5ad3bd"
@@ -62,7 +62,7 @@ const HomeComponent = () => {
               />
             </Button>
           </Link>
-          <Link href="https://www.linkedin.com/in/dan-ferrari/" isExternal>
+          <Link href="https://www.linkedin.com/in/dan-ferrari/" >
             <Button
               borderRadius="full"
               color="#5ad3bd"

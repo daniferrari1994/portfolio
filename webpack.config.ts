@@ -11,7 +11,10 @@ module.exports = {
     publicPath: process.env.PUBLIC_URL || '/',
   },
   resolve: {
-    extensions: ['.ts', '.tsx', '.js', '.jsx']
+    alias: {
+      '@': path.resolve(__dirname, 'src')
+    },
+    extensions: ['.ts', '.tsx', '.js', '.jsx'],
   },
   module: {
     rules: [
