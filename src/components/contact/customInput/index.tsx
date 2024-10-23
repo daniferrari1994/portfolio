@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { Box, Fieldset, Input, Textarea } from '@chakra-ui/react';
+import { Fieldset, Input, Textarea } from '@chakra-ui/react';
 import { Field } from "@/components/ui/field"
+import { useTranslation } from 'react-i18next';
 
 interface CustomInputFieldProps {
   errorMessage?: string;
@@ -8,7 +9,7 @@ interface CustomInputFieldProps {
   isTextArea?: boolean;
   placeholder: string;
   type?: string;
-  validate?: (value: string) => string | null;
+  validate?: (value: string, t: (key: string) => string) => string | null;
 }
 
 const CustomInputField: React.FC<CustomInputFieldProps> = ({ 
@@ -20,6 +21,7 @@ const CustomInputField: React.FC<CustomInputFieldProps> = ({
 }) => {
   const [value, setValue] = useState('');
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
+  const { t } = useTranslation();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setValue(e.target.value);
@@ -37,7 +39,7 @@ const CustomInputField: React.FC<CustomInputFieldProps> = ({
     setValue(formattedValue);
 
     if (validate) {
-      const error = validate(formattedValue);
+      const error = validate(formattedValue, t)
       setErrorMessage(error);
     }
   };
@@ -46,53 +48,68 @@ const CustomInputField: React.FC<CustomInputFieldProps> = ({
     <Fieldset.Root
       fontFamily="'Roboto Mono', monospace"
       id={id}
-      py="5px"
+      size="lg"
       >
       {isTextArea ? (
-        <Field>
+        <Field 
+          invalid={!!errorMessage}
+          errorText={errorMessage}
+          >
           <Textarea
             bg="#1d1d1d"
             borderRadius="6px"
             color="#ffffffea"
-            h="230px"
             onBlur={handleBlur}
             onChange={handleChange}
-            p="10px"
             placeholder={placeholder}
+            required
             resize="none"
-            w="480px"
+            size="xl"
             _focusVisible={{
-              outline: 'solid 2px #459c8c !important'
+              outline: 'solid 1px #459c8c !important',
+              borderColor: "#459c8c"
             }}
-            _placeholder={{ color: '#ffffffea', fontWeight: 300 }}
+            _placeholder={{ 
+              color: '#ffffffea', 
+              fontWeight: 300, 
+              fontSize: 'sm' 
+            }}
           />
+          <Fieldset.ErrorText color="#E53E3E" fontSize="14px" mt="2px" display={errorMessage ? 'block' : 'none'}>
+            {errorMessage}
+          </Fieldset.ErrorText>
         </Field>
       ) : (
-        <Field>
+        <Field 
+          invalid={!!errorMessage}
+          errorText={errorMessage}
+          >
           <Input
             bg="#1d1d1d"
             borderRadius="6px"
-            color="#ffffffea"
-            h="40px"
+            color="#459c8c"
             onBlur={handleBlur}
             onChange={handleChange}
-            p="10px"
             placeholder={placeholder}
+            required
             type={type}
             value={value}
-            w="220px"
             _focusVisible={{
-              outline: 'solid 2px #459c8c !important'
+              outline: 'solid 1px #459c8c !important',
+              borderColor: "#459c8c"
             }}
             _placeholder={{ color: '#ffffffea', fontWeight: 300 }}
           />
+          <Fieldset.ErrorText 
+            color="#E53E3E" 
+            display={errorMessage ? 'block' : 'none'}
+            fontSize="14px" 
+            mt="2px"
+            >
+            {errorMessage}
+          </Fieldset.ErrorText>
         </Field>
       )}
-      <Box style={{ height: '20px', overflow: 'hidden' }}>
-        <Fieldset.ErrorText color="#E53E3E" fontSize="14px" mt="2px" display={errorMessage ? 'block' : 'none'}>
-          {errorMessage}
-        </Fieldset.ErrorText>
-      </Box>
     </Fieldset.Root>
   );
 };

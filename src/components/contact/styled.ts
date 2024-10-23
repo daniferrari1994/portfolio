@@ -5,7 +5,7 @@ export const ContactForm = styled(Box)`
   align-self: center;
   background-color: #3333339e;
   border-radius: 15px;
-  height: 640px;
+  height: fit-content;
   justify-content: center;
   max-width: 580px;
   padding: 20px 50px 60px;

@@ -46,23 +46,41 @@
       "button": "Skills",
       "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure fuga ducimus veniam et.",
       "title": "My skills"
+    },
+    "validationErrors": {
+      "email": {
+        "invalid": "Please enter a valid email.",
+        "consecutiveDots": "Email address cannot contain consecutive dots.",
+        "invalidCharacters": "Email contains invalid characters."
+      },
+      "nameOrSurname": {
+        "invalid": "Please enter a valid name or surname.",
+        "length": "Name must be between 2 and 50 characters."
+      },
+      "phone": {
+        "invalid": "Please enter a valid phone number.",
+        "length": "Phone number must be between 3 and 15 digits."
+      },
+      "message": {
+        "empty": "Message cannot be empty."
+      }
     }
   },
   "es": {
     "aboutMe": {
       "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure fuga ducimus veniam et.",
-      "title": "Sobre mi"
+      "title": "Sobre mí"
     },
     "contact": {
       "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure fuga ducimus veniam et.",
       "title": "Trabajemos juntos",
       "input": {
         "button": "Enviar mensaje",
-        "email": "Dirección email",
+        "email": "Dirección de correo",
         "lastname": "Apellido",
         "message": "Escriba su mensaje aquí",
         "name": "Nombre",
-        "phone": "Número telefónico"
+        "phone": "Número de teléfono"
       }
     },
     "education": {
@@ -79,7 +97,7 @@
       "description": "Soy un desarrollador especializado en construir experiencias de usuario atractivas y funcionales para aplicaciones web modernas. Me apasiona crear interfaces intuitivas utilizando tecnologías como React y Chakra UI.",
       "downloadCV": "Descargar CV",
       "subtitle": "Desarrollador Frontend",
-      "title": "Hola! soy"
+      "title": "¡Hola! Soy"
     },
     "projects": {
       "tooltip": {
@@ -95,6 +113,24 @@
       "button": "Habilidades",
       "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure fuga ducimus veniam et.",
       "title": "Mis habilidades"
+    },
+    "validationErrors": {
+      "email": {
+        "invalid": "Ingrese un email válido.",
+        "consecutiveDots": "La dirección de correo no puede contener puntos consecutivos.",
+        "invalidCharacters": "El correo contiene caracteres inválidos."
+      },
+      "nameOrSurname": {
+        "invalid": "Ingrese un nombre o apellido válido.",
+        "length": "El nombre debe tener entre 2 y 50 caracteres."
+      },
+      "phone": {
+        "invalid": "Ingrese un número de teléfono válido.",
+        "length": "El número de teléfono debe tener entre 3 y 15 dígitos."
+      },
+      "message": {
+        "empty": "El mensaje no puede estar vacío."
+      }
     }
   }
 }
