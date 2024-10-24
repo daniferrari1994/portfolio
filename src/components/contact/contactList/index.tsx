@@ -2,6 +2,7 @@ import React from 'react';
 import { Box, Flex, Text } from '@chakra-ui/react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faLocationDot, faPhone } from '@fortawesome/free-solid-svg-icons';
+import { useTranslation } from 'react-i18next';
 
 interface IContactList {
   data: {
@@ -12,6 +13,7 @@ interface IContactList {
 }
 
 const ContactList: React.FC<IContactList> = ({ data }) => {
+  const { t } = useTranslation();
   const entries = Object.entries(data);
 
   const generateIcon = (icon: any) => (
@@ -40,7 +42,7 @@ const ContactList: React.FC<IContactList> = ({ data }) => {
             h="60px"
             textAlign="center"
             w="60px"
-            >
+          >
             {iconMap[key] && iconMap[key]}
           </Box>
           <Flex key={index} direction="column" mx="12px">
@@ -51,7 +53,7 @@ const ContactList: React.FC<IContactList> = ({ data }) => {
               fontSize="md"
               fontWeight="bold"
             >
-              {`${key.charAt(0).toUpperCase() + key.slice(1)}:`}
+              {`${t(`contactLabels.${key}`)}:`}
             </Text>
             <Text
               className="aboutMe-text"

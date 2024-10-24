@@ -1,7 +1,5 @@
-import React from 'react';
-import { Button } from '@chakra-ui/react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faD } from '@fortawesome/free-solid-svg-icons';
+import React, { useState } from 'react';
+import { Button,Image } from '@chakra-ui/react';
 import { Link, useLocation } from 'react-router-dom';
 import {
   Logo,
@@ -12,14 +10,16 @@ import {
   StyledLink,
 } from './styled';
 import LanguageSwitcher from '../languageSwitcher';
+import logo from '../../assets/logoImage/logoTeal.png'
 
 const Menu = () => {
+  const [isEnglish, setIsEnglish] = useState(true);
   const location = useLocation();
 
   return (
     <MenuContainer id="MenuContainer">
       <Logo className="Logo">
-        <FontAwesomeIcon icon={faD} size="2x" />
+        <Image alt={logo} h="60px" src={logo} />
       </Logo>
       <MenuItemsContainer>
       <MenuOptionContainer className="SideMenuOption">

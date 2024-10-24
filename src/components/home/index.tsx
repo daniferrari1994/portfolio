@@ -14,12 +14,26 @@ import {
   SubTitle,
 } from './styled';
 import { useTranslation } from 'react-i18next';
+import { useLanguage } from '@/context/languageContext';
 import ExperienceStats from '../experienceStats/experienceStats';
 import image from '../../assets/profileImage/profilePicture.png';
 import personalData from '../../data/personalData.json'
 
-const HomeComponent = () => {
+const HomeComponent: React.FC = () => {
   const { t } = useTranslation();
+  const { isEnglish } = useLanguage();
+
+  const handleDownload = () => {
+    console.log('idioma: ', isEnglish);
+    const pdfUrl = isEnglish ? '/pdf/cvDanFerrariEngOP.pdf' : '/pdf/cvDanFerrariEspOP.pdf';
+    const link = document.createElement("a");
+    link.href = pdfUrl;
+    link.download = "cvDanFerrari.pdf";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   return (
     <HomeContainer>
       <HomeContentContainer>
@@ -40,6 +54,7 @@ const HomeComponent = () => {
             color="#5ad3bd"
             colorScheme="#333"
             gap="5px"
+            onClick={handleDownload}
             variant="outline"
             _hover={{ bg: '#459c8c', color: '#333' }}
           >

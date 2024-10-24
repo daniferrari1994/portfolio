@@ -1,6 +1,17 @@
 {
   "en": {
     "aboutMe": {
+      "data": {
+        "aboutMe": {
+          "languages": "Languages",
+          "nationality": "Nationality"
+        },
+        "aboutMeValues": {
+          "English": "English",
+          "Spanish": "Spanish",
+          "Argentina": "Argentinian"
+        }        
+      },
       "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure fuga ducimus veniam et.",
       "title": "About me"
     },
@@ -15,6 +26,21 @@
         "name": "Name",
         "phone": "Phone number"
       }
+    },
+    "contactLabels": {
+      "address": "Address",
+      "email": "Email",
+      "phone": "Phone"
+    },
+    "counters": {
+      "yearsOfExperience": "Years of",
+      "experience": "Experience",
+      "projects": "Projects",
+      "completed": "Completed",
+      "technologies": "Technologies",
+      "mastered": "Mastered",
+      "commits": "Code",
+      "commitsTitle": "Commits"
     },
     "education": {
       "button": "Education",
@@ -68,6 +94,17 @@
   },
   "es": {
     "aboutMe": {
+      "data": {
+        "aboutMe": {
+          "languages": "Idiomas",
+          "nationality": "Nacionalidad"
+        },
+        "aboutMeValues": {
+          "English": "Inglés",
+          "Spanish": "Español",
+          "Argentina": "Argentina"
+        }
+      },
       "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure fuga ducimus veniam et.",
       "title": "Sobre mí"
     },
@@ -82,6 +119,21 @@
         "name": "Nombre",
         "phone": "Número de teléfono"
       }
+    },
+    "contactLabels": {
+      "address": "Dirección",
+      "email": "Email",
+      "phone": "Teléfono"
+    },
+    "counters": {
+      "yearsOfExperience": "Años de",
+      "experience": "Experiencia",
+      "projects": "Proyectos",
+      "completed": "Completados",
+      "technologies": "Tecnologías",
+      "mastered": "Dominadas",
+      "commits": "Código",
+      "commitsTitle": "Commits"
     },
     "education": {
       "button": "Educación",

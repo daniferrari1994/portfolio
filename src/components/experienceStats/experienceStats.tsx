@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Flex, Text } from '@chakra-ui/react';
+import { useTranslation } from 'react-i18next';
 import { CounterWrapper, NumberText, TitleBox } from './styled';
 
 interface ICounter {
@@ -11,6 +12,7 @@ interface ICounter {
 
 const Counter: React.FC<ICounter> = ({ duration = 2000, targetNumber, titleBottom, titleTop }) => {
   const [count, setCount] = useState(0);
+
 
   useEffect(() => {
     let start = 0;
@@ -49,11 +51,13 @@ const Counter: React.FC<ICounter> = ({ duration = 2000, targetNumber, titleBotto
 };
 
 const ExperienceStats: React.FC = () => {
+  const { t } = useTranslation();
+  
   const countersData = [
-    { targetNumber: 4, titleBottom: 'Experience', titleTop: 'Years of' },
-    { targetNumber: 4, titleBottom: 'Completed', titleTop: 'Projects' },
-    { targetNumber: 6, titleTop: 'Technologies', titleBottom: 'Mastered' },
-    { targetNumber: 600, titleBottom: 'Commits', titleTop: 'Code' },
+    { targetNumber: 4, titleBottom: t('counters.experience'), titleTop: t('counters.yearsOfExperience') },
+    { targetNumber: 4, titleBottom: t('counters.completed'), titleTop: t('counters.projects') },
+    { targetNumber: 6, titleBottom: t('counters.mastered'), titleTop: t('counters.technologies') },
+    { targetNumber: 600, titleBottom: t('counters.commitsTitle'), titleTop: t('counters.commits') },
   ];
 
   return (

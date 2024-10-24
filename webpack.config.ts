@@ -1,5 +1,6 @@
-const path = require('path');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const path = require('path');
 const webpack = require('webpack');
 require('dotenv').config();
 
@@ -57,6 +58,11 @@ module.exports = {
     }),
     new webpack.DefinePlugin({
       'process.env.PUBLIC_URL': JSON.stringify(process.env.PUBLIC_URL),
+    }),
+    new CopyWebpackPlugin({
+      patterns: [
+        { from: 'public/pdf', to: 'pdf' },
+      ],
     }),
   ],
   mode: 'development'
