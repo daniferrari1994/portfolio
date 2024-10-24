@@ -14,21 +14,25 @@ import {
   SubTitle,
 } from './styled';
 import { useTranslation } from 'react-i18next';
-import { useLanguage } from '@/context/languageContext';
 import ExperienceStats from '../experienceStats/experienceStats';
 import image from '../../assets/profileImage/profilePicture.png';
 import personalData from '../../data/personalData.json'
+import i18next from 'i18next';
 
 const HomeComponent: React.FC = () => {
   const { t } = useTranslation();
-  const { isEnglish } = useLanguage();
 
   const handleDownload = () => {
-    console.log('idioma: ', isEnglish);
-    const pdfUrl = isEnglish ? '/pdf/cvDanFerrariEngOP.pdf' : '/pdf/cvDanFerrariEspOP.pdf';
+    const currentLanguage = i18next.language;
+    const pdfUrl = currentLanguage === 'en' 
+      ? '/pdf/cvDanFerrariEngOP.pdf' 
+      : '/pdf/cvDanFerrariEngOP.pdf';
+
     const link = document.createElement("a");
     link.href = pdfUrl;
-    link.download = "cvDanFerrari.pdf";
+    link.download = currentLanguage === 'en' 
+      ? "cvDanFerrariEngOP.pdf" 
+      : "cvDanFerrariEspOP.pdf";
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -61,7 +65,7 @@ const HomeComponent: React.FC = () => {
             {t('home.downloadCV')}
             <FontAwesomeIcon icon={faDownload}/>
           </Button>
-          <Link href="https://github.com/daniferrari1994" >
+          <Link href="https://github.com/daniferrari1994" target="_blank">
             <Button
               borderRadius="full"
               color="#5ad3bd"
@@ -77,7 +81,7 @@ const HomeComponent: React.FC = () => {
               />
             </Button>
           </Link>
-          <Link href="https://www.linkedin.com/in/dan-ferrari/" >
+          <Link href="https://www.linkedin.com/in/dan-ferrari/" target="_blank">
             <Button
               borderRadius="full"
               color="#5ad3bd"

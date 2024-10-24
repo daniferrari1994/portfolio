@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Button,Image } from '@chakra-ui/react';
 import { Link, useLocation } from 'react-router-dom';
 import {
@@ -13,7 +13,6 @@ import LanguageSwitcher from '../languageSwitcher';
 import logo from '../../assets/logoImage/logoTeal.png'
 
 const Menu = () => {
-  const [isEnglish, setIsEnglish] = useState(true);
   const location = useLocation();
 
   return (
