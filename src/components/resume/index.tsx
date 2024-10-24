@@ -9,15 +9,18 @@ import {
 } from './styled';
 import { useTranslation } from 'react-i18next';
 import DataContactList from './aboutMeList';
-import education from '../../data/education.json';
-import experience from '../../data/experience.json';
 import InfoCard from './infoCard';
 import SkillsSection from './skillsSection';
 import personalData from '../../data/personalData.json'
+import resumeData from '../../data/resume.json'
 
-const ResumeComponent = () => {
+const ResumeComponent: React.FC = () => {
+  const { i18n } = useTranslation();
   const { t } = useTranslation();
+  const currentLanguage = i18n.language as 'en' | 'es';
   const [selectedSection, setSelectedSection] = useState('Experience');
+  const experienceData = resumeData.resume.experience;
+  const educationData = resumeData.resume.education;
 
   const renderContent = () => {
     switch (selectedSection) {
@@ -31,12 +34,13 @@ const ResumeComponent = () => {
               {t('experience.description')}
             </Text>
             <Flex className="flex-scrollable" justifyContent="space-between" wrap="wrap">
-              {experience.data.map((item, index) => (
+              {experienceData.map(item => (
                 <InfoCard
                   date={item.date}
-                  key={index}
-                  location={item.workPlace}
-                  title={item.title}
+                  description={item.translations[currentLanguage].description}
+                  key={item.id}
+                  location={item.company}
+                  title={item.translations[currentLanguage].title}
                 />
               ))}
             </Flex>
@@ -52,12 +56,13 @@ const ResumeComponent = () => {
               {t('education.description')}
             </Text>
             <Flex wrap="wrap" className="flex-scrollable" justifyContent="space-between">
-              {education.data.map((item, index) => (
+              {educationData.map(item => (
                 <InfoCard
                   date={item.date}
-                  key={index}
+                  description={item.translations[currentLanguage].description}
+                  key={item.id}
                   location={item.institute}
-                  title={item.title}
+                  title={item.translations[currentLanguage].title}
                 />
               ))}
             </Flex>

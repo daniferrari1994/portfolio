@@ -4,7 +4,7 @@
       "id": "01",
       "image": "https://static.vecteezy.com/system/resources/thumbnails/037/347/356/small_2x/ai-generated-gear-wheel-abstract-background-gear-technology-digital-technology-and-engineering-background-photo.jpg",
       "codeUrl": "https://github.com/example/project-one",
-      "projectUrl": "https://example.com/project-one",
+      "url": "https://example.com/project-one",
       "technologies": ["React", "TypeScript", "Chakra UI"],
       "translations": {
         "en": {
@@ -21,7 +21,7 @@
       "id": "02",
       "image": "https://static.vecteezy.com/system/resources/thumbnails/035/484/819/small_2x/ai-generated-futuristic-blue-hexagon-background-science-illustration-hud-components-technology-concept-3d-landscape-big-data-future-abstract-background-photo.jpg",
       "codeUrl": "https://github.com/example/project-two",
-      "projectUrl": "https://example.com/project-two",
+      "url": "https://example.com/project-two",
       "technologies": ["JavaScript", "Styled Components", "Node.js"],
       "translations": {
         "en": {
@@ -38,7 +38,7 @@
       "id": "03",
       "image": "https://static.vecteezy.com/system/resources/thumbnails/027/857/270/small_2x/glowing-pulsating-graphic-lines-scientific-background-3d-rendering-photo.jpg",
       "codeUrl": "https://github.com/example/project-three",
-      "projectUrl": "https://example.com/project-three",
+      "url": "https://example.com/project-three",
       "technologies": ["React", "TypeScript", "Chakra UI"],
       "translations": {
         "en": {

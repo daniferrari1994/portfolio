@@ -4,10 +4,9 @@ import styled from '@emotion/styled';
 export const StyledInfoCard = styled(Box)`
   background-color: #303030c5;
   border-radius: 2%;
-  flex-basis: 48.5%;
-  height: 140px;
+  flex-basis: 100%;
   margin: 4px;
-  max-width: 50%;
+  max-width: 100%;
   padding: 25px 30px;
 
   .infoCard {

@@ -1,0 +1,42 @@
+{
+  "resume": {
+    "experience": [
+      {
+        "id": "01",
+        "company": "Tech Company",
+        "date": "0001 - 0002",
+        "url": "https://company.com",
+        "technologies": ["React", "TypeScript", "Chakra UI"],
+        "translations": {
+          "en": {
+            "title": "Title",
+            "description": ["item one", "item two", "item three"]
+          },
+          "es": {
+            "title": "Titulo",
+            "description": ["item uno", "item dos", "item tres"]
+          }
+        }
+      }
+    ],
+    "education": [
+      {
+        "id": "01",
+        "institute": "Institute",
+        "date": "0001 - 0002",
+        "url": "https://company.com",
+        "technologies": ["React", "TypeScript", "Chakra UI"],
+        "translations": {
+          "en": {
+            "title": "Title",
+            "description": ["item one", "item two", "item three"]
+          },
+          "es": {
+            "title": "Titulo",
+            "description": ["item uno", "item dos", "item tres"]
+          }
+        }
+      }
+    ]
+  }
+}

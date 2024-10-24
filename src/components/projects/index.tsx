@@ -106,7 +106,7 @@ const WorkProjects: React.FC = () => {
               >
                 <Link
                   as="a"
-                  href={currentProject.projectUrl}
+                  href={currentProject.url}
                   target="_blank"
                 >
                   <FontAwesomeIcon
