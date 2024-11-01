@@ -72,7 +72,7 @@ const HomeComponent: React.FC = () => {
               colorScheme="#333"
               padding={0}
               variant="outline"
-              _hover={{ bg: '#459c8c', color: '#333' }}
+              _hover={{ bg: '#1b3d37' }}
             >
               <FontAwesomeIcon
                 color="#5ad3bd"
@@ -88,7 +88,7 @@ const HomeComponent: React.FC = () => {
               colorScheme="#333"
               padding={0}
               variant="outline"
-              _hover={{ bg: '#459c8c', color: '#333' }}
+              _hover={{ bg: '#1b3d37' }}
               >
               <FontAwesomeIcon
                 color="#5ad3bd"

@@ -10,21 +10,25 @@
           "English": "English",
           "Spanish": "Spanish",
           "Argentina": "Argentinian"
-        }        
+        }
       },
-      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure fuga ducimus veniam et.",
+      "description": "I am passionate about web development and video games, with a strong curiosity to learn new technologies. My focus is on creating engaging and functional digital experiences, combining my technical skills with creativity. I strive to continuously improve and add value to every project I work on.",
       "title": "About me"
     },
     "contact": {
-      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure fuga ducimus veniam et.",
+      "description": "If you are looking for a dedicated frontend developer with diverse skills, I would love for us to get in touch.",
       "title": "Let's work together",
       "input": {
         "button": "Send message",
         "email": "Email address",
-        "lastname": "Lastname",
+        "lastname": "Last name",
         "message": "Type your message here",
         "name": "Name",
         "phone": "Phone number"
+      },
+      "feedback": {
+        "success": "Your message has been sent successfully!",
+        "error": "An error occurred while sending your message. Please try again later."
       }
     },
     "contactLabels": {
@@ -44,12 +48,12 @@
     },
     "education": {
       "button": "Education",
-      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure fuga ducimus veniam et.",
+      "description": "I have pursued a variety of courses ranging from web development and frontend technologies, learned through institutions and online platforms like Coderhouse, Udemy, and YouTube. Additionally, I studied game programming at Da Vinci, where I acquired skills in game design, virtual reality, artificial intelligence, and more.",
       "title": "My education"
     },
     "experience": {
       "button": "Experience",
-      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure fuga ducimus veniam et.",
+      "description": "I am a frontend developer at Interbanking, where I create effective and appealing web solutions. Previously, I worked in customer service, which allowed me to develop communication skills and a user-centered approach. My background includes numerous courses on technologies such as JavaScript, CSS3, React, and more.",
       "title": "My experience"
     },
     "home": {
@@ -65,12 +69,12 @@
       }
     },
     "resume": {
-      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure fuga ducimus veniam et.",
+      "description": "I stand out for my ability to learn quickly, my passion for web development, and my commitment to delivering quality results. Additionally, my customer service skills allow me to communicate effectively and understand the needs of the end user.",
       "title": "Why hire me?"
     },
     "skills": {
       "button": "Skills",
-      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure fuga ducimus veniam et.",
+      "description": "I am proficient in HTML, CSS3, JavaScript, and React, and I also have experience with Chakra UI, TypeScript, and the development of modern web applications. I have intermediate skills in graphic design with Photoshop and Illustrator.",
       "title": "My skills"
     },
     "validationErrors": {
@@ -105,11 +109,11 @@
           "Argentina": "Argentino"
         }
       },
-      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure fuga ducimus veniam et.",
+      "description": "Soy un apasionado del desarrollo web y de los videojuegos, con una gran curiosidad por aprender nuevas tecnologías. Mi enfoque es crear experiencias digitales atractivas y funcionales, combinando mis habilidades técnicas con mi creatividad. Me esfuerzo constantemente por mejorar y aportar valor a cada proyecto en el que trabajo.",
       "title": "Sobre mí"
     },
     "contact": {
-      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure fuga ducimus veniam et.",
+      "description": "Si estás buscando un desarrollador frontend dedicado y con habilidades diversas, me encantaría que nos pongamos en contacto.",
       "title": "Trabajemos juntos",
       "input": {
         "button": "Enviar mensaje",
@@ -118,6 +122,10 @@
         "message": "Escriba su mensaje aquí",
         "name": "Nombre",
         "phone": "Número de teléfono"
+      },
+      "feedback": {
+        "success": "¡Tu mensaje ha sido enviado con éxito!",
+        "error": "Ocurrió un error al enviar tu mensaje. Por favor, inténtalo de nuevo más tarde."
       }
     },
     "contactLabels": {
@@ -137,12 +145,12 @@
     },
     "education": {
       "button": "Educación",
-      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure fuga ducimus veniam et.",
+      "description": "He seguido una variedad de cursos que abarcan desde desarrollo web y tecnologías frontend, aprendidos a través de instituciones y plataformas en línea como Coderhouse, Udemy, YouTube. Además, estudié programación de videojuegos en Da Vinci, donde adquirí habilidades en diseño de juegos, realidad virtual, inteligencia artificial, y más.",
       "title": "Mi educación"
     },
     "experience": {
       "button": "Experiencia",
-      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure fuga ducimus veniam et.",
+      "description": "Soy desarrollador frontend en Interbanking, donde creo soluciones web efectivas y atractivas. Antes, trabajé en atención al cliente, lo que me permitió desarrollar habilidades comunicativas y un enfoque centrado en el usuario. Mi trayectoria incluye numerosos cursos sobre tecnologías como Javascript, CSS3, React, y más.",
       "title": "Mi experiencia"
     },
     "home": {
@@ -158,12 +166,12 @@
       }
     },
     "resume": {
-      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure fuga ducimus veniam et.",
+      "description": "Me destaco por mi capacidad para aprender rápidamente, mi pasión por el desarrollo web, ofrezco soluciones innovadoras y estoy comprometido con entregar resultados de calidad. Además, mis habilidades en atención al cliente me permiten comunicarme eficazmente y entender las necesidades del usuario final.",
       "title": "¿Por qué contratarme?"
     },
     "skills": {
       "button": "Habilidades",
-      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure fuga ducimus veniam et.",
+      "description": "Soy competente en HTML, CSS3, JavaScript, y React, y también tengo experiencia con Chakra UI, TypeScript, y el desarrollo de aplicaciones web modernas. Además, tengo habilidades intermedias en diseño gráfico con Photoshop e Illustrator.",
       "title": "Mis habilidades"
     },
     "validationErrors": {

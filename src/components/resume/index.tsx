@@ -30,17 +30,18 @@ const ResumeComponent: React.FC = () => {
             <Heading className="headingResume" size="lg">
               {t('experience.title')}
             </Heading>
-            <Text className="textResume">
+            <Text className="textResume" fontSize="14px">
               {t('experience.description')}
             </Text>
             <Flex className="flex-scrollable" justifyContent="space-between" wrap="wrap">
               {experienceData.map(item => (
                 <InfoCard
-                  date={item.date}
+                  date={item.translations[currentLanguage].date}
                   description={item.translations[currentLanguage].description}
                   key={item.id}
                   location={item.company}
                   title={item.translations[currentLanguage].title}
+                  url={item.url}
                 />
               ))}
             </Flex>
@@ -52,7 +53,7 @@ const ResumeComponent: React.FC = () => {
             <Heading size="lg" className="headingResume">
               {t('education.title')}
             </Heading>
-            <Text className="textResume">
+            <Text className="textResume" fontSize="14px">
               {t('education.description')}
             </Text>
             <Flex wrap="wrap" className="flex-scrollable" justifyContent="space-between">
@@ -63,6 +64,7 @@ const ResumeComponent: React.FC = () => {
                   key={item.id}
                   location={item.institute}
                   title={item.translations[currentLanguage].title}
+                  url={item.url}
                 />
               ))}
             </Flex>
@@ -74,7 +76,7 @@ const ResumeComponent: React.FC = () => {
             <Heading size="lg" className="headingResume">
               {t('skills.title')}
             </Heading>
-            <Text className="textResume">
+            <Text className="textResume" fontSize="14px">
               {t('skills.description')}
             </Text>
             <Separator my={5} size="md" />
@@ -87,7 +89,7 @@ const ResumeComponent: React.FC = () => {
             <Heading size="lg" className="headingResume">
               {t('aboutMe.title')}
             </Heading>
-            <Text className="textResume">
+            <Text className="textResume" fontSize="14px">
               {t('aboutMe.description')}
             </Text>
             <Separator my={5} size="md" />
@@ -106,7 +108,7 @@ const ResumeComponent: React.FC = () => {
           <Heading size="2xl" className="headingResume">
             {t('resume.title')}
           </Heading>
-          <Text className="textResume">
+          <Text className="textResume" fontSize="14px">
             {t('resume.description')}
           </Text>
           {['Experience', 'Education', 'Skills', 'About me'].map(section => {

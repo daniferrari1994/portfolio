@@ -1,117 +1,46 @@
-import React, { useState } from 'react';
-import { Fieldset, Input, Textarea } from '@chakra-ui/react';
-import { Field } from "@/components/ui/field"
-import { useTranslation } from 'react-i18next';
+import React from 'react';
+import { Box, Input, Text } from '@chakra-ui/react';
+import { FieldError, UseFormRegisterReturn } from "react-hook-form";
 
-interface CustomInputFieldProps {
-  errorMessage?: string;
-  id: string;
-  isTextArea?: boolean;
+interface FormInputProps {
   placeholder: string;
-  type?: string;
-  validate?: (value: string, t: (key: string) => string) => string | null;
+  register: UseFormRegisterReturn;
+  error?: FieldError;
+  errorMessage: string;
+  maxLength?: number;
+  styles?: React.CSSProperties;
 }
 
-const CustomInputField: React.FC<CustomInputFieldProps> = ({ 
-  id,
-  placeholder,
-  type = 'text',
-  isTextArea = false,
-  validate,
-}) => {
-  const [value, setValue] = useState('');
-  const [errorMessage, setErrorMessage] = useState<string | null>(null);
-  const { t } = useTranslation();
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setValue(e.target.value);
-  };
-
-  const handleBlur = () => {
-    let formattedValue = value.trim();
-
-    if (id === 'phone' || id === 'email') {
-      formattedValue = formattedValue.replace(/\s+/g, '');
-    } else {
-      formattedValue = formattedValue.replace(/\s{2,}/g, ' ');
+const FormInput: React.FC<FormInputProps> = ({ placeholder, register, error, errorMessage, maxLength, styles }) => (
+  <Box
+    fontFamily="'Roboto Mono', monospace"
+  >
+    <Input
+      bg="#1d1d1d"
+      borderRadius="6px"
+      color="#459c8c"
+      maxLength={maxLength}
+      placeholder={placeholder}
+      style={styles}
+      w="480px"
+      _focusVisible={{
+        outline: 'solid 1px #459c8c !important',
+        borderColor: "#459c8c"
+      }}
+      _placeholder={{ color: '#ffffffea', fontWeight: 300 }}
+      {...register}
+    />
+    {error && 
+      <Text 
+        color="#E53E3E" 
+        display={errorMessage ? 'block' : 'none'}
+        fontSize="14px" 
+        m="2px 8px"
+        >
+        {errorMessage}
+      </Text>
     }
-    
-    setValue(formattedValue);
+  </Box>
+);
 
-    if (validate) {
-      const error = validate(formattedValue, t)
-      setErrorMessage(error);
-    }
-  };
-
-  return (
-    <Fieldset.Root
-      fontFamily="'Roboto Mono', monospace"
-      id={id}
-      size="lg"
-      >
-      {isTextArea ? (
-        <Field 
-          invalid={!!errorMessage}
-          errorText={errorMessage}
-          >
-          <Textarea
-            bg="#1d1d1d"
-            borderRadius="6px"
-            color="#ffffffea"
-            onBlur={handleBlur}
-            onChange={handleChange}
-            placeholder={placeholder}
-            required
-            resize="none"
-            size="xl"
-            _focusVisible={{
-              outline: 'solid 1px #459c8c !important',
-              borderColor: "#459c8c"
-            }}
-            _placeholder={{ 
-              color: '#ffffffea', 
-              fontWeight: 300, 
-              fontSize: 'sm' 
-            }}
-          />
-          <Fieldset.ErrorText color="#E53E3E" fontSize="14px" mt="2px" display={errorMessage ? 'block' : 'none'}>
-            {errorMessage}
-          </Fieldset.ErrorText>
-        </Field>
-      ) : (
-        <Field 
-          invalid={!!errorMessage}
-          errorText={errorMessage}
-          >
-          <Input
-            bg="#1d1d1d"
-            borderRadius="6px"
-            color="#459c8c"
-            onBlur={handleBlur}
-            onChange={handleChange}
-            placeholder={placeholder}
-            required
-            type={type}
-            value={value}
-            _focusVisible={{
-              outline: 'solid 1px #459c8c !important',
-              borderColor: "#459c8c"
-            }}
-            _placeholder={{ color: '#ffffffea', fontWeight: 300 }}
-          />
-          <Fieldset.ErrorText 
-            color="#E53E3E" 
-            display={errorMessage ? 'block' : 'none'}
-            fontSize="14px" 
-            mt="2px"
-            >
-            {errorMessage}
-          </Fieldset.ErrorText>
-        </Field>
-      )}
-    </Fieldset.Root>
-  );
-};
-
-export default CustomInputField;
+export default FormInput;

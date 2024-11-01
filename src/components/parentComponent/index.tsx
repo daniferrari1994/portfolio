@@ -1,7 +1,7 @@
 import React from 'react';
 import { Box } from '@chakra-ui/react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import ContactComponent from '../contact';
+import ContactComponent from '../contact/index';
 import HomeComponent from '../home';
 import Menu from '../menu';
 import ProjectsComponent from '../projects';
