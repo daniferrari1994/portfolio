@@ -35,6 +35,10 @@ const ContactComponent: React.FC = () => {
 
   const { validateEmail, validateNameOrSurname, validatePhone, validateTextAreaNotEmpty } = useFormValidation();
 
+  const handleTrimAndReplaceSpaces = (value: string) => {
+    return value.trim().replace(/\s{2,}/g, ' ');
+  };
+
   const onSubmit: SubmitHandler<Inputs> = formData => {
     setIsLoading(true);
     emailjs.send('service_o1b6fuo', 'template_2oqsezt', {
@@ -45,7 +49,7 @@ const ContactComponent: React.FC = () => {
       message: formData.textarea
     }, '0bWIr1jUN6IgRa1N6')
       .then(response => {
-        console.log('Email sent successfully!', response.status, response.text);
+        console.log(response.status, response.text);
         setSuccessMessage(t('contact.feedback.success'));
         reset();
         setIsLoading(false);
@@ -53,7 +57,7 @@ const ContactComponent: React.FC = () => {
           setSuccessMessage(null);
         }, 7000);
       }, error => {
-        console.log('Failed to send email. Error:', error);
+        console.log(error);
         setErrorMessage(t('contact.feedback.error'));
         setIsLoading(false);
         setTimeout(() => {
@@ -90,28 +94,41 @@ const ContactComponent: React.FC = () => {
           <form onSubmit={handleSubmit(onSubmit)}>
             <FormInput
               placeholder={t('contact.input.name')}
-              register={register("firstName", { validate: validateNameOrSurname })}
+              register={register("firstName", { 
+                onBlur: e => e.target.value = handleTrimAndReplaceSpaces(e.target.value),
+                validate: validateNameOrSurname
+              })}
               error={errors.firstName}
               errorMessage={t('validationErrors.nameOrSurname.invalid')}
               maxLength={50}
+              
             />
             <FormInput
               placeholder={t('contact.input.lastname')}
-              register={register("lastName", { validate: validateNameOrSurname })}
+              register={register("lastName", { 
+                onBlur: e => e.target.value = handleTrimAndReplaceSpaces(e.target.value),
+                validate: validateNameOrSurname
+              })}
               error={errors.lastName}
               errorMessage={t('validationErrors.nameOrSurname.invalid')}
               maxLength={50}
             />
             <FormInput
               placeholder={t('contact.input.phone')}
-              register={register("phoneNumber", { validate: validatePhone })}
+              register={register("phoneNumber", { 
+                onBlur: e => e.target.value = handleTrimAndReplaceSpaces(e.target.value),
+                validate: validatePhone
+              })}
               error={errors.phoneNumber}
               errorMessage={t('validationErrors.phone.invalid')}
               maxLength={15}
             />
             <FormInput
               placeholder={t('contact.input.email')}
-              register={register("email", { validate: validateEmail })}
+              register={register("email", { 
+                onBlur: e => e.target.value = handleTrimAndReplaceSpaces(e.target.value),
+                validate: validateEmail
+              })}
               error={errors.email}
               errorMessage={t('validationErrors.email.invalid')}
               maxLength={50}
@@ -137,6 +154,7 @@ const ContactComponent: React.FC = () => {
               }}
               {...register("textarea", {
                 validate: validateTextAreaNotEmpty,
+                onBlur: e => e.target.value = handleTrimAndReplaceSpaces(e.target.value),
                 onChange: (e) => setCharCount(e.target.value.length)
               })}
             />

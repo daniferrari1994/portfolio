@@ -24,30 +24,33 @@ const useFormValidation = () => {
   };
 
   const validateNameOrSurname = (value: string): string | true => {
+    const trimmedValue = value.trim().replace(/\s{2,}/g, ' '); // Elimina espacios consecutivos y recorta
     const regex = /^[a-zA-ZÀ-ÿ., ]+$/;
 
-    if (!/[A-Za-zÀ-ÿ]/.test(value)) {
+    if (!/[A-Za-zÀ-ÿ]/.test(trimmedValue)) {
       return t('validationErrors.nameOrSurname.invalid');
     }
 
-    if (value.length < 2 || value.length > 50) {
+    if (trimmedValue.length < 2 || trimmedValue.length > 50) {
       return t('validationErrors.nameOrSurname.length');
     }
 
-    return regex.test(value) ? true : t('validationErrors.nameOrSurname.invalid');
+    return regex.test(trimmedValue) ? true : t('validationErrors.nameOrSurname.invalid');
   };
 
   const validatePhone = (value: string): string | true => {
+    const trimmedValue = value.trim().replace(/\s{2,}/g, ''); // Elimina espacios consecutivos y recorta
     const phoneRegex = /^[\d+]+$/;
 
-    if (!/[0-9]/.test(value)) {
+    if (!/[0-9]/.test(trimmedValue)) {
       return t('validationErrors.phone.invalid');
     }
 
-    if (value.length < 3 || value.length > 15) {
+    if (trimmedValue.length < 3 || trimmedValue.length > 15) {
       return t('validationErrors.phone.length');
     }
-    return phoneRegex.test(value) ? true : t('validationErrors.phone.invalid');
+
+    return phoneRegex.test(trimmedValue) ? true : t('validationErrors.phone.invalid');
   };
 
   const validateTextAreaNotEmpty = (value: string): string | true => {
@@ -61,7 +64,7 @@ const useFormValidation = () => {
     validateEmail,
     validateNameOrSurname,
     validatePhone,
-    validateTextAreaNotEmpty
+    validateTextAreaNotEmpty,
   };
 };
 
