@@ -17,76 +17,57 @@ type Inputs = {
   textarea: string;
 }
 
+type Message = {
+  text: string;
+  type: 'error' | 'success';
+};
+
 const ContactComponent: React.FC = () => {
   const [charCount, setCharCount] = useState(0);
-  const [successMessage, setSuccessMessage] = useState<string | null>(null);
-  const [errorMessage, setErrorMessage] = useState<string | null>(null);
+  const [message, setMessage] = useState<Message | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const maxLength = 1000;
   const { t } = useTranslation();
-  const {
-    register,
-    handleSubmit,
-    formState: { errors, isValid },
-    reset,
-  } = useForm<Inputs>({
-    mode: 'onBlur'
-  });
 
+  const { register, handleSubmit, formState: { errors, isValid }, reset } = useForm<Inputs>({ mode: 'onBlur' });
   const { validateEmail, validateNameOrSurname, validatePhone, validateTextAreaNotEmpty } = useFormValidation();
 
-  const handleTrimAndReplaceSpaces = (value: string) => {
-    return value.trim().replace(/\s{2,}/g, ' ');
+  const handleTrimAndReplaceSpaces = (value: string) => value.trim().replace(/\s{2,}/g, ' ');
+
+  const onSubmit: SubmitHandler<Inputs> = async (formData) => {
+    setIsLoading(true);
+    try {
+      await emailjs.send('service_o1b6fuo', 'template_2oqsezt', {
+        firstName: formData.firstName,
+        lastName: formData.lastName,
+        email: formData.email,
+        phoneNumber: formData.phoneNumber,
+        message: formData.textarea
+      }, '0bWIr1jUN6IgRa1N6');
+
+      setMessage({ text: t('contact.feedback.success'), type: 'success' });
+      reset();
+    } catch (error) {
+      console.error(error);
+      setMessage({ text: t('contact.feedback.error'), type: 'error' });
+    } finally {
+      setIsLoading(false);
+      setTimeout(() => setMessage(null), 7000);
+    }
   };
 
-  const onSubmit: SubmitHandler<Inputs> = formData => {
-    setIsLoading(true);
-    emailjs.send('service_o1b6fuo', 'template_2oqsezt', {
-      firstName: formData.firstName,
-      lastName: formData.lastName,
-      email: formData.email,
-      phoneNumber: formData.phoneNumber,
-      message: formData.textarea
-    }, '0bWIr1jUN6IgRa1N6')
-      .then(response => {
-        console.log(response.status, response.text);
-        setSuccessMessage(t('contact.feedback.success'));
-        reset();
-        setIsLoading(false);
-        setTimeout(() => {
-          setSuccessMessage(null);
-        }, 7000);
-      }, error => {
-        console.log(error);
-        setErrorMessage(t('contact.feedback.error'));
-        setIsLoading(false);
-        setTimeout(() => {
-          setErrorMessage(null);
-        }, 7000);
-      });
+  const handleInputBlur = (e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    e.target.value = handleTrimAndReplaceSpaces(e.target.value);
   };
 
   return (
     <ContactFormContainer>
       <ContactForm>
         <Flex direction="column">
-          <Heading
-            as="h2"
-            color="#5ad3bd"
-            fontFamily="'Roboto Mono', monospace"
-            fontWeight="400"
-            mb={4}
-            size="lg"
-          >
+          <Heading as="h2" color="#5ad3bd" fontFamily="'Roboto Mono', monospace" fontWeight="400" mb={4} size="lg">
             {t('contact.title')}
           </Heading>
-          <Text
-            mb={6}
-            color="#ffffffea"
-            fontFamily="'Roboto Mono', monospace"
-            fontSize="sm"
-            fontWeight="300"
-          >
+          <Text mb={6} color="#ffffffea" fontFamily="'Roboto Mono', monospace" fontSize="sm" fontWeight="300">
             {t('contact.description')}
           </Text>
         </Flex>
@@ -94,41 +75,28 @@ const ContactComponent: React.FC = () => {
           <form onSubmit={handleSubmit(onSubmit)}>
             <FormInput
               placeholder={t('contact.input.name')}
-              register={register("firstName", { 
-                onBlur: e => e.target.value = handleTrimAndReplaceSpaces(e.target.value),
-                validate: validateNameOrSurname
-              })}
+              register={register("firstName", { onBlur: handleInputBlur, validate: validateNameOrSurname })}
               error={errors.firstName}
               errorMessage={t('validationErrors.nameOrSurname.invalid')}
               maxLength={50}
-              
             />
             <FormInput
               placeholder={t('contact.input.lastname')}
-              register={register("lastName", { 
-                onBlur: e => e.target.value = handleTrimAndReplaceSpaces(e.target.value),
-                validate: validateNameOrSurname
-              })}
+              register={register("lastName", { onBlur: handleInputBlur, validate: validateNameOrSurname })}
               error={errors.lastName}
               errorMessage={t('validationErrors.nameOrSurname.invalid')}
               maxLength={50}
             />
             <FormInput
               placeholder={t('contact.input.phone')}
-              register={register("phoneNumber", { 
-                onBlur: e => e.target.value = handleTrimAndReplaceSpaces(e.target.value),
-                validate: validatePhone
-              })}
+              register={register("phoneNumber", { onBlur: handleInputBlur, validate: validatePhone })}
               error={errors.phoneNumber}
               errorMessage={t('validationErrors.phone.invalid')}
               maxLength={15}
             />
             <FormInput
               placeholder={t('contact.input.email')}
-              register={register("email", { 
-                onBlur: e => e.target.value = handleTrimAndReplaceSpaces(e.target.value),
-                validate: validateEmail
-              })}
+              register={register("email", { onBlur: handleInputBlur, validate: validateEmail })}
               error={errors.email}
               errorMessage={t('validationErrors.email.invalid')}
               maxLength={50}
@@ -143,18 +111,11 @@ const ContactComponent: React.FC = () => {
               required
               resize="none"
               size="xl"
-              _focusVisible={{
-                outline: 'solid 1px #459c8c !important',
-                borderColor: "#459c8c"
-              }}
-              _placeholder={{
-                color: '#ffffffea',
-                fontWeight: 300,
-                fontSize: 'sm'
-              }}
+              _focusVisible={{ outline: 'solid 1px #459c8c !important', borderColor: "#459c8c" }}
+              _placeholder={{ color: '#ffffffea', fontWeight: 300, fontSize: 'sm' }}
               {...register("textarea", {
                 validate: validateTextAreaNotEmpty,
-                onBlur: e => e.target.value = handleTrimAndReplaceSpaces(e.target.value),
+                onBlur: handleInputBlur,
                 onChange: (e) => setCharCount(e.target.value.length)
               })}
             />
@@ -178,20 +139,11 @@ const ContactComponent: React.FC = () => {
               variant="outline"
               _hover={{ bg: '#459c8c', color: '#333' }}
             >
-              {isLoading ? (
-                <Spinner size="sm" mr={2} />
-              ) : (
-                t('contact.input.button')
-              )}
+              {isLoading ? <Spinner size="sm" mr={2} /> : t('contact.input.button')}
             </Button>
-            {successMessage && (
-              <Text color="green.500" fontSize="sm" ml={4}>
-                {successMessage}
-              </Text>
-            )}
-            {errorMessage && (
-              <Text color="red.500" fontSize="sm" ml={4}>
-                {errorMessage}
+            {message && (
+              <Text color={message.type === 'success' ? 'green.500' : 'red.500'} fontSize="sm" ml={4}>
+                {message.text}
               </Text>
             )}
           </form>

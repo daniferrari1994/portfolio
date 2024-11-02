@@ -3,7 +3,7 @@ import { Flex, Text } from '@chakra-ui/react';
 import { useTranslation } from 'react-i18next';
 
 interface IDataContactList {
-  data: Record<string, any>;
+  data: Record<string, string | string[]>;
 }
 
 const DataContactList: React.FC<IDataContactList> = ({ data }) => {

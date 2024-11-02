@@ -10,40 +10,37 @@ interface ICounter {
   titleTop: string;
 }
 
-const Counter: React.FC<ICounter> = ({ duration = 2000, targetNumber, titleBottom, titleTop }) => {
+const Counter: React.FC<ICounter> = ({
+  duration = 2000,
+  targetNumber,
+  titleBottom,
+  titleTop,
+}) => {
   const [count, setCount] = useState(0);
-
+  const increment = targetNumber / (duration / 50);
 
   useEffect(() => {
     let start = 0;
-    const increment = targetNumber / (duration / 50);
-
     const interval = setInterval(() => {
       start += increment;
       if (start >= targetNumber) {
         clearInterval(interval);
         setCount(targetNumber);
       } else {
-        setCount(Math.ceil(start));
+        setCount(Math.floor(start));
       }
     }, 50);
 
     return () => clearInterval(interval);
-  }, [targetNumber, duration]);
+  }, [increment, targetNumber]);
 
   return (
     <CounterWrapper>
-      <NumberText fontSize='5xl'>
-        {count}
-      </NumberText>
+      <NumberText fontSize='5xl'>{count}</NumberText>
       <Flex alignItems="center" direction="column" mx={6}>
         <TitleBox lineHeight="1.2" textAlign="start">
-          <Text color='#ffffffea' fontSize="lg">
-            {titleTop}
-          </Text>
-          <Text color='#ffffffea' fontSize="lg">
-            {titleBottom}
-          </Text>
+          <Text color='#ffffffea' fontSize="lg">{titleTop}</Text>
+          <Text color='#ffffffea' fontSize="lg">{titleBottom}</Text>
         </TitleBox>
       </Flex>
     </CounterWrapper>
@@ -52,7 +49,7 @@ const Counter: React.FC<ICounter> = ({ duration = 2000, targetNumber, titleBotto
 
 const ExperienceStats: React.FC = () => {
   const { t } = useTranslation();
-  
+
   const countersData = [
     { targetNumber: 4, titleBottom: t('counters.experience'), titleTop: t('counters.yearsOfExperience') },
     { targetNumber: 4, titleBottom: t('counters.completed'), titleTop: t('counters.projects') },

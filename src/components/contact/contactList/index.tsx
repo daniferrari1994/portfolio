@@ -12,30 +12,26 @@ interface IContactList {
   };
 }
 
+const iconMap: Record<string, React.ReactElement> = {
+  phone: <FontAwesomeIcon color="#5ad3bd" icon={faPhone} size="xl" />,
+  email: <FontAwesomeIcon color="#5ad3bd" icon={faEnvelope} size="xl" />,
+  address: <FontAwesomeIcon color="#5ad3bd" icon={faLocationDot} size="xl" />,
+};
+
 const ContactList: React.FC<IContactList> = ({ data }) => {
   const { t } = useTranslation();
   const entries = Object.entries(data);
 
-  const generateIcon = (icon: any) => (
-    <FontAwesomeIcon color="#5ad3bd" icon={icon} size="xl" />
-  );
-
-  const iconMap: Record<string, React.ReactElement> = {
-    phone: generateIcon(faPhone),
-    email: generateIcon(faEnvelope),
-    address: generateIcon(faLocationDot),
-  };
-
   return (
     <Flex direction="column">
-      {entries.map(([key, value], index) => (
+      {entries.map(([key, value]) => (
         <Flex
           alignItems="center"
           direction="row"
-          key={index}
+          key={key}
           my="8px"
         >
-          <Box 
+          <Box
             alignContent="center"
             bg="#3333336e"
             borderRadius="6px"
@@ -43,9 +39,9 @@ const ContactList: React.FC<IContactList> = ({ data }) => {
             textAlign="center"
             w="60px"
           >
-            {iconMap[key] && iconMap[key]}
+            {iconMap[key]}
           </Box>
-          <Flex key={index} direction="column" mx="12px">
+          <Flex direction="column" mx="12px">
             <Text
               className="aboutMe-data"
               color="#909dad"

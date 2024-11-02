@@ -9,7 +9,6 @@ export const ContactForm = styled(Box)`
   justify-content: center;
   max-width: 580px;
   padding: 20px 50px 60px;
-  width: fit-content;
 `;
 
 export const ContactFormContainer = styled(Box)`

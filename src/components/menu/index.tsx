@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button,Image } from '@chakra-ui/react';
+import { Button, Image } from '@chakra-ui/react';
 import { Link, useLocation } from 'react-router-dom';
 import {
   Logo,
@@ -10,39 +10,33 @@ import {
   StyledLink,
 } from './styled';
 import LanguageSwitcher from '../languageSwitcher';
-import logo from '../../assets/logoImage/logoTeal.png'
+import logo from '../../assets/logoImage/logoTeal.png';
 
-const Menu = () => {
+const Menu: React.FC = () => {
   const location = useLocation();
+
+  const menuItems = [
+    { path: "/", label: "Home" },
+    { path: "/resume", label: "Resume" },
+    { path: "/projects", label: "Work" },
+  ];
 
   return (
     <MenuContainer id="MenuContainer">
       <Logo className="Logo">
-        <Image alt={logo} h="60px" src={logo} />
+        <Image alt="Logo" h="60px" src={logo} />
       </Logo>
       <MenuItemsContainer>
-      <MenuOptionContainer className="SideMenuOption">
-          <MenuOption className="MenuOption">
-            <Link to="/">
-              <StyledLink isActive={location.pathname === "/"}>
-                Home
-              </StyledLink>
-            </Link>
-          </MenuOption>
-          <MenuOption className="MenuOption">
-            <Link to="/resume">
-              <StyledLink isActive={location.pathname === "/resume"}>
-                Resume
-              </StyledLink>
-            </Link>
-          </MenuOption>
-          <MenuOption className="MenuOption">
-            <Link to="/projects">
-              <StyledLink isActive={location.pathname === "/projects"}>
-                Work
-              </StyledLink>
-            </Link>
-          </MenuOption>
+        <MenuOptionContainer className="SideMenuOption">
+          {menuItems.map(({ path, label }) => (
+            <MenuOption key={path} className="MenuOption">
+              <Link to={path}>
+                <StyledLink isActive={location.pathname === path} aria-label={label}>
+                  {label}
+                </StyledLink>
+              </Link>
+            </MenuOption>
+          ))}
           <MenuOption className="MenuOption">
             <Link to="/contact">
               <Button className="textLinkButton" variant="solid">
@@ -57,7 +51,6 @@ const Menu = () => {
       </MenuItemsContainer>
     </MenuContainer>
   );
-}
-
+};
 
 export default Menu;

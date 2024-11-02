@@ -10,7 +10,7 @@ import {
   Stack,
   Text
 } from '@chakra-ui/react';
-import { Tooltip } from "@/components/ui/tooltip"
+import { Tooltip } from "@/components/ui/tooltip";
 import { faAngleLeft, faAngleRight, faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -26,24 +26,19 @@ import {
 } from './styled';
 
 const WorkProjects: React.FC = () => {
-  const { i18n } = useTranslation();
-  const { t } = useTranslation();
+  const { i18n, t } = useTranslation();
   const [currentProjectIndex, setCurrentProjectIndex] = useState(0);
 
   const currentLanguage = i18n.language as Language;
-  const currentProject: IProject = projectsData.projects[currentProjectIndex];
-  const currentTranslation = currentProject.translations[currentLanguage];
+  const { id, translations, technologies, url, codeUrl, image }: IProject = projectsData.projects[currentProjectIndex];
+  const currentTranslation = translations[currentLanguage];
 
   const handleNextProject = () => {
-    setCurrentProjectIndex(prevIndex =>
-      prevIndex === projectsData.projects.length - 1 ? 0 : prevIndex + 1
-    );
+    setCurrentProjectIndex((prevIndex) => (prevIndex + 1) % projectsData.projects.length);
   };
 
   const handlePrevProject = () => {
-    setCurrentProjectIndex(prevIndex =>
-      prevIndex === 0 ? projectsData.projects.length - 1 : prevIndex - 1
-    );
+    setCurrentProjectIndex((prevIndex) => (prevIndex - 1 + projectsData.projects.length) % projectsData.projects.length);
   };
 
   return (
@@ -58,7 +53,7 @@ const WorkProjects: React.FC = () => {
               mb="4"
               size="6xl"
             >
-              {currentProject.id}
+              {id}
             </Heading>
             <Heading
               color="#ffffffea"
@@ -80,7 +75,7 @@ const WorkProjects: React.FC = () => {
               {currentTranslation.description}
             </Text>
             <Stack flexDirection="row">
-              {currentProject.technologies.map((tech, index) => (
+              {technologies.map((tech, index) => (
                 <Text
                   color="#5ad3bd"
                   fontFamily="'Roboto Mono', monospace"
@@ -103,17 +98,10 @@ const WorkProjects: React.FC = () => {
                 colorScheme="#333"
                 mr="4"
                 padding={0}
+                aria-label={t('projects.tooltip.livePage')}
               >
-                <Link
-                  as="a"
-                  href={currentProject.url}
-                  target="_blank"
-                >
-                  <FontAwesomeIcon
-                    color="#ffffffea"
-                    icon={faArrowRight}
-                    size="lg"
-                  />
+                <Link href={url} target="_blank">
+                  <FontAwesomeIcon color="#ffffffea" icon={faArrowRight} size="lg" />
                 </Link>
               </Button>
             </Tooltip>
@@ -125,17 +113,10 @@ const WorkProjects: React.FC = () => {
                 colorScheme="#333"
                 mr="4"
                 padding={0}
-                >
-                <Link
-                  as="a"
-                  href={currentProject.codeUrl}
-                  target="_blank"
-                  >
-                  <FontAwesomeIcon
-                    color="#ffffffea"
-                    icon={faGithub}
-                    size="lg"
-                    />
+                aria-label={t('projects.tooltip.github')}
+              >
+                <Link href={codeUrl} target="_blank">
+                  <FontAwesomeIcon color="#ffffffea" icon={faGithub} size="lg" />
                 </Link>
               </Button>
             </Tooltip>
@@ -147,7 +128,7 @@ const WorkProjects: React.FC = () => {
             h="400px"
             m="28px 28px 28px 0"
             objectFit="cover"
-            src={currentProject.image}
+            src={image}
             w="600px"
           />
           <Flex alignSelf="flex-end">
@@ -157,12 +138,9 @@ const WorkProjects: React.FC = () => {
               colorScheme="#333"
               onClick={handlePrevProject}
               size="sm"
+              aria-label="Previous project"
             >
-              <FontAwesomeIcon
-                color="#333"
-                icon={faAngleLeft}
-                size="sm"
-              />
+              <FontAwesomeIcon color="#333" icon={faAngleLeft} size="sm" />
             </StyledButton>
             <StyledButton
               bg="#5ad3bd"
@@ -170,12 +148,9 @@ const WorkProjects: React.FC = () => {
               colorScheme="#333"
               onClick={handleNextProject}
               size="sm"
+              aria-label="Next project"
             >
-              <FontAwesomeIcon
-                color="#333"
-                icon={faAngleRight}
-                size="sm"
-              />
+              <FontAwesomeIcon color="#333" icon={faAngleRight} size="sm" />
             </StyledButton>
           </Flex>
         </ProjectImageColumn>
