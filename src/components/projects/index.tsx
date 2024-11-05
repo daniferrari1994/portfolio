@@ -34,11 +34,11 @@ const WorkProjects: React.FC = () => {
   const currentTranslation = translations[currentLanguage];
 
   const handleNextProject = () => {
-    setCurrentProjectIndex((prevIndex) => (prevIndex + 1) % projectsData.projects.length);
+    setCurrentProjectIndex(prevIndex => (prevIndex + 1) % projectsData.projects.length);
   };
 
   const handlePrevProject = () => {
-    setCurrentProjectIndex((prevIndex) => (prevIndex - 1 + projectsData.projects.length) % projectsData.projects.length);
+    setCurrentProjectIndex(prevIndex => (prevIndex - 1 + projectsData.projects.length) % projectsData.projects.length);
   };
 
   return (

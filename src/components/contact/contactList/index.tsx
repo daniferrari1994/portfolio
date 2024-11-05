@@ -23,10 +23,11 @@ const ContactList: React.FC<IContactList> = ({ data }) => {
   const entries = Object.entries(data);
 
   return (
-    <Flex direction="column">
+    <Flex data-testid="flex-container" direction="column">
       {entries.map(([key, value]) => (
         <Flex
           alignItems="center"
+          data-testid="aboutMe-container"
           direction="row"
           key={key}
           my="8px"
@@ -35,6 +36,7 @@ const ContactList: React.FC<IContactList> = ({ data }) => {
             alignContent="center"
             bg="#3333336e"
             borderRadius="6px"
+            data-testid="box-container"
             h="60px"
             textAlign="center"
             w="60px"
@@ -45,6 +47,7 @@ const ContactList: React.FC<IContactList> = ({ data }) => {
             <Text
               className="aboutMe-data"
               color="#909dad"
+              data-testid="aboutMe-data"
               display="inline"
               fontSize="md"
               fontWeight="bold"
@@ -54,6 +57,7 @@ const ContactList: React.FC<IContactList> = ({ data }) => {
             <Text
               className="aboutMe-text"
               color="#ffffffea"
+              data-testid="aboutMe-text"
               display="inline"
               fontSize="md"
             >

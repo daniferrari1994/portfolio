@@ -15,10 +15,11 @@
     "noEmit": false,
     "jsx": "react",
     "outDir": "./dist",
+    "types": ["jest", "node"],
     "paths": {
       "@/*": ["./src/*"]
     }
   },
-  "include": ["src"],
+  "include": ["src", "jest.config.ts"],
   "exclude": ["node_modules", "dist"]
 }

@@ -24,7 +24,7 @@ const useFormValidation = () => {
   };
 
   const validateNameOrSurname = (value: string): string | true => {
-    const trimmedValue = value.trim().replace(/\s{2,}/g, ' '); // Elimina espacios consecutivos y recorta
+    const trimmedValue = value.trim().replace(/\s{2,}/g, ' ');
     const regex = /^[a-zA-ZÀ-ÿ., ]+$/;
 
     if (!/[A-Za-zÀ-ÿ]/.test(trimmedValue)) {
@@ -39,7 +39,7 @@ const useFormValidation = () => {
   };
 
   const validatePhone = (value: string): string | true => {
-    const trimmedValue = value.trim().replace(/\s{2,}/g, ''); // Elimina espacios consecutivos y recorta
+    const trimmedValue = value.trim().replace(/\s{2,}/g, '');
     const phoneRegex = /^[\d+]+$/;
 
     if (!/[0-9]/.test(trimmedValue)) {

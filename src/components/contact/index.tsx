@@ -8,6 +8,7 @@ import personalData from '../../data/personalData.json';
 import emailjs from '@emailjs/browser';
 import useFormValidation from '@/utils/validations';
 import { useTranslation } from 'react-i18next';
+import i18n from '@/i18n';
 
 type Inputs = {
   firstName: string;
@@ -34,17 +35,21 @@ const ContactComponent: React.FC = () => {
 
   const handleTrimAndReplaceSpaces = (value: string) => value.trim().replace(/\s{2,}/g, ' ');
 
-  const onSubmit: SubmitHandler<Inputs> = async (formData) => {
+  const onSubmit: SubmitHandler<Inputs> = async formData => {
     setIsLoading(true);
     try {
-      await emailjs.send('service_o1b6fuo', 'template_2oqsezt', {
+      const language = i18n.language;
+      
+      const templateId = language === 'en' ? 'template_9qrrjvn' : 'template_2oqsezt';
+      
+      await emailjs.send('service_o1b6fuo', templateId, {
         firstName: formData.firstName,
         lastName: formData.lastName,
         email: formData.email,
         phoneNumber: formData.phoneNumber,
         message: formData.textarea
       }, '0bWIr1jUN6IgRa1N6');
-
+  
       setMessage({ text: t('contact.feedback.success'), type: 'success' });
       reset();
     } catch (error) {
@@ -116,7 +121,7 @@ const ContactComponent: React.FC = () => {
               {...register("textarea", {
                 validate: validateTextAreaNotEmpty,
                 onBlur: handleInputBlur,
-                onChange: (e) => setCharCount(e.target.value.length)
+                onChange: e => setCharCount(e.target.value.length)
               })}
             />
             <Flex justify="space-between" align="center" mt={2}>
