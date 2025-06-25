@@ -1,6 +1,8 @@
 import React, { Suspense } from 'react';
 import { Box } from '@chakra-ui/react';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+// Cambiamos BrowserRouter por HashRouter
+import { HashRouter, Route, Routes } from 'react-router-dom';
+
 import Menu from '../menu';
 import VantaBackground from '../background/vantaBackground';
 
@@ -11,7 +13,7 @@ const ResumeComponent = React.lazy(() => import('../resume'));
 
 export const ParentComponent = () => {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <Menu />
       <Box display="flex" justifyContent="center" alignItems="center" background="#0000007f">
         <Suspense fallback={<div>Loading...</div>}>
@@ -24,6 +26,6 @@ export const ParentComponent = () => {
         </Suspense>
       </Box>
       <VantaBackground />
-    </BrowserRouter>
+    </HashRouter>
   );
 };

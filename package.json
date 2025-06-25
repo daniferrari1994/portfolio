@@ -1,5 +1,5 @@
 {
-  "name": "portfolio-mejorado",
+  "name": "portfolio",
   "version": "1.0.0",
   "homepage": "https://daniferrari1994.github.io/portfolio/",
   "description": "",
@@ -9,7 +9,9 @@
     "build": "webpack --config webpack.config.ts --mode production",
     "lint": "eslint src/**/*.{js,ts,tsx}",
     "test": "jest",
-    "test:watch": "jest --watch"
+    "test:watch": "jest --watch",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "keywords": [],
   "author": "",
@@ -64,6 +66,7 @@
     "eslint": "^9.14.0",
     "eslint-plugin-react": "^7.37.2",
     "file-loader": "^6.2.0",
+    "gh-pages": "^6.3.0",
     "globals": "^15.11.0",
     "html-webpack-plugin": "^5.6.3",
     "identity-obj-proxy": "^3.0.0",

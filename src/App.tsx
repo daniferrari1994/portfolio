@@ -1,6 +1,5 @@
 import React from 'react';
 import { Provider } from "@/components/ui/provider"
-import { createRoot } from 'react-dom/client';
 import { ParentComponent } from '../src/components/parentComponent';
 
 interface IApp {
@@ -14,12 +13,5 @@ const App: React.FC<IApp> = () => {
     </Provider>
   );
 };
-
-const rootElement = document.getElementById('root');
-
-if (rootElement) {
-  const root = createRoot(rootElement);
-  root.render(<App />);
-}
 
 export default App;

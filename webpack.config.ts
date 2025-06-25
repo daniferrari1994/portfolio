@@ -9,7 +9,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',
-    publicPath: process.env.PUBLIC_URL || '/',
+    publicPath: './',
   },
   resolve: {
     alias: {
@@ -54,7 +54,6 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: 'public/index.html',
-      publicUrl: process.env.PUBLIC_URL || '/',
     }),
     new webpack.DefinePlugin({
       'process.env.PUBLIC_URL': JSON.stringify(process.env.PUBLIC_URL),
@@ -65,5 +64,5 @@ module.exports = {
       ],
     }),
   ],
-  mode: 'development'
+  mode: process.env.NODE_ENV || 'production',
 };

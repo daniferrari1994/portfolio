@@ -54,7 +54,7 @@ const ExperienceStats: React.FC = () => {
     { targetNumber: 4, titleBottom: t('counters.experience'), titleTop: t('counters.yearsOfExperience') },
     { targetNumber: 4, titleBottom: t('counters.completed'), titleTop: t('counters.projects') },
     { targetNumber: 6, titleBottom: t('counters.mastered'), titleTop: t('counters.technologies') },
-    { targetNumber: 600, titleBottom: t('counters.commitsTitle'), titleTop: t('counters.commits') },
+    { targetNumber: 2000, titleBottom: t('counters.commitsTitle'), titleTop: t('counters.commits') },
   ];
 
   return (
