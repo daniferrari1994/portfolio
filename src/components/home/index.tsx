@@ -14,7 +14,7 @@ import {
   SubTitle,
 } from './styled';
 import { useTranslation } from 'react-i18next';
-import ExperienceStats from '../experienceStats/experienceStats';
+import ExperienceStats from '../experienceStats';
 import image from '../../assets/profileImage/profilePicture.png';
 import personalData from '../../data/personalData.json';
 import i18next from 'i18next';
@@ -40,7 +40,7 @@ const HomeComponent: React.FC = () => {
       <HomeContentContainer>
         <ContentContainer>
           <SubTitle>{t('home.subtitle')}</SubTitle>
-          <HeadingText>
+          <HeadingText data-testid="home-title">
             {t('home.title')}<br />
             <span className="highlighted-text">{personalData.data.name}</span>
           </HeadingText>
@@ -50,6 +50,7 @@ const HomeComponent: React.FC = () => {
               borderRadius="50px"
               color="#5ad3bd"
               colorScheme="gray"
+              data-testid="btn-download-cv"
               gap="5px"
               onClick={handleDownload}
               variant="outline"
@@ -58,7 +59,7 @@ const HomeComponent: React.FC = () => {
               {t('home.downloadCV')}
               <FontAwesomeIcon icon={faDownload} />
             </Button>
-            <Link href="https://github.com/daniferrari1994" target="_blank" rel="noopener noreferrer">
+            <Link data-testid="link-github" href="https://github.com/daniferrari1994" target="_blank" rel="noopener noreferrer">
               <Button
                 borderRadius="full"
                 color="#5ad3bd"
@@ -70,7 +71,7 @@ const HomeComponent: React.FC = () => {
                 <FontAwesomeIcon color="#5ad3bd" icon={faGithub} size="lg" />
               </Button>
             </Link>
-            <Link href="https://www.linkedin.com/in/dan-ferrari/" target="_blank" rel="noopener noreferrer">
+            <Link data-testid="link-linkedin" href="https://www.linkedin.com/in/dan-ferrari/" target="_blank" rel="noopener noreferrer">
               <Button
                 borderRadius="full"
                 color="#5ad3bd"
@@ -90,6 +91,7 @@ const HomeComponent: React.FC = () => {
             boxShadow="lg"
             boxSize="350px"
             className="imageProfile"
+            data-testid="profile-image"
             src={image}
           />
         </ImageContainer>

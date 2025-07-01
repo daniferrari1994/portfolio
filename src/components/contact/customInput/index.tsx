@@ -36,6 +36,7 @@ const FormInput: React.FC<FormInputProps> = ({ placeholder, register, error, err
         display={errorMessage ? 'block' : 'none'}
         fontSize="14px" 
         m="2px 8px"
+        data-testid="error-message"
         >
         {errorMessage}
       </Text>

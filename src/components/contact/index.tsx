@@ -80,6 +80,7 @@ const ContactComponent: React.FC = () => {
           <form onSubmit={handleSubmit(onSubmit)}>
             <FormInput
               placeholder={t('contact.input.name')}
+              data-testid='input-firstName'
               register={register("firstName", { onBlur: handleInputBlur, validate: validateNameOrSurname })}
               error={errors.firstName}
               errorMessage={t('validationErrors.nameOrSurname.invalid')}
@@ -87,6 +88,7 @@ const ContactComponent: React.FC = () => {
             />
             <FormInput
               placeholder={t('contact.input.lastname')}
+              data-testid="input-lastName"
               register={register("lastName", { onBlur: handleInputBlur, validate: validateNameOrSurname })}
               error={errors.lastName}
               errorMessage={t('validationErrors.nameOrSurname.invalid')}
@@ -94,6 +96,7 @@ const ContactComponent: React.FC = () => {
             />
             <FormInput
               placeholder={t('contact.input.phone')}
+              data-testid="input-phonenumber"
               register={register("phoneNumber", { onBlur: handleInputBlur, validate: validatePhone })}
               error={errors.phoneNumber}
               errorMessage={t('validationErrors.phone.invalid')}
@@ -101,6 +104,7 @@ const ContactComponent: React.FC = () => {
             />
             <FormInput
               placeholder={t('contact.input.email')}
+              data-testid="input-email"
               register={register("email", { onBlur: handleInputBlur, validate: validateEmail })}
               error={errors.email}
               errorMessage={t('validationErrors.email.invalid')}
@@ -110,6 +114,7 @@ const ContactComponent: React.FC = () => {
               bg="#1d1d1d"
               borderRadius="6px"
               color="#ffffffea"
+              data-testid="input-textarea"
               fontFamily="'Roboto Mono', monospace"
               maxLength={maxLength}
               placeholder={t('contact.input.message')}

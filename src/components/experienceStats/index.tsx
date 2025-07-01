@@ -35,7 +35,7 @@ const Counter: React.FC<ICounter> = ({
   }, [increment, targetNumber]);
 
   return (
-    <CounterWrapper>
+    <CounterWrapper data-testid="counter">
       <NumberText fontSize='5xl'>{count}</NumberText>
       <Flex alignItems="center" direction="column" mx={6}>
         <TitleBox lineHeight="1.2" textAlign="start">
@@ -52,7 +52,7 @@ const ExperienceStats: React.FC = () => {
 
   const countersData = [
     { targetNumber: 4, titleBottom: t('counters.experience'), titleTop: t('counters.yearsOfExperience') },
-    { targetNumber: 4, titleBottom: t('counters.completed'), titleTop: t('counters.projects') },
+    { targetNumber: 3, titleBottom: t('counters.completed'), titleTop: t('counters.projects') },
     { targetNumber: 6, titleBottom: t('counters.mastered'), titleTop: t('counters.technologies') },
     { targetNumber: 2000, titleBottom: t('counters.commitsTitle'), titleTop: t('counters.commits') },
   ];
