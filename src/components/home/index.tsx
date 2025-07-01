@@ -18,22 +18,35 @@ import ExperienceStats from '../experienceStats';
 import image from '../../assets/profileImage/profilePicture.png';
 import personalData from '../../data/personalData.json';
 import i18next from 'i18next';
+import { toaster } from '../ui/toaster';
 
-const HomeComponent: React.FC = () => {
-  const { t } = useTranslation();
+  const HomeComponent: React.FC = () => {
+    const { t } = useTranslation();
 
-  const handleDownload = () => {
-    const currentLanguage = i18next.language;
-    const pdfUrl = '/pdf/cvDanFerrariEngOP.pdf';
-    const fileName = currentLanguage === 'en' 
-      ? "cvDanFerrariEngOP.pdf" 
-      : "cvDanFerrariEspOP.pdf";
+    const handleDownload = async () => {
+      const currentLanguage = i18next.language;
+      const fileName = currentLanguage === 'en' 
+        ? "cvDanFerrariEngOP.pdf" 
+        : "cvDanFerrariEspOP.pdf";
+      const pdfUrl = `pdf/${fileName}`;
 
-    const link = document.createElement("a");
-    link.href = pdfUrl;
-    link.download = fileName;
-    link.click();
-  };
+      try {
+        const response = await fetch(pdfUrl, { method: 'HEAD' });
+        if (!response.ok) throw new Error('Archivo no encontrado');
+
+        const link = document.createElement("a");
+        link.href = pdfUrl;
+        link.download = fileName;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+      } catch (error) {
+        toaster.create({
+          title: t('home.cvDownloadError') || 'No se pudo descargar el archivo.',
+          type: 'info',
+        });
+      }
+    };
 
   return (
     <HomeContainer>
