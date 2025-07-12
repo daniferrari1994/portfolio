@@ -6,13 +6,13 @@ const useFormValidation = () => {
 
   const validateEmail = (value: string): string | true => {
     const trimmedValue = value.trim();
+    
+    if (/\.\./.test(trimmedValue)) {
+      return t('validationErrors.email.consecutiveDots');
+    }
 
     if (!validator.isEmail(trimmedValue)) {
       return t('validationErrors.email.invalid');
-    }
-
-    if (/\.\./.test(trimmedValue)) {
-      return t('validationErrors.email.consecutiveDots');
     }
 
     const [localPart] = trimmedValue.split('@');

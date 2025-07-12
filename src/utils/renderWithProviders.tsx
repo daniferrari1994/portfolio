@@ -1,9 +1,14 @@
 import React, { ReactElement } from 'react';
 import { render, RenderOptions } from '@testing-library/react';
-import { Provider } from "@/components/ui/provider"
+import { Provider } from "@/components/ui/provider";
+import { MemoryRouter } from 'react-router-dom';
 
 const AllTheProviders = ({ children }: { children: React.ReactNode }) => {
-  return <Provider>{children}</Provider>;
+  return (
+    <MemoryRouter>
+      <Provider>{children}</Provider>
+    </MemoryRouter>
+  );
 };
 
 const customRender = (ui: ReactElement, options?: RenderOptions) =>
