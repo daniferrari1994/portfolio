@@ -3,11 +3,31 @@ import { render, screen } from '@testing-library/react';
 import { ParentComponent } from '.';
 import { Provider } from '../ui/provider';
 
-jest.mock('../contact/index', () => () => <div>Mock Contact</div>);
-jest.mock('../home', () => () => <div>Mock Home</div>);
-jest.mock('../projects', () => () => <div>Mock Projects</div>);
-jest.mock('../resume', () => () => <div>Mock Resume</div>);
-jest.mock('../background/vantaBackground', () => () => <div>Mock VantaBackground</div>);
+jest.mock('../contact/index', () => {
+  const MockContact = () => <div>Mock Contact</div>;
+  MockContact.displayName = 'MockContact';
+  return MockContact;
+});
+jest.mock('../home', () => {
+  const MockHome = () => <div>Mock Home</div>;
+  MockHome.displayName = 'MockHome';
+  return MockHome;
+});
+jest.mock('../projects', () => {
+  const MockProjects = () => <div>Mock Projects</div>;
+  MockProjects.displayName = 'MockProjects';
+  return MockProjects;
+});
+jest.mock('../resume', () => {
+  const MockResume = () => <div>Mock Resume</div>;
+  MockResume.displayName = 'MockResume';
+  return MockResume;
+});
+jest.mock('../background/vantaBackground', () => {
+  const MockVantaBackground = () => <div>Mock VantaBackground</div>;
+  MockVantaBackground.displayName = 'MockVantaBackground';
+  return MockVantaBackground;
+});
 
 describe('ParentComponent', () => {
   it('renderiza el menú y el fondo', async () => {

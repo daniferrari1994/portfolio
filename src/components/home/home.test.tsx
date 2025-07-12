@@ -1,5 +1,6 @@
 import React from 'react';
 import { render, screen, fireEvent, waitFor } from '@/utils/renderWithProviders';
+import i18n from 'i18next';
 import HomeComponent from '.';
 
 jest.mock('i18next', () => ({
@@ -56,7 +57,6 @@ describe('HomeComponent', () => {
   });
 
   it('descarga el CV en español si el idioma es "es"', async () => {
-    const i18n = require('i18next');
     const originalLanguage = i18n.language;
     i18n.language = 'es';
 

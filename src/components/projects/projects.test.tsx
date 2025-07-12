@@ -7,7 +7,7 @@ jest.mock('@fortawesome/react-fontawesome', () => ({
 }));
 
 jest.mock('@/components/ui/tooltip', () => ({
-  Tooltip: ({ children }: any) => <>{children}</>
+  Tooltip: ({ children }: React.PropsWithChildren) => <>{children}</>
 }));
 
 jest.mock('../../data/projects.json', () => ({

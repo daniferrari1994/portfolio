@@ -33,7 +33,7 @@ describe('ExperienceStats', () => {
   });
 
   it('Counter muestra el número final correctamente', async () => {
-    const { getByTestId } = render(
+    render(
       <ExperienceStats />
     );
     await waitFor(() => {

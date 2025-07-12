@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, fireEvent } from '@/utils/renderWithProviders';
+import i18n from 'i18next';
 import LanguageSwitcher from '.';
-const i18next = require('i18next');
 
 jest.mock('i18next', () => ({
   changeLanguage: jest.fn(),
@@ -21,7 +21,7 @@ describe('LanguageSwitcher', () => {
     
     fireEvent.click(switchInput);
     
-    expect(i18next.changeLanguage).toHaveBeenCalledWith('es');
+    expect(i18n.changeLanguage).toHaveBeenCalledWith('es');
     expect(switchInput).toBeChecked();
   });
 
@@ -32,7 +32,7 @@ describe('LanguageSwitcher', () => {
     fireEvent.click(switchInput);
     fireEvent.click(switchInput);
     
-    expect(i18next.changeLanguage).toHaveBeenLastCalledWith('en');
+    expect(i18n.changeLanguage).toHaveBeenLastCalledWith('en');
     expect(switchInput).not.toBeChecked();
   });
 });

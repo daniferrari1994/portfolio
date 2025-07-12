@@ -31,8 +31,6 @@ import { toaster } from '../ui/toaster';
       const pdfUrl = `pdf/${fileName}`;
 
       try {
-        const response = await fetch(pdfUrl, { method: 'HEAD' });
-        if (!response.ok) throw new Error('Archivo no encontrado');
 
         const link = document.createElement("a");
         link.href = pdfUrl;
@@ -40,7 +38,7 @@ import { toaster } from '../ui/toaster';
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);
-      } catch (error) {
+      } catch {
         toaster.create({
           title: t('home.cvDownloadError') || 'No se pudo descargar el archivo.',
           type: 'info',

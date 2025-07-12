@@ -3,7 +3,7 @@ import { render, screen } from '@/utils/renderWithProviders';
 import SkillsSection from './index';
 
 jest.mock('@/components/ui/tooltip', () => ({
-  Tooltip: ({ content, children }: any) => (
+  Tooltip: ({ content, children }: { content: React.ReactNode; children?: React.ReactNode }) => (
     <>
       <span>{content}</span>
       {children}
