@@ -9,7 +9,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',
-    publicPath: './',
+    publicPath: '/',
   },
   resolve: {
     alias: {
@@ -45,11 +45,13 @@ module.exports = {
   },
   devServer: {
     static: {
-      directory: path.join(__dirname, 'dist'),
+      directory: path.join(__dirname, 'public'),
     },
     historyApiFallback: true,
     open: true,
-    port: 3000
+    port: 3000,
+    compress: true,
+    hot: true,
   },
   plugins: [
     new HtmlWebpackPlugin({

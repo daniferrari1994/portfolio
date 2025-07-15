@@ -1,21 +1,22 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Switch } from "@/components/ui/switch";
 import { Tooltip } from "@/components/ui/tooltip";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faE, faS } from '@fortawesome/free-solid-svg-icons';
 import { Icon } from '@chakra-ui/react';
-import i18next from 'i18next';
+import { useTranslation } from 'react-i18next';
 
 const LanguageSwitcher: React.FC = () => {
-  const [isLanguageEnglish, setIsLanguageEnglish] = useState(true);
+  const { i18n } = useTranslation();
+  const [isLanguageEnglish, setIsLanguageEnglish] = useState(i18n.language === 'en');
 
-  const changeLanguage = (lng: string) => {
-    i18next.changeLanguage(lng);
-  };
+  useEffect(() => {
+    setIsLanguageEnglish(i18n.language === 'en');
+  }, [i18n.language]);
 
   const handleSwitchChange = () => {
     const newLanguage = isLanguageEnglish ? "es" : "en";
-    changeLanguage(newLanguage);
+    i18n.changeLanguage(newLanguage);
     setIsLanguageEnglish(prev => !prev);
   };
 

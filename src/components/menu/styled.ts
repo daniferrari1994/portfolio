@@ -41,6 +41,9 @@ export const MenuOption = styled.div`
   color: #5eead4;
   cursor: pointer;
   margin: 0 10px;
+  text-align: center;
+  width: 100px;
+  
 
   .textLink {
     box-sizing: content-box;
@@ -53,6 +56,7 @@ export const MenuOption = styled.div`
     background-color: #5ad3bd;
     border-radius: 50px;
     color: #333;
+    min-width: 120px;
 
     &:hover {
       background-color: #459c8c;
@@ -64,7 +68,6 @@ export const MenuOptionContainer = styled.div`
   align-items: center;
   display: flex;
   flex-direction: row;
-  gap: 15px;
   margin-right: 20px;
 `;
 

@@ -2,7 +2,9 @@ import React, { useEffect, useRef } from 'react';
 
 declare global {
   interface Window {
-    VANTA: any;
+    VANTA: {
+      NET: (options: Record<string, unknown>) => void;
+    };
   }
 }
 

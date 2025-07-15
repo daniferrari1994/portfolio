@@ -1,6 +1,7 @@
 import React from 'react';
 import { Button, Image } from '@chakra-ui/react';
 import { Link, useLocation } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import {
   Logo,
   MenuContainer,
@@ -14,11 +15,12 @@ import logo from '../../assets/logoImage/logoTeal.png';
 
 const Menu: React.FC = () => {
   const location = useLocation();
+  const { t } = useTranslation();
 
   const menuItems = [
-    { path: "/", label: "Home" },
-    { path: "/resume", label: "Resume" },
-    { path: "/projects", label: "Work" },
+    { path: "/", label: t('menu.home') },
+    { path: "/resume", label: t('menu.resume') },
+    { path: "/projects", label: t('menu.work') },
   ];
 
   return (
@@ -40,7 +42,7 @@ const Menu: React.FC = () => {
           <MenuOption className="MenuOption">
             <Link to="/contact">
               <Button className="textLinkButton" variant="solid">
-                Contact me
+                {t('menu.contact')}
               </Button>
             </Link>
           </MenuOption>

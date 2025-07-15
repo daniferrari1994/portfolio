@@ -4,7 +4,7 @@ import App from './App';
 import { I18nextProvider } from 'react-i18next';
 import i18n from './i18n';
 
-const container = document.getElementById('app');
+const container = document.getElementById('root');
 if (container) {
   const root = createRoot(container);
   root.render(
@@ -13,5 +13,5 @@ if (container) {
     </I18nextProvider>
 );
 } else {
-  console.error('No se encontró el elemento con el id "app"');
+  console.error('No se encontró el elemento con el id "root"');
 }

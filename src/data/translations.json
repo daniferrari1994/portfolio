@@ -16,7 +16,7 @@
       "title": "About me"
     },
     "contact": {
-      "description": "If you are looking for a dedicated frontend developer with diverse skills, I would love for us to get in touch.",
+      "description": "If you are looking for a dedicated frontend developer with diverse skills, let's get in touch!.",
       "title": "Let's work together",
       "input": {
         "button": "Send message",
@@ -61,6 +61,12 @@
       "downloadCV": "Download CV",
       "subtitle": "Frontend Developer",
       "title": "Hi there! I'm"
+    },
+    "menu": {
+      "home": "Home",
+      "resume": "Resume",
+      "work": "Work",
+      "contact": "Contact me"
     },
     "projects": {
       "tooltip": {
@@ -113,7 +119,7 @@
       "title": "Sobre mí"
     },
     "contact": {
-      "description": "Si estás buscando un desarrollador frontend dedicado y con habilidades diversas, me encantaría que nos pongamos en contacto.",
+      "description": "Si estás buscando un desarrollador frontend dedicado y con habilidades diversas, pongamonos en contacto!.",
       "title": "Trabajemos juntos",
       "input": {
         "button": "Enviar mensaje",
@@ -158,6 +164,12 @@
       "downloadCV": "Descargar CV",
       "subtitle": "Desarrollador Frontend",
       "title": "¡Hola! Soy"
+    },
+    "menu": {
+      "home": "Inicio",
+      "resume": "Currículum",
+      "work": "Trabajos",
+      "contact": "Contáctame"
     },
     "projects": {
       "tooltip": {
