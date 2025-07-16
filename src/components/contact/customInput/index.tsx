@@ -1,6 +1,7 @@
 import React from 'react';
 import { Box, Input, Text } from '@chakra-ui/react';
-import { FieldError, UseFormRegisterReturn } from "react-hook-form";
+import type { FieldError } from "react-hook-form";
+import type { UseFormRegisterReturn } from "react-hook-form";
 
 interface FormInputProps {
   placeholder: string;

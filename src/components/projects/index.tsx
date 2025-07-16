@@ -15,7 +15,7 @@ import { faAngleLeft, faAngleRight, faArrowRight } from '@fortawesome/free-solid
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useTranslation } from 'react-i18next';
-import { Language, IProject } from '../../interfaces/Ilanguages';
+import type { Language, IProject  } from '../../interfaces/Ilanguages';
 import projectsData from '../../data/projects.json';
 import {
   MainContainer,

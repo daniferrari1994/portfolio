@@ -1,5 +1,5 @@
-import { Box, VStack } from "@chakra-ui/layout";
-import { Button, ButtonProps } from "@chakra-ui/react";
+import { Box, VStack } from "@chakra-ui/react";
+import { Button, type ButtonProps } from "@chakra-ui/react";
 import { styled } from "styled-components";
 
 export const ResumeContainer = styled(Box)`

@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { Box, Button, Flex, Heading, Spinner, Text, Textarea } from '@chakra-ui/react';
 import { ContactForm, ContactFormContainer, ContactInfo } from './styled';
-import { useForm, SubmitHandler } from "react-hook-form";
+import { useForm } from "react-hook-form";
+import type { SubmitHandler } from "react-hook-form";
 import FormInput from './customInput';
 import ContactList from './contactList';
 import personalData from '../../data/personalData.json';

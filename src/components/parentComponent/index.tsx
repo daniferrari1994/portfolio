@@ -1,8 +1,6 @@
 import React, { Suspense } from 'react';
 import { Box } from '@chakra-ui/react';
-// Cambiamos BrowserRouter por HashRouter
 import { HashRouter, Route, Routes } from 'react-router-dom';
-
 import Menu from '../menu';
 import VantaBackground from '../background/vantaBackground';
 
