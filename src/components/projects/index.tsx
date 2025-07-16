@@ -10,13 +10,13 @@ import {
   Stack,
   Text
 } from '@chakra-ui/react';
-import { Tooltip } from "@/components/ui/tooltip";
 import { faAngleLeft, faAngleRight, faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useTranslation } from 'react-i18next';
-import type { Language, IProject  } from '../../interfaces/Ilanguages';
+import { Tooltip } from "@/components/ui/tooltip";
 import projectsData from '../../data/projects.json';
+import type { IProject, Language } from '../../interfaces/Ilanguages';
 import {
   MainContainer,
   ProjectContent,

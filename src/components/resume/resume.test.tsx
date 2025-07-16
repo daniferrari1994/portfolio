@@ -1,4 +1,3 @@
-import React from 'react';
 import { render, screen, fireEvent } from '@/utils/renderWithProviders';
 import ResumeComponent from './index';
 

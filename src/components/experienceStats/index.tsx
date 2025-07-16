@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { memo, useEffect, useState } from 'react';
 import { Flex, Text } from '@chakra-ui/react';
 import { useTranslation } from 'react-i18next';
 import { CounterWrapper, NumberText, TitleBox } from './styled';
@@ -10,7 +10,7 @@ interface ICounter {
   titleTop: string;
 }
 
-const Counter: React.FC<ICounter> = ({
+const Counter: React.FC<ICounter> = memo(({
   duration = 2000,
   targetNumber,
   titleBottom,
@@ -45,7 +45,9 @@ const Counter: React.FC<ICounter> = ({
       </Flex>
     </CounterWrapper>
   );
-};
+});
+
+Counter.displayName = 'Counter';
 
 const ExperienceStats: React.FC = () => {
   const { t } = useTranslation();

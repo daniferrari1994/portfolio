@@ -1,11 +1,10 @@
-import './App.css'
-import { ParentComponent } from './components/parentComponent'
+import './App.css';
+import { ParentComponent } from './components/parentComponent';
 
 function App() {
-
   return (
     <ParentComponent />
-  )
+  );
 }
 
-export default App
+export default App;

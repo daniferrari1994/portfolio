@@ -1,4 +1,3 @@
-import React from 'react';
 import { render, screen, fireEvent, waitFor } from '@/utils/renderWithProviders';
 import '@testing-library/jest-dom';
 import emailjs from '@emailjs/browser';

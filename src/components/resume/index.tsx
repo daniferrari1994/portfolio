@@ -1,5 +1,11 @@
 import React, { useState } from 'react';
-import { Flex, Heading, Text, Separator } from '@chakra-ui/react';
+import { Flex, Heading, Separator, Text } from '@chakra-ui/react';
+import { useTranslation } from 'react-i18next';
+import DataContactList from './aboutMeList';
+import InfoCard from './infoCard';
+import SkillsSection from './skillsSection';
+import personalData from '../../data/personalData.json';
+import resumeData from '../../data/resume.json';
 import { 
   ResumeContainer, 
   SectionContainer, 
@@ -7,16 +13,9 @@ import {
   SectionTwo, 
   StyledButton 
 } from './styled';
-import { useTranslation } from 'react-i18next';
-import DataContactList from './aboutMeList';
-import InfoCard from './infoCard';
-import SkillsSection from './skillsSection';
-import personalData from '../../data/personalData.json'
-import resumeData from '../../data/resume.json'
 
 const ResumeComponent: React.FC = () => {
-  const { i18n } = useTranslation();
-  const { t } = useTranslation();
+  const { i18n, t } = useTranslation();
   const currentLanguage = i18n.language as 'en' | 'es';
   const [selectedSection, setSelectedSection] = useState('Experience');
   const experienceData = resumeData.resume.experience;

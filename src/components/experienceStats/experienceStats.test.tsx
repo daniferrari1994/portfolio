@@ -1,5 +1,4 @@
 import { render, screen, waitFor } from '@/utils/renderWithProviders';
-import React from 'react';
 import ExperienceStats from '.';
 
 jest.mock('react-i18next', () => ({

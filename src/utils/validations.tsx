@@ -1,31 +1,33 @@
+import { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import validator from 'validator';
 
 const useFormValidation = () => {
   const { t } = useTranslation();
 
-  const validateEmail = (value: string): string | true => {
-    const trimmedValue = value.trim();
-    
-    if (/\.\./.test(trimmedValue)) {
-      return t('validationErrors.email.consecutiveDots');
-    }
+  const validationFunctions = useMemo(() => {
+    const validateEmail = (value: string): string | true => {
+      const trimmedValue = value.trim();
+      
+      if (/\.\./.test(trimmedValue)) {
+        return t('validationErrors.email.consecutiveDots');
+      }
 
-    if (!validator.isEmail(trimmedValue)) {
-      return t('validationErrors.email.invalid');
-    }
+      if (!validator.isEmail(trimmedValue)) {
+        return t('validationErrors.email.invalid');
+      }
 
-    const [localPart] = trimmedValue.split('@');
-    if (!/^[a-zA-Z0-9._-]+$/.test(localPart)) {
-      return t('validationErrors.email.invalidCharacters');
-    }
+      const [localPart] = trimmedValue.split('@');
+      if (!/^[a-zA-Z0-9._-]+$/.test(localPart)) {
+        return t('validationErrors.email.invalidCharacters');
+      }
 
-    return true;
-  };
+      return true;
+    };
 
-  const validateNameOrSurname = (value: string): string | true => {
-    const trimmedValue = value.trim().replace(/\s{2,}/g, ' ');
-    const regex = /^[a-zA-ZÀ-ÿ., ]+$/;
+    const validateNameOrSurname = (value: string): string | true => {
+      const trimmedValue = value.trim().replace(/\s{2,}/g, ' ');
+      const regex = /^[a-zA-ZÀ-ÿ., ]+$/;
 
     if (!/[A-Za-zÀ-ÿ]/.test(trimmedValue)) {
       return t('validationErrors.nameOrSurname.invalid');
@@ -54,18 +56,21 @@ const useFormValidation = () => {
   };
 
   const validateTextAreaNotEmpty = (value: string): string | true => {
-    if (!value.trim()) {
-      return t('validationErrors.message.empty');
-    }
-    return true;
-  };
+      if (!value.trim()) {
+        return t('validationErrors.message.empty');
+      }
+      return true;
+    };
 
-  return {
-    validateEmail,
-    validateNameOrSurname,
-    validatePhone,
-    validateTextAreaNotEmpty,
-  };
+    return {
+      validateEmail,
+      validateNameOrSurname,
+      validatePhone,
+      validateTextAreaNotEmpty,
+    };
+  }, [t]);
+
+  return validationFunctions;
 };
 
 export default useFormValidation;

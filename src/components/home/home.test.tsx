@@ -1,4 +1,3 @@
-import React from 'react';
 import { render, screen, fireEvent, waitFor } from '@/utils/renderWithProviders';
 import i18n from 'i18next';
 import HomeComponent from '.';

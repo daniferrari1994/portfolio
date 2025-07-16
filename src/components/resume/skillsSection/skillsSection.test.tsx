@@ -1,4 +1,3 @@
-import React from 'react';
 import { render, screen } from '@/utils/renderWithProviders';
 import SkillsSection from './index';
 

@@ -1,15 +1,14 @@
 import React, { useState } from 'react';
 import { Box, Button, Flex, Heading, Spinner, Text, Textarea } from '@chakra-ui/react';
-import { ContactForm, ContactFormContainer, ContactInfo } from './styled';
-import { useForm } from "react-hook-form";
-import type { SubmitHandler } from "react-hook-form";
-import FormInput from './customInput';
-import ContactList from './contactList';
-import personalData from '../../data/personalData.json';
-import emailjs from '@emailjs/browser';
-import useFormValidation from '@/utils/validations';
+import { useForm, type SubmitHandler } from "react-hook-form";
 import { useTranslation } from 'react-i18next';
+import emailjs from '@emailjs/browser';
 import i18n from '@/i18n';
+import useFormValidation from '@/utils/validations';
+import ContactList from './contactList';
+import { ContactForm, ContactFormContainer, ContactInfo } from './styled';
+import FormInput from './customInput';
+import personalData from '../../data/personalData.json';
 
 type Inputs = {
   firstName: string;
