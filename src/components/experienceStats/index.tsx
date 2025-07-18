@@ -53,7 +53,7 @@ const ExperienceStats: React.FC = () => {
   const { t } = useTranslation();
 
   const countersData = [
-    { targetNumber: 4, titleBottom: t('counters.experience'), titleTop: t('counters.yearsOfExperience') },
+    { targetNumber: 5, titleBottom: t('counters.experience'), titleTop: t('counters.yearsOfExperience') },
     { targetNumber: 3, titleBottom: t('counters.completed'), titleTop: t('counters.projects') },
     { targetNumber: 6, titleBottom: t('counters.mastered'), titleTop: t('counters.technologies') },
     { targetNumber: 2000, titleBottom: t('counters.commitsTitle'), titleTop: t('counters.commits') },

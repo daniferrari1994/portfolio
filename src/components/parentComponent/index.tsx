@@ -12,8 +12,9 @@ const ResumeComponent = React.lazy(() => import('../resume'));
 export const ParentComponent = () => {
   return (
     <HashRouter>
+      <VantaBackground />
       <Menu />
-      <Box display="flex" justifyContent="center" alignItems="center" background="#0000007f">
+      <Box alignItems="center" display="flex" height="100vh" justifyContent="center" position="relative" zIndex={1}>
         <Suspense fallback={<div>Loading...</div>}>
           <Routes>
             <Route path="/" element={<HomeComponent />} />
@@ -23,7 +24,6 @@ export const ParentComponent = () => {
           </Routes>
         </Suspense>
       </Box>
-      <VantaBackground />
     </HashRouter>
   );
 };
