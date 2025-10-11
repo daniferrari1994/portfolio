@@ -1,4 +1,4 @@
-# 🚀 Dan Ferrari - Portfolio Mejorado
+# 🚀 Dan Ferrari - Portfolio
 
 Un portfolio moderno y optimizado construido con React, TypeScript y Vite, con enfoque en rendimiento, accesibilidad y mejores prácticas de desarrollo.
 
@@ -88,16 +88,6 @@ El proyecto está configurado para deployment automático en GitHub Pages:
 - 🔐 **Input Validation** - Validación robusta de formularios
 - 🚫 **XSS Protection** - Sanitización de inputs
 - 🔒 **HTTPS** - Certificado SSL en producción
-
-## 🤝 Contribución
-
-Las contribuciones son bienvenidas. Por favor:
-
-1. Fork el proyecto
-2. Crea una rama para tu feature (`git checkout -b feature/nueva-caracteristica`)
-3. Commit tus cambios (`git commit -m 'Añade nueva característica'`)
-4. Push a la rama (`git push origin feature/nueva-caracteristica`)
-5. Abre un Pull Request
 
 ## 📄 Licencia
 
