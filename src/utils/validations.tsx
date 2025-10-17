@@ -1,9 +1,18 @@
 import { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
-import validator from 'validator';
 
 const useFormValidation = () => {
   const { t } = useTranslation();
+
+  // Función auxiliar para validar email sin dependencias externas
+  const isValidEmail = (email: string): boolean => {
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    return emailRegex.test(email) && 
+           email.length <= 254 && // RFC 5321 limit
+           !email.includes('..') && // No consecutive dots
+           !email.startsWith('.') && // No leading dot
+           !email.endsWith('.'); // No trailing dot
+  };
 
   const validationFunctions = useMemo(() => {
     const validateEmail = (value: string): string | true => {
@@ -13,7 +22,7 @@ const useFormValidation = () => {
         return t('validationErrors.email.consecutiveDots');
       }
 
-      if (!validator.isEmail(trimmedValue)) {
+      if (!isValidEmail(trimmedValue)) {
         return t('validationErrors.email.invalid');
       }
 

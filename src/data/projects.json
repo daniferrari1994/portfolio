@@ -3,17 +3,17 @@
     {
       "id": "01",
       "image": "https://static.vecteezy.com/system/resources/thumbnails/037/347/356/small_2x/ai-generated-gear-wheel-abstract-background-gear-technology-digital-technology-and-engineering-background-photo.jpg",
-      "codeUrl": "https://github.com/example/project-one",
-      "url": "https://example.com/project-one",
-      "technologies": ["React", "TypeScript", "Chakra UI"],
+      "codeUrl": "https://github.com/daniferrari1994/e-commerce",
+      "url": "https://daniferrari1994.github.io/e-commerce/",
+      "technologies": ["React", "TypeScript", "Vite", "CSS Modules"],
       "translations": {
         "en": {
-          "title": "Project One",
-          "description": "English description for project one."
+          "title": "Discord E-commerce",
+          "description": "Modern e-commerce with React 19 + TypeScript. Optimized modular architecture, dynamic navigation, infinite carousel, responsive product system. Custom hooks, centralized types, automated GitHub Pages deployment."
         },
         "es": {
-          "title": "Proyecto Uno",
-          "description": "Descripción en español del proyecto uno."
+          "title": "Discord E-commerce",
+          "description": "E-commerce moderno con React 19 + TypeScript. Arquitectura modular optimizada, navegación dinámica, carousel infinito, sistema de productos responsive. Custom hooks, types centralizados, deploy automatizado en GitHub Pages."
         }
       }
     },

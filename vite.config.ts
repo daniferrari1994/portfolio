@@ -17,7 +17,7 @@ export default defineConfig({
           'routing-vendor': ['react-router-dom'],
           'form-vendor': ['react-hook-form'],
           'i18n-vendor': ['react-i18next', 'i18next'],
-          'utils-vendor': ['validator', '@emailjs/browser', 'next-themes'],
+          'utils-vendor': ['@emailjs/browser', 'next-themes'],
           'vanta-vendor': ['vanta']
         }
       }
