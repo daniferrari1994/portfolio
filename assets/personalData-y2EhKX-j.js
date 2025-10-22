@@ -1,0 +1,1 @@
+const a={contact:{address:"Buenos Aires, Argentina",email:"daniferrari1994@gmail.com",phone:"(+54) 011 2725 8396"},aboutMe:{languages:["English","Spanish"],nationality:"Argentina"},name:"Dan Ferrari"},n={data:a};export{n as p};
