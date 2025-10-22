@@ -69,6 +69,8 @@
       "contact": "Contact me"
     },
     "projects": {
+      "liveProject": "Live Project",
+      "viewCode": "View Code",
       "tooltip": {
         "github": "Github code",
         "livePage": "Live project"
@@ -172,6 +174,8 @@
       "contact": "Contáctame"
     },
     "projects": {
+      "liveProject": "Proyecto en Vivo",
+      "viewCode": "Ver Código",
       "tooltip": {
         "github": "Código en Github",
         "livePage": "Proyecto en vivo"

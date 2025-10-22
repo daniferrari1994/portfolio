@@ -51,7 +51,7 @@ const WorkProjects: React.FC = () => {
               fontFamily="'Bungee Hairline', sans-serif"
               fontWeight="400"
               mb="4"
-              size="6xl"
+              size={{ base: "3xl", sm: "4xl", md: "5xl", lg: "6xl" }}
             >
               {id}
             </Heading>
@@ -60,7 +60,7 @@ const WorkProjects: React.FC = () => {
               fontFamily="'Roboto Mono', monospace"
               fontWeight="bold"
               mb="2"
-              size="2xl"
+              size={{ base: "lg", sm: "xl", md: "2xl" }}
             >
               {currentTranslation.title}
             </Heading>
@@ -69,18 +69,25 @@ const WorkProjects: React.FC = () => {
               fontFamily="'Roboto Mono', monospace"
               fontWeight="400"
               mb="4"
-              minH="150px"
-              w="500px"
+              minH={{ base: "auto", md: "150px" }}
+              w={{ base: "100%", md: "500px" }}
+              fontSize={{ base: "sm", md: "md" }}
             >
               {currentTranslation.description}
             </Text>
-            <Stack flexDirection="row">
+            <Stack 
+              flexDirection={{ base: "column", sm: "row" }}
+              flexWrap="wrap"
+              justify={{ base: "center", md: "flex-start" }}
+              align={{ base: "center", md: "flex-start" }}
+              gap={{ base: 2, md: 4 }}
+            >
               {technologies.map((tech, index) => (
                 <Text
                   color="#5ad3bd"
                   fontFamily="'Roboto Mono', monospace"
                   fontWeight="bold"
-                  fontSize="sm"
+                  fontSize={{ base: "xs", md: "sm" }}
                   key={index}
                 >
                   {tech}
@@ -88,20 +95,45 @@ const WorkProjects: React.FC = () => {
               ))}
             </Stack>
           </Box>
-          <Separator size="md" w="500px" />
-          <Box>
+          <Separator 
+            size="md" 
+            w={{ base: "100%", md: "500px" }}
+            my={{ base: 4, md: 6 }}
+          />
+          <Flex 
+            direction={{ base: "column", md: "row" }}
+            align="center"
+            gap={{ base: 2, md: 0 }}
+          >
             <Tooltip content={t('projects.tooltip.livePage')}>
               <Button
                 bg="#333"
                 borderRadius="full"
                 className="buttonLink"
                 colorScheme="#333"
-                mr="4"
-                padding={0}
+                mr={{ base: "0", md: "4" }}
+                mb={{ base: "2", md: "0" }}
+                padding={{ base: "8px 12px", md: "0" }}
+                size={{ base: "sm", md: "md" }}
                 aria-label={t('projects.tooltip.livePage')}
+                display="flex"
+                alignItems="center"
+                gap={2}
               >
-                <Link href={url} target="_blank">
-                  <FontAwesomeIcon color="#ffffffea" icon={faArrowRight} size="lg" />
+                <Link href={url} target="_blank" display="flex" alignItems="center" gap={2}>
+                  <FontAwesomeIcon 
+                    color="#ffffffea" 
+                    icon={faArrowRight} 
+                    size={{ base: "sm", md: "lg" } as any}
+                  />
+                  <Text 
+                    display={{ base: "inline", md: "none" }} 
+                    color="#ffffffea"
+                    fontSize="xs"
+                    fontFamily="'Roboto Mono', monospace"
+                  >
+                    {t('projects.liveProject')}
+                  </Text>
                 </Link>
               </Button>
             </Tooltip>
@@ -111,33 +143,54 @@ const WorkProjects: React.FC = () => {
                 borderRadius="full"
                 className="buttonLinkGithub"
                 colorScheme="#333"
-                mr="4"
-                padding={0}
+                mr={{ base: "0", md: "4" }}
+                padding={{ base: "8px 12px", md: "0" }}
+                size={{ base: "sm", md: "md" }}
                 aria-label={t('projects.tooltip.github')}
+                display="flex"
+                alignItems="center"
+                gap={2}
               >
-                <Link href={codeUrl} target="_blank">
-                  <FontAwesomeIcon color="#ffffffea" icon={faGithub} size="lg" />
+                <Link href={codeUrl} target="_blank" display="flex" alignItems="center" gap={2}>
+                  <FontAwesomeIcon 
+                    color="#ffffffea" 
+                    icon={faGithub} 
+                    size={{ base: "sm", md: "lg" } as any}
+                  />
+                  <Text 
+                    display={{ base: "inline", md: "none" }} 
+                    color="#ffffffea"
+                    fontSize="xs"
+                    fontFamily="'Roboto Mono', monospace"
+                  >
+                    {t('projects.viewCode')}
+                  </Text>
                 </Link>
               </Button>
             </Tooltip>
-          </Box>
+          </Flex>
         </ProjectInfoColumn>
         <ProjectImageColumn>
           <Image
             alt={currentTranslation.title}
-            h="400px"
-            m="28px 28px 28px 0"
+            h={{ base: "250px", sm: "300px", md: "350px", lg: "400px" }}
+            m={{ base: "20px 0", md: "28px 28px 28px 0" }}
             objectFit="cover"
             src={image}
-            w="600px"
+            w={{ base: "100%", sm: "450px", md: "550px", lg: "600px" }}
+            maxW="100%"
+            borderRadius={{ base: "md", md: "none" }}
           />
-          <Flex alignSelf="flex-end">
+          <Flex 
+            alignSelf={{ base: "center", md: "flex-end" }}
+            mt={{ base: 4, md: 0 }}
+          >
             <StyledButton
               bg="#5ad3bd"
               className="buttonProject"
               colorScheme="#333"
               onClick={handlePrevProject}
-              size="sm"
+              size={{ base: "sm", md: "sm" }}
               aria-label="Previous project"
             >
               <FontAwesomeIcon color="#333" icon={faAngleLeft} size="sm" />
@@ -147,7 +200,7 @@ const WorkProjects: React.FC = () => {
               className="buttonProject"
               colorScheme="#333"
               onClick={handleNextProject}
-              size="sm"
+              size={{ base: "sm", md: "sm" }}
               aria-label="Next project"
             >
               <FontAwesomeIcon color="#333" icon={faAngleRight} size="sm" />

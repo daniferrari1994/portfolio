@@ -110,19 +110,21 @@ const ResumeComponent: React.FC = () => {
           <Text className="textResume" fontSize="14px">
             {t('resume.description')}
           </Text>
-          {['Experience', 'Education', 'Skills', 'About me'].map(section => {
-            const translationKey = section === 'About me' ? 'aboutMe' : section.toLowerCase();
-            return (
-              <StyledButton
-                colorScheme="#333"
-                isActive={selectedSection === section}
-                key={section}
-                onClick={() => setSelectedSection(section)}
-              >
-              {t(translationKey + '.title')}
-            </StyledButton>
-          );
-        })}
+          <div className="button-container">
+            {['Experience', 'Education', 'Skills', 'About me'].map(section => {
+              const translationKey = section === 'About me' ? 'aboutMe' : section.toLowerCase();
+              return (
+                <StyledButton
+                  colorScheme="#333"
+                  isActive={selectedSection === section}
+                  key={section}
+                  onClick={() => setSelectedSection(section)}
+                >
+                {t(translationKey + '.title')}
+              </StyledButton>
+            );
+          })}
+          </div>
         </SectionOne>
         <SectionTwo>
           {renderContent()}

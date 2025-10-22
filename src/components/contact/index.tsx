@@ -76,7 +76,7 @@ const ContactComponent: React.FC = () => {
             {t('contact.description')}
           </Text>
         </Flex>
-        <Flex w="480px">
+        <Flex w={{ base: "100%", md: "480px" }}>
           <form onSubmit={handleSubmit(onSubmit)}>
             <FormInput
               placeholder={t('contact.input.name')}
@@ -121,6 +121,7 @@ const ContactComponent: React.FC = () => {
               required
               resize="none"
               size="xl"
+              w={{ base: "100%", md: "480px" }}
               _focusVisible={{ outline: 'solid 1px #459c8c !important', borderColor: "#459c8c" }}
               _placeholder={{ color: '#ffffffea', fontWeight: 300, fontSize: 'sm' }}
               {...register("textarea", {

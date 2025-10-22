@@ -23,7 +23,7 @@ const FormInput: React.FC<FormInputProps> = ({ placeholder, register, error, err
       maxLength={maxLength}
       placeholder={placeholder}
       style={styles}
-      w="480px"
+      w={{ base: "100%", md: "480px" }}
       _focusVisible={{
         outline: 'solid 1px #459c8c !important',
         borderColor: "#459c8c"

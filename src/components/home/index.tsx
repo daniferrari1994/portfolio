@@ -65,6 +65,8 @@ import { toaster } from '../ui/toaster';
               gap="5px"
               onClick={handleDownload}
               variant="outline"
+              size={{ base: "sm", md: "md" }}
+              fontSize={{ base: "sm", md: "md" }}
               _hover={{ bg: '#459c8c', color: '#333' }}
             >
               {t('home.downloadCV')}
@@ -77,6 +79,7 @@ import { toaster } from '../ui/toaster';
                 colorScheme="gray"
                 padding={0}
                 variant="outline"
+                size={{ base: "sm", md: "md" }}
                 _hover={{ bg: '#1b3d37' }}
               >
                 <FontAwesomeIcon color="#5ad3bd" icon={faGithub} size="lg" />
@@ -89,6 +92,7 @@ import { toaster } from '../ui/toaster';
                 colorScheme="gray"
                 padding={0}
                 variant="outline"
+                size={{ base: "sm", md: "md" }}
                 _hover={{ bg: '#1b3d37' }}
               >
                 <FontAwesomeIcon color="#5ad3bd" icon={faLinkedin} size="lg" />
@@ -100,7 +104,7 @@ import { toaster } from '../ui/toaster';
           <Image
             alt="Profile Picture"
             boxShadow="lg"
-            boxSize="350px"
+            boxSize={{ base: "250px", sm: "280px", md: "320px", lg: "350px" }}
             className="imageProfile"
             data-testid="profile-image"
             src={image}

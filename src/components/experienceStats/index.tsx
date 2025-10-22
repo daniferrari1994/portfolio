@@ -36,11 +36,11 @@ const Counter: React.FC<ICounter> = memo(({
 
   return (
     <CounterWrapper data-testid="counter">
-      <NumberText fontSize='5xl'>{count}</NumberText>
-      <Flex alignItems="center" direction="column" mx={6}>
+      <NumberText fontSize={{ base: '3xl', sm: '4xl', md: '5xl' }}>{count}</NumberText>
+      <Flex alignItems="center" direction="column" mx={{ base: 2, md: 6 }}>
         <TitleBox lineHeight="1.2" textAlign="start">
-          <Text color='#ffffffea' fontSize="lg">{titleTop}</Text>
-          <Text color='#ffffffea' fontSize="lg">{titleBottom}</Text>
+          <Text color='#ffffffea' fontSize={{ base: "sm", sm: "md", md: "lg" }}>{titleTop}</Text>
+          <Text color='#ffffffea' fontSize={{ base: "sm", sm: "md", md: "lg" }}>{titleBottom}</Text>
         </TitleBox>
       </Flex>
     </CounterWrapper>
@@ -60,7 +60,15 @@ const ExperienceStats: React.FC = () => {
   ];
 
   return (
-    <Flex alignItems="center" flexWrap="wrap" justifyContent="center" p={4}>
+    <Flex 
+      alignItems="center" 
+      flexWrap="wrap" 
+      justifyContent="center" 
+      p={{ base: 2, md: 4 }}
+      gap={{ base: 1, sm: 2, md: 4 }}
+      maxWidth="100%"
+      direction={{ base: "column", sm: "row" }}
+    >
       {countersData.map((counter, index) => (
         <Counter
           key={index}

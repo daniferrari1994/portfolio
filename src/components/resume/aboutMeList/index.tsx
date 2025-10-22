@@ -22,12 +22,12 @@ const DataContactList: React.FC<IDataContactList> = ({ data }) => {
             direction="column"
             key={index}
             mb={4}
-            width={['100%', '48%']}
+            width={['100%', '100%', '48%']}
           >
             <Text
               className="aboutMe-data"
               display="inline"
-              fontSize="md"
+              fontSize={{ base: "sm", md: "md" }}
               fontWeight="bold"
             >
               {`${t(`aboutMe.data.aboutMe.${key}`)}:`}
@@ -35,7 +35,7 @@ const DataContactList: React.FC<IDataContactList> = ({ data }) => {
             <Text
               className="aboutMe-text"
               display="inline"
-              fontSize="md"
+              fontSize={{ base: "sm", md: "md" }}
             >
               {translatedValue}
             </Text>

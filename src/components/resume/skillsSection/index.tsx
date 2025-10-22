@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Heading, Icon } from '@chakra-ui/react';
+import { Box, Heading, Text } from '@chakra-ui/react';
 import { Tooltip } from "@/components/ui/tooltip";
 import {
   faCss3Alt,
@@ -67,12 +67,33 @@ const SkillsSection: React.FC = () => {
                   height="100px"
                   width="120px"
                   aria-label={`Learn more about ${skill.name}`}
+                  display="flex"
+                  flexDirection="column"
+                  gap={2}
                 >
                   <Tooltip content={skill.name} showArrow>
-                    <Icon size="2xl">
-                      <FontAwesomeIcon icon={skill.icon} size="2xl" />
-                    </Icon>
+                    <Box 
+                      className="skill-icon-container"
+                      display="flex"
+                      alignItems="center"
+                      justifyContent="center"
+                    >
+                      <FontAwesomeIcon 
+                        icon={skill.icon} 
+                        className="skill-icon"
+                      />
+                    </Box>
                   </Tooltip>
+                  <Text 
+                    display={{ base: "block", md: "none" }} 
+                    color="#ffffffea"
+                    fontSize="xs"
+                    fontFamily="'Roboto Mono', monospace"
+                    textAlign="center"
+                    mt={1}
+                  >
+                    {skill.name}
+                  </Text>
               </StyledButton>
             ))}
           </StyledFlex>
