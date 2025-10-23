@@ -1,9 +1,13 @@
 import { render, screen, fireEvent, waitFor } from '@/utils/renderWithProviders';
 import '@testing-library/jest-dom';
-import emailjs from '@emailjs/browser';
 import ContactComponent from '.';
+import useCustomEmail from '@/hooks/useCustomEmail';
 
-jest.mock('@emailjs/browser');
+// Mock del hook useCustomEmail
+jest.mock('@/hooks/useCustomEmail', () => ({
+  __esModule: true,
+  default: jest.fn(),
+}));
 
 jest.mock('@/utils/validations', () => () => ({
   validateEmail: () => true,
@@ -24,10 +28,19 @@ jest.mock('@/i18n', () => ({
 
 describe('ContactComponent', () => {
   let consoleErrorSpy: jest.SpyInstance;
+  const mockSendEmail = jest.fn();
+  const mockUseCustomEmail = useCustomEmail as jest.MockedFunction<typeof useCustomEmail>;
 
   beforeEach(() => {
     jest.clearAllMocks();
     consoleErrorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    
+    // Configurar el mock del hook por defecto
+    mockUseCustomEmail.mockReturnValue({
+      sendEmail: mockSendEmail,
+      isLoading: false,
+      error: null,
+    });
   });
 
   afterEach(() => {
@@ -46,7 +59,7 @@ describe('ContactComponent', () => {
   });
 
   it('muestra spinner y mensaje de éxito al enviar el formulario', async () => {
-    (emailjs.send as jest.Mock).mockResolvedValueOnce({});
+    mockSendEmail.mockResolvedValueOnce({ success: true, message: 'Email sent' });
 
     render(<ContactComponent />);
     await waitFor(() => expect(screen.getByPlaceholderText('contact.input.name')).toBeInTheDocument());
@@ -65,7 +78,7 @@ describe('ContactComponent', () => {
   });
 
   it('muestra mensaje de error si el envío falla', async () => {
-    (emailjs.send as jest.Mock).mockRejectedValueOnce(new Error('Error'));
+    mockSendEmail.mockResolvedValueOnce({ success: false, error: 'Error al enviar email' });
 
     render(<ContactComponent />);
     await waitFor(() => expect(screen.getByPlaceholderText('contact.input.name')).toBeInTheDocument());
