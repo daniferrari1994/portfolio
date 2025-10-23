@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import { Box, Button, Flex, Heading, Spinner, Text, Textarea } from '@chakra-ui/react';
 import { useForm, type SubmitHandler } from "react-hook-form";
 import { useTranslation } from 'react-i18next';
-import emailjs from '@emailjs/browser';
 import i18n from '@/i18n';
 import useFormValidation from '@/utils/validations';
+import useCustomEmail from '@/hooks/useCustomEmail';
 import ContactList from './contactList';
 import { ContactForm, ContactFormContainer, ContactInfo } from './styled';
 import FormInput from './customInput';
@@ -26,37 +26,39 @@ type Message = {
 const ContactComponent: React.FC = () => {
   const [charCount, setCharCount] = useState(0);
   const [message, setMessage] = useState<Message | null>(null);
-  const [isLoading, setIsLoading] = useState(false);
   const maxLength = 1000;
   const { t } = useTranslation();
 
   const { register, handleSubmit, formState: { errors, isValid }, reset } = useForm<Inputs>({ mode: 'onBlur' });
   const { validateEmail, validateNameOrSurname, validatePhone, validateTextAreaNotEmpty } = useFormValidation();
+  const { sendEmail, isLoading } = useCustomEmail();
 
   const handleTrimAndReplaceSpaces = (value: string) => value.trim().replace(/\s{2,}/g, ' ');
 
   const onSubmit: SubmitHandler<Inputs> = async formData => {
-    setIsLoading(true);
     try {
       const language = i18n.language;
       
-      const templateId = language === 'en' ? 'template_9qrrjvn' : 'template_2oqsezt';
-      
-      await emailjs.send('service_o1b6fuo', templateId, {
+      const result = await sendEmail({
         firstName: formData.firstName,
         lastName: formData.lastName,
         email: formData.email,
         phoneNumber: formData.phoneNumber,
-        message: formData.textarea
-      }, '0bWIr1jUN6IgRa1N6');
-  
-      setMessage({ text: t('contact.feedback.success'), type: 'success' });
-      reset();
+        message: formData.textarea,
+        language: language
+      });
+
+      if (result.success) {
+        setMessage({ text: t('contact.feedback.success'), type: 'success' });
+        reset();
+        setCharCount(0);
+      } else {
+        setMessage({ text: result.error || t('contact.feedback.error'), type: 'error' });
+      }
     } catch (error) {
-      console.error(error);
+      console.error('Error enviando email:', error);
       setMessage({ text: t('contact.feedback.error'), type: 'error' });
     } finally {
-      setIsLoading(false);
       setTimeout(() => setMessage(null), 7000);
     }
   };
