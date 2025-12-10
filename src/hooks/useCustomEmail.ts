@@ -42,9 +42,6 @@ const useCustomEmail = (): UseCustomEmailReturn => {
         language: data.language || 'es'
       };
       
-      console.log('Enviando datos:', payload);
-      console.log('API URL:', apiUrl);
-      
       const response = await fetch(`${apiUrl}/api/send-email`, {
         method: 'POST',
         headers: {
@@ -54,11 +51,8 @@ const useCustomEmail = (): UseCustomEmailReturn => {
       });
 
       const result = await response.json();
-      
-      console.log('Respuesta del servidor:', result);
 
       if (!response.ok) {
-        console.error('Error detallado:', result);
         throw new Error(result.error || `Error HTTP: ${response.status}`);
       }
 
