@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Box, Button, Flex, Heading, Spinner, Text, Textarea } from '@chakra-ui/react';
 import { useForm, type SubmitHandler } from "react-hook-form";
 import { useTranslation } from 'react-i18next';
@@ -26,12 +26,37 @@ type Message = {
 const ContactComponent: React.FC = () => {
   const [charCount, setCharCount] = useState(0);
   const [message, setMessage] = useState<Message | null>(null);
+  const [isButtonEnabled, setIsButtonEnabled] = useState(false);
   const maxLength = 1000;
   const { t } = useTranslation();
 
-  const { register, handleSubmit, formState: { errors, isValid }, reset } = useForm<Inputs>({ mode: 'onBlur' });
+  const { register, handleSubmit, formState: { errors }, reset, watch } = useForm<Inputs>({ mode: 'onBlur' });
   const { validateEmail, validateNameOrSurname, validatePhone, validateTextAreaNotEmpty } = useFormValidation();
   const { sendEmail, isLoading } = useCustomEmail();
+
+  // Watch all form fields for real-time validation
+  const watchedFields = watch();
+
+  // Function to validate all fields in real-time for button state
+  const validateAllFields = (data: Inputs) => {
+    if (!data.firstName || !data.lastName || !data.phoneNumber || !data.email || !data.textarea) {
+      return false;
+    }
+    
+    const isFirstNameValid = validateNameOrSurname(data.firstName) === true;
+    const isLastNameValid = validateNameOrSurname(data.lastName) === true;
+    const isPhoneValid = validatePhone(data.phoneNumber) === true;
+    const isEmailValid = validateEmail(data.email) === true;
+    const isTextareaValid = validateTextAreaNotEmpty(data.textarea) === true;
+
+    return isFirstNameValid && isLastNameValid && isPhoneValid && isEmailValid && isTextareaValid;
+  };
+
+  // Effect to enable/disable button based on form validity
+  useEffect(() => {
+    const isValid = validateAllFields(watchedFields);
+    setIsButtonEnabled(isValid);
+  }, [watchedFields]);
 
   const handleTrimAndReplaceSpaces = (value: string) => value.trim().replace(/\s{2,}/g, ' ');
 
@@ -147,7 +172,7 @@ const ContactComponent: React.FC = () => {
               borderRadius="50px"
               color="#5ad3bd"
               colorScheme="#333"
-              disabled={!isValid}
+              disabled={!isButtonEnabled}
               gap="5px"
               variant="outline"
               _hover={{ bg: '#459c8c', color: '#333' }}

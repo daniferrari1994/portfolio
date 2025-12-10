@@ -65,9 +65,16 @@ const useFormValidation = () => {
   };
 
   const validateTextAreaNotEmpty = (value: string): string | true => {
-      if (!value.trim()) {
+      const trimmedValue = value.trim();
+      
+      if (!trimmedValue) {
         return t('validationErrors.message.empty');
       }
+      
+      if (trimmedValue.length < 10) {
+        return t('validationErrors.message.empty');
+      }
+      
       return true;
     };
 
