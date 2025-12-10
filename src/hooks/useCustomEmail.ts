@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import config from '@/config/api';
 
 interface EmailData {
   firstName: string;
@@ -30,7 +31,7 @@ const useCustomEmail = (): UseCustomEmailReturn => {
     setError(null);
 
     try {
-      const apiUrl = import.meta.env.VITE_API_URL;
+      const apiUrl = config.API_URL;
       
       const payload = {
         firstName: data.firstName,
