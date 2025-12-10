@@ -100,7 +100,7 @@
         "length": "Phone number must be between 3 and 15 digits."
       },
       "message": {
-        "empty": "Message cannot be empty."
+        "empty": "Message cannot be empty and must be at least 10 characters long."
       }
     }
   },
@@ -205,7 +205,7 @@
         "length": "El número de teléfono debe tener entre 3 y 15 dígitos."
       },
       "message": {
-        "empty": "El mensaje no puede estar vacío."
+        "empty": "El mensaje no puede estar vacío y debe tener al menos 10 caracteres."
       }
     }
   }

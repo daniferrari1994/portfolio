@@ -32,24 +32,32 @@ const useCustomEmail = (): UseCustomEmailReturn => {
     try {
       const apiUrl = import.meta.env.VITE_API_URL;
       
+      const payload = {
+        firstName: data.firstName,
+        lastName: data.lastName,
+        email: data.email,
+        phoneNumber: data.phoneNumber,
+        message: data.message,
+        language: data.language || 'es'
+      };
+      
+      console.log('Enviando datos:', payload);
+      console.log('API URL:', apiUrl);
+      
       const response = await fetch(`${apiUrl}/api/send-email`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({
-          firstName: data.firstName,
-          lastName: data.lastName,
-          email: data.email,
-          phoneNumber: data.phoneNumber,
-          message: data.message,
-          language: data.language || 'es'
-        }),
+        body: JSON.stringify(payload),
       });
 
       const result = await response.json();
+      
+      console.log('Respuesta del servidor:', result);
 
       if (!response.ok) {
+        console.error('Error detallado:', result);
         throw new Error(result.error || `Error HTTP: ${response.status}`);
       }
 
