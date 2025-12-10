@@ -1,4 +1,4 @@
-import{o as d,F as h,T as l,j as e,r as x,y as j,B as s,L as w,n as v}from"./ui-vendor-1yuyE_-C.js";import{F as c,e as y,g as S,h as k}from"./icons-vendor-BFlFs9r8.js";import{d as i}from"./index-2mw0fTxW.js";import{u,i as z}from"./i18n-vendor-BIel8kYB.js";import{p as T}from"./personalData-y2EhKX-j.js";import"./react-vendor-DJG_os-6.js";import"./routing-vendor-CdlMa7pa.js";import"./utils-vendor-20BP2a_X.js";const C=i(d)`
+import{o as d,F as h,T as l,j as e,r as x,y as j,B as s,L as w,n as v}from"./ui-vendor-1yuyE_-C.js";import{F as c,e as y,g as S,h as k}from"./icons-vendor-BFlFs9r8.js";import{d as i}from"./index-BdYDgIFI.js";import{u,i as z}from"./i18n-vendor-BIel8kYB.js";import{p as T}from"./personalData-y2EhKX-j.js";import"./react-vendor-DJG_os-6.js";import"./routing-vendor-CdlMa7pa.js";import"./utils-vendor-20BP2a_X.js";const C=i(d)`
   display: flex;
   justify-content: center;
   align-items: center;
